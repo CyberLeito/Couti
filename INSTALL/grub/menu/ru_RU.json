@@ -43,7 +43,7 @@
     
     "VTLANG_THEME_SELECT": "Выбор темы",
     
-    "VTLANG_UEFI_UTIL": "Утилиты UEFI Ventoy",
+    "VTLANG_UEFI_UTIL": "Утилиты UEFI Couti",
     "VTLANG_UTIL_SHOW_EFI_DRV": "Показать драйверы EFI",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Исправить ошибку Windows «BlinitializeLibrary»",
     
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Настройки временного управления",
     "VTLANG_WIN11_BYPASS_CHECK": "Обойти проверку CPU/TPM/SecureBoot при установке Windows 11",
     "VTLANG_WIN11_BYPASS_NRO": "Обойти требование сетевой учётной записи при установке Windows 11",
-    "VTLANG_LINUX_REMOUNT": "Смонтировать раздел Ventoy после загрузки Linux",
+    "VTLANG_LINUX_REMOUNT": "Смонтировать раздел Couti после загрузки Linux",
     "VTLANG_SECONDARY_BOOT_MENU": "Показать вторичное загрузочное меню",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

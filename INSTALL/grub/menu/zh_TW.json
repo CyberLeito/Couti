@@ -43,7 +43,7 @@
     
     "VTLANG_THEME_SELECT": "主題風格選擇",
     
-    "VTLANG_UEFI_UTIL": "Ventoy UEFI 實用程式",
+    "VTLANG_UEFI_UTIL": "Couti UEFI 實用程式",
     "VTLANG_UTIL_SHOW_EFI_DRV": "顯示 UEFI 驅動",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "修復 Windows BlinitializeLibrary 錯誤",
     
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "控制變數設定",
     "VTLANG_WIN11_BYPASS_CHECK": "安裝 Windows 11 時繞過TPM/安全啟動等硬體檢查",
     "VTLANG_WIN11_BYPASS_NRO": "安裝 Windows 11 時繞過登入帳戶的需求",
-    "VTLANG_LINUX_REMOUNT": "啟動 Linux 系統後掛載 Ventoy 分區",
+    "VTLANG_LINUX_REMOUNT": "啟動 Linux 系統後掛載 Couti 分區",
     "VTLANG_SECONDARY_BOOT_MENU": "顯示次要啟動選單",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

@@ -43,7 +43,7 @@
     
     "VTLANG_THEME_SELECT": "Výběr motivu",
     
-    "VTLANG_UEFI_UTIL": "Ventoy UEFI nástroje",
+    "VTLANG_UEFI_UTIL": "Couti UEFI nástroje",
     "VTLANG_UTIL_SHOW_EFI_DRV": "Zobrazit EFI ovladače",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Opravit chybu Windows BlinitializeLibrary",
     
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Dočasné řídící nastavení",
     "VTLANG_WIN11_BYPASS_CHECK": "Obejít CPU/TPM/SecureBoot kontrolu při instalaci Windows 11",
     "VTLANG_WIN11_BYPASS_NRO": "Obejít požadování online účtu při instalaci Windows 11",
-    "VTLANG_LINUX_REMOUNT": "Připojit Ventoy oddíl po spuštění Linuxu",
+    "VTLANG_LINUX_REMOUNT": "Připojit Couti oddíl po spuštění Linuxu",
     "VTLANG_SECONDARY_BOOT_MENU": "Zobrazit druhou spouštěcí nabídku",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

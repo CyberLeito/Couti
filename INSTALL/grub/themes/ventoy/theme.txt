@@ -23,6 +23,9 @@ terminal-box: "terminal_box_*.png"
   selected_item_color= "#f2f2f2"
   selected_item_pixmap_style = "select_*.png"
 
+  # Couti uses a clean, text-only image list.
+  icon_width = 0
+  icon_height = 0
   item_icon_space = 0
 
   scrollbar = true

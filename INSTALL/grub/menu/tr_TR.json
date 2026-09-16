@@ -43,7 +43,7 @@
 
     "VTLANG_THEME_SELECT": "Tema Seçimi",
 
-    "VTLANG_UEFI_UTIL": "Ventoy UEFI Utilities",
+    "VTLANG_UEFI_UTIL": "Couti UEFI Utilities",
     "VTLANG_UTIL_SHOW_EFI_DRV": "EFI Sürücülerini Göster",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Windows BlinitializeLibrary Hatasını Düzelt",
 
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Geçici Kontrol Ayarları",
     "VTLANG_WIN11_BYPASS_CHECK": "Windows11'i yüklerken, TPM/CPU/RAM kontrollerini atla",
     "VTLANG_WIN11_BYPASS_NRO": "Windows11'i yüklerken, çevrimiçi hesap gereksinimini(OOBE) atla",
-    "VTLANG_LINUX_REMOUNT": "Linux sistemi önyükledikten sonra, Ventoy bölümünü bağla",
+    "VTLANG_LINUX_REMOUNT": "Linux sistemi önyükledikten sonra, Couti bölümünü bağla",
     "VTLANG_SECONDARY_BOOT_MENU": "İkincil önyükleme menüsünü göster",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",
