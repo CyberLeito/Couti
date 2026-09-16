@@ -43,7 +43,7 @@
     
     "VTLANG_THEME_SELECT": "Επιλογή Θέματος",
     
-    "VTLANG_UEFI_UTIL": "Εργαλεία Ventoy UEFI",
+    "VTLANG_UEFI_UTIL": "Εργαλεία Couti UEFI",
     "VTLANG_UTIL_SHOW_EFI_DRV": "Προβολή EFI Drivers",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Διόρθωση αποτυχίας Windows BlinitializeLibrary",
     
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Προσωρινές ρυθμίσεις ελέγχου",
     "VTLANG_WIN11_BYPASS_CHECK": "Παράκαμψη ελέγχου CPU/TPM/SecureBoot κατά την εγκατάσταση των Windows 11",
     "VTLANG_WIN11_BYPASS_NRO": "Παράκαμψη της απαίτησης online λογαριασμού κατά την εγκατάσταση των Windows 11",
-    "VTLANG_LINUX_REMOUNT": "Προσάρτηση διαμερίσματος Ventoy μετά την εκκίνηση του Linux",
+    "VTLANG_LINUX_REMOUNT": "Προσάρτηση διαμερίσματος Couti μετά την εκκίνηση του Linux",
     "VTLANG_SECONDARY_BOOT_MENU": "Εμφάνιση δευτερεύοντος μενού εκκίνησης",
      "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

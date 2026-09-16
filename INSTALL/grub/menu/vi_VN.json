@@ -43,7 +43,7 @@
     
     "VTLANG_THEME_SELECT": "Chọn chủ đề",
     
-    "VTLANG_UEFI_UTIL": "Các tiện ích UEFI Ventoy",
+    "VTLANG_UEFI_UTIL": "Các tiện ích UEFI Couti",
     "VTLANG_UTIL_SHOW_EFI_DRV": "Hiển thị các driver EFI",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Sửa lỗi BlinitializeLibrary của Windows",
     
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Cài đặt điều khiển tạm",
     "VTLANG_WIN11_BYPASS_CHECK": "Bỏ qua kiểm tra CPU/TPM/SecureBoot khi cài đặt Windows 11",
     "VTLANG_WIN11_BYPASS_NRO": "Bỏ qua yêu cầu tài khoản trực tuyến khi cài đặt Windows 11",
-    "VTLANG_LINUX_REMOUNT": "Gắn phân vùng Ventoy sau khi khởi động GNU/Linux",
+    "VTLANG_LINUX_REMOUNT": "Gắn phân vùng Couti sau khi khởi động GNU/Linux",
     "VTLANG_SECONDARY_BOOT_MENU": "Hiện menu khởi động thứ cấp`",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

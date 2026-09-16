@@ -1,0 +1,39 @@
+# Binary images and media
+*.bmp
+*.gif
+*.ico
+*.jpeg
+*.jpg
+*.png
+*.svgz
+*.webp
+*.wav
+
+# Compiled binaries and disk images
+*.a
+*.bin
+*.dll
+*.efi
+*.exe
+*.img
+*.iso
+*.lib
+*.o
+*.obj
+*.so
+
+# Binary archives
+*.7z
+*.bz2
+*.gz
+*.rar
+*.tar
+*.xz
+*.zip
+
+# Binary fonts
+*.otf
+*.pf2
+*.ttf
+*.woff
+*.woff2

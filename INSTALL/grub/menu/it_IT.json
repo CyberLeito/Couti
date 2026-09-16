@@ -43,7 +43,7 @@
     
     "VTLANG_THEME_SELECT": "Seleziona tema interfaccia",
     
-    "VTLANG_UEFI_UTIL": "Utilità UEFI Ventoy",
+    "VTLANG_UEFI_UTIL": "Utilità UEFI Couti",
     "VTLANG_UTIL_SHOW_EFI_DRV": "Visualizza driver EFI",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Correzione fallimento BlinitializeLibrary di Windows",
     
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Impostazioni controllo temporaneo",
     "VTLANG_WIN11_BYPASS_CHECK": "Durante l'installazione di Windows 11 bypassa il controllo CPU/TPM/SecureBoot ",
     "VTLANG_WIN11_BYPASS_NRO": "Durante l'installazione di Windows 11 bypassa il requisito di un account online ",
-    "VTLANG_LINUX_REMOUNT": "Dopo l'avvio di Linux monta la partizione Ventoy ",
+    "VTLANG_LINUX_REMOUNT": "Dopo l'avvio di Linux monta la partizione Couti ",
     "VTLANG_SECONDARY_BOOT_MENU": "Visualizza menu di avvio secondario",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

@@ -43,7 +43,7 @@
     
     "VTLANG_THEME_SELECT": "انتخاب تم",
     
-    "VTLANG_UEFI_UTIL": "ابزار های کمکی Ventoy UEFI",
+    "VTLANG_UEFI_UTIL": "ابزار های کمکی Couti UEFI",
     "VTLANG_UTIL_SHOW_EFI_DRV": "نمایش درایور های EFI",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "رفع خطای Windows BlinitializeLibrary",
     
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "تنظیمات کنترل موقت",
     "VTLANG_WIN11_BYPASS_CHECK": "دور زدن بررسی CPU/TPM/SecureBoot در هنگام نصب ویندوز 11",
     "VTLANG_WIN11_BYPASS_NRO": "دور زدن نیاز به حساب کاربری آنلاین هنگام نصب ویندوز 11",
-    "VTLANG_LINUX_REMOUNT": "اتصال پارتیشن Ventoy بعد از بوت لینوکس",
+    "VTLANG_LINUX_REMOUNT": "اتصال پارتیشن Couti بعد از بوت لینوکس",
     "VTLANG_SECONDARY_BOOT_MENU": "نمایش منوی بوت ثانویه",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

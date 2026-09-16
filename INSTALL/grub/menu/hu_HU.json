@@ -43,7 +43,7 @@
     
     "VTLANG_THEME_SELECT": "Téma kiválasztása",
     
-    "VTLANG_UEFI_UTIL": "Ventoy UEFI-segédprogramok",
+    "VTLANG_UEFI_UTIL": "Couti UEFI-segédprogramok",
     "VTLANG_UTIL_SHOW_EFI_DRV": "EFI-illesztőprogramok megjelenítése",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "A Windows BlinitializeLibrary hibájának javítása",
     
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Ideiglenes vezérlési beállítások",
     "VTLANG_WIN11_BYPASS_CHECK": "CPU/TPM/SecureBoot ellenőrzés megkerülése Windows 11 telepítésekor",
     "VTLANG_WIN11_BYPASS_NRO": "Internetes fiók követelményének megkerülése Windows 11 telepítésekor",
-    "VTLANG_LINUX_REMOUNT": "Ventoy partíció csatolása a Linux indítása után",
+    "VTLANG_LINUX_REMOUNT": "Couti partíció csatolása a Linux indítása után",
     "VTLANG_SECONDARY_BOOT_MENU": "Másodlagos indítási menü megjelenítése",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

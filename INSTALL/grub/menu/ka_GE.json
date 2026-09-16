@@ -43,7 +43,7 @@
 
     "VTLANG_THEME_SELECT": "თემის არჩევა",
 
-    "VTLANG_UEFI_UTIL": "Ventoy UEFI Utilities",
+    "VTLANG_UEFI_UTIL": "Couti UEFI Utilities",
     "VTLANG_UTIL_SHOW_EFI_DRV": "EFI დრაივერების ჩვენება",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Windows BlinitializeLibrary ხარვეზის გასწორება",
 
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Temporary Control Settings",
     "VTLANG_WIN11_BYPASS_CHECK": "Bypass CPU/TPM/SecureBoot check when install Windows 11",
     "VTLANG_WIN11_BYPASS_NRO": "Bypass online account requirement when install Windows 11",
-    "VTLANG_LINUX_REMOUNT": "Mount Ventoy partition after boot Linux",
+    "VTLANG_LINUX_REMOUNT": "Mount Couti partition after boot Linux",
     "VTLANG_SECONDARY_BOOT_MENU": "Show secondary boot menu",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

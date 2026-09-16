@@ -43,7 +43,7 @@
     
     "VTLANG_THEME_SELECT": "테마 선택",
     
-    "VTLANG_UEFI_UTIL": "Ventoy UEFI 유틸리티",
+    "VTLANG_UEFI_UTIL": "Couti UEFI 유틸리티",
     "VTLANG_UTIL_SHOW_EFI_DRV": "UEFI 드라이버 표시",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Windows 초기화 라이브러리 오류 복구",
     
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "임시 제어 설정",
     "VTLANG_WIN11_BYPASS_CHECK": "Windows 11 설치 시 CPU/TPM/SecureBoot 검사 회피",
     "VTLANG_WIN11_BYPASS_NRO": "Windows 11 설치 시 온라인 계정 요구 사항 무시",
-    "VTLANG_LINUX_REMOUNT": "Linux 부팅 후 Ventoy 파티션 마운트",
+    "VTLANG_LINUX_REMOUNT": "Linux 부팅 후 Couti 파티션 마운트",
     "VTLANG_SECONDARY_BOOT_MENU": "보조 부팅 메뉴 표시",
     "VTLANG_WIN_UEFI_RES_LOCK": "UEFI 부팅 시 Windows/WinPE 해상도 고정",
     "VTLANG_UEFI_RES_LOCK_NONE": "고정 안 함",

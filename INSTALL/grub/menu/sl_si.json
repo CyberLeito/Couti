@@ -43,7 +43,7 @@
 
   "VTLANG_THEME_SELECT": "Izbira teme",
 
-  "VTLANG_UEFI_UTIL": "Pripomočki Ventoy UEFI",
+  "VTLANG_UEFI_UTIL": "Pripomočki Couti UEFI",
   "VTLANG_UTIL_SHOW_EFI_DRV": "Prikaži gonilnike EFI",
   "VTLANG_UTIL_FIX_BLINIT_FAIL": "Popravek napake Windows BlinitializeLibrary",
 
@@ -86,7 +86,7 @@
   "VTLANG_CTRL_TEMP_SET": "Začasne nadzorne nastavitve",
   "VTLANG_WIN11_BYPASS_CHECK": "Obid preverjanja CPU/TPM/SecureBoot pri namestitvi sistema Windows 11",
   "VTLANG_WIN11_BYPASS_NRO": "Obid zahteve po spletnem računu pri namestitvi sistema Windows 11",
-  "VTLANG_LINUX_REMOUNT": "Priklopi Ventoy particijo po zagonu Linuxa",
+  "VTLANG_LINUX_REMOUNT": "Priklopi Couti particijo po zagonu Linuxa",
   "VTLANG_SECONDARY_BOOT_MENU": "Prikaz sekundarnega zagonskega menija",
   "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
   "VTLANG_UEFI_RES_LOCK_NONE": "None",
