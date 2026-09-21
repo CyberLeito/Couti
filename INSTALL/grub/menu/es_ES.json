@@ -1,8 +1,8 @@
 {
     "VTLANG_LANGUAGE_NAME": "Spanish (Español)",
     
-    "VTLANG_STR_HOTKEY_LIST": "L:Idioma  F1:Ayuda  F2:Navegar  F3:Vista de lista  F4:Arranque local  F5:Herramientas  F6:Menú ext.",
-    "VTLANG_STR_HOTKEY_TREE": "L:Idioma  F1:Ayuda  F2:Navegar  F3:Vista de árbol  F4:Arranque local  F5:Herramientas  F6:Menú ext.",
+    "VTLANG_STR_HOTKEY_LIST": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
+    "VTLANG_STR_HOTKEY_TREE": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
     "VTLANG_RETURN_PREVIOUS": "Regresar al menú anterior [Esc]",
     "VTLANG_RETURN_PRV_NOESC": "Regresar al menú anterior",
     
@@ -43,11 +43,11 @@
     
     "VTLANG_THEME_SELECT": "Selección de tema",
     
-    "VTLANG_UEFI_UTIL": "Utilidades UEFI de Ventoy",
+    "VTLANG_UEFI_UTIL": "Utilidades UEFI de Couti",
     "VTLANG_UTIL_SHOW_EFI_DRV": "Mostrar controladores EFI",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Reparar error BlinitializeLibrary de Windows",
     
-    "VTLANG_JSON_CHK_JSON": "Comprobar configuración del complemento de json (ventoy.json)",
+    "VTLANG_JSON_CHK_JSON": "Comprobar configuración del complemento de json",
     "VTLANG_JSON_CHK_CONTROL": "Comprobar configuración del complemento de control global",
     "VTLANG_JSON_CHK_THEME": "Comprobar configuración del complemento de tema",
     "VTLANG_JSON_CHK_AUTOINS": "Comprobar configuración del complemento de autoinstalación",
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Ajustes de control temporales",
     "VTLANG_WIN11_BYPASS_CHECK": "Omitir comprobación de CPU/TPM/SecureBoot al instalar Windows 11",
     "VTLANG_WIN11_BYPASS_NRO": "Omitir requisito de cuenta en línea al instalar Windows 11",
-    "VTLANG_LINUX_REMOUNT": "Montar partición de Ventoy después de arrancar Linux",
+    "VTLANG_LINUX_REMOUNT": "Montar partición de Couti después de arrancar Linux",
     "VTLANG_SECONDARY_BOOT_MENU": "Mostrar menú de arranque secundario",
     "VTLANG_WIN_UEFI_RES_LOCK": "Bloquear la resolución al arrancar Windows/WinPE en modo UEFI",
     "VTLANG_UEFI_RES_LOCK_NONE": "Ninguno",

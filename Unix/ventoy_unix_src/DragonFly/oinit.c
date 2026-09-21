@@ -175,7 +175,7 @@ int main(int argc __unused, char **argv)
         setctty(_PATH_CONSOLE);
         sysctlbyname("debug.bootverbose", &boot_verbose, &varsize, NULL, 0);
 
-        vdebug("======= Ventoy Init Start ========\n");
+        vdebug("======= Couti Init Start ========\n");
 
     	ventoy_init();
         exit(1);	/* force single user mode */

@@ -1166,7 +1166,8 @@ STATIC BOOL VDS_CallBack_ChangeEFIAttr(void *pInterface, VDS_DISK_PROP *pDiskPro
         {
             if (prop_array[i].ullSize == VENTOY_EFI_PART_SIZE &&
                 prop_array[i].PartitionStyle == VDS_PST_GPT &&
-                memcmp(prop_array[i].Gpt.name, L"VTOYEFI", 7 * 2) == 0 &&
+                (memcmp(prop_array[i].Gpt.name, L"COUTIEFI", 8 * 2) == 0 ||
+                 memcmp(prop_array[i].Gpt.name, L"VTOYEFI", 7 * 2) == 0) &&
 				VdsPara->Offset == prop_array[i].ullOffset)
             {
                 Log("** Partition %d (offset: %lld, size: %llu, Attr:0x%llx)", prop_array[i].ulPartitionNumber,
@@ -1430,7 +1431,7 @@ STATIC BOOL VDS_CallBack_FormatVolume(void* pInterface, VDS_DISK_PROP* pDiskProp
 	
 	Log("VDS_CallBack_FormatVolume (%C:) (%s) ClusterSize:%u ...", VdsPara->DriveLetter, GetVentoyFsFmtNameByTypeA(fs), VdsPara->ClusterSize);
 
-	hr = IVdsVolumeMF3_FormatEx2(pVolume, pFs, 0, VdsPara->ClusterSize, L"Ventoy", VDS_FSOF_FORCE | VDS_FSOF_QUICK, &pAsync);
+	hr = IVdsVolumeMF3_FormatEx2(pVolume, pFs, 0, VdsPara->ClusterSize, L"Couti", VDS_FSOF_FORCE | VDS_FSOF_QUICK, &pAsync);
 	while (SUCCEEDED(hr))
 	{
 		hr = IVdsAsync_QueryStatus(pAsync, &hr2, &completed);

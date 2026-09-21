@@ -176,7 +176,7 @@ clear
 
 echo ""
 info "**************************************************"
-vline=$(printf "*              Ventoy LiveCD %6s              *\r\n" "$VTVER")
+vline=$(printf "*              Couti LiveCD %6s              *\r\n" "$VTVER")
 info "$vline"
 info "**************************************************"
 echo ""
@@ -203,7 +203,7 @@ while true; do
         
         while true; do
             echo ""
-            echo " <1> Install Ventoy to $DEV"
+            echo " <1> Install Couti to $DEV"
             echo " <2> Set Configuration"
             echo " <0> Back to previous menu"
             echo ""
@@ -241,12 +241,12 @@ while true; do
             fi
         done
     else
-        info "Ventoy $DevVtVer detected in the device $DEV"
+        info "Couti $DevVtVer detected in the device $DEV"
         
         while true; do
             echo ""
-            echo " <1> Update Ventoy in $DEV from $DevVtVer ==> $VTVER"
-            echo " <2> Re-install Ventoy to $DEV"
+            echo " <1> Update Couti in $DEV from $DevVtVer ==> $VTVER"
+            echo " <2> Re-install Couti to $DEV"
             echo " <3> Set Configuration"
             echo " <0> Back to previous menu"
             echo ""

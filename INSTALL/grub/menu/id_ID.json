@@ -1,8 +1,8 @@
 {
     "VTLANG_LANGUAGE_NAME": "Indonesian (Bahasa Indonesia)",
     
-    "VTLANG_STR_HOTKEY_LIST": "L:Bahasa  F1:Bantuan  F2:Jelajah  F3:ListView  F4:boot lokal  F5:Alat Utilitas  F6:Menu Eksternal",
-    "VTLANG_STR_HOTKEY_TREE": "L:Bahasa  F1:Bantuan  F2:Jelajah  F3:ListView  F4:boot lokal  F5:Alat Utilitas  F6:Menu Eksternal",
+    "VTLANG_STR_HOTKEY_LIST": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
+    "VTLANG_STR_HOTKEY_TREE": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
     "VTLANG_RETURN_PREVIOUS": "Kembali ke menu sebelumnya [Esc]",
     "VTLANG_RETURN_PRV_NOESC": "Kembali ke menu sebelumnya",
     
@@ -43,11 +43,11 @@
     
     "VTLANG_THEME_SELECT": "Pilih Tema",
     
-    "VTLANG_UEFI_UTIL": "Utilitas UEFI Ventoy",
+    "VTLANG_UEFI_UTIL": "Utilitas UEFI Couti",
     "VTLANG_UTIL_SHOW_EFI_DRV": "Tampilkan Driver EFI",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Memperbaiki Kegagalan Windows BlinitializeLibrary",
     
-    "VTLANG_JSON_CHK_JSON": "Periksa setelan plugin (ventoy.json)",
+    "VTLANG_JSON_CHK_JSON": "Periksa setelan plugin",
     "VTLANG_JSON_CHK_CONTROL": "Periksa setelan plugin global control",
     "VTLANG_JSON_CHK_THEME": "Periksa setelan plugin theme",
     "VTLANG_JSON_CHK_AUTOINS": "Periksa setelan plugin auto install",
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Pengaturan Kontrol Sementara",
     "VTLANG_WIN11_BYPASS_CHECK": "Melewati pemeriksaaan CPU/TPM/SecureBoot ketika memasang Windows 11",
     "VTLANG_WIN11_BYPASS_NRO": "Melewati persyaratan akun online ketika memasang Windows 11",
-    "VTLANG_LINUX_REMOUNT": "Memuat partisi Ventoy setelah boot ke Linux",
+    "VTLANG_LINUX_REMOUNT": "Memuat partisi Couti setelah boot ke Linux",
     "VTLANG_SECONDARY_BOOT_MENU": "Tampilkan menu boot sekunder",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

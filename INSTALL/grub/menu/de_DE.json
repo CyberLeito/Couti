@@ -1,8 +1,8 @@
 {
     "VTLANG_LANGUAGE_NAME": "German (Deutsch)",
     
-    "VTLANG_STR_HOTKEY_LIST": "L:Sprache  F1:Hilfe  F2:Browser  F3:Listenansicht  F4:Lokaler Start  F5:Werkzeuge  F6:Erweitert",
-    "VTLANG_STR_HOTKEY_TREE": "L:Sprache  F1:Hilfe  F2:Browser  F3:Listenansicht  F4:Lokaler Start  F5:Werkzeuge  F6:Erweitert",
+    "VTLANG_STR_HOTKEY_LIST": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
+    "VTLANG_STR_HOTKEY_TREE": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
     "VTLANG_RETURN_PREVIOUS": "Zu vorherigem Menü [Esc]",
     "VTLANG_RETURN_PRV_NOESC": "Zu vorherigem Menü",
     
@@ -43,11 +43,11 @@
     
     "VTLANG_THEME_SELECT": "Design auswählen",
     
-    "VTLANG_UEFI_UTIL": "Ventoy UEFI-Dienstprogramme",
+    "VTLANG_UEFI_UTIL": "Couti UEFI-Dienstprogramme",
     "VTLANG_UTIL_SHOW_EFI_DRV": "EFI-Treiber anzeigen",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Windows BlinitializeLibrary Fehler beheben",
     
-    "VTLANG_JSON_CHK_JSON": "Konfiguration des JSON-Plugins prüfen (ventoy.json)",
+    "VTLANG_JSON_CHK_JSON": "Konfiguration des JSON-Plugins prüfen",
     "VTLANG_JSON_CHK_CONTROL": "Konfiguration des Plugins für die allgemeine Kontrolle prüfen",
     "VTLANG_JSON_CHK_THEME": "Konfiguration des Design-Plugins prüfen",
     "VTLANG_JSON_CHK_AUTOINS": "Konfiguration des Plugins für die automatische Installation prüfen",
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Temporäre Steuerungseinstellungen",
     "VTLANG_WIN11_BYPASS_CHECK": "Umgehen Sie die CPU/TPM/SecureBoot-Prüfung bei der Installation von Windows 11",
     "VTLANG_WIN11_BYPASS_NRO": "Umgehen Sie die Online-Kontoanforderung bei der Installation von Windows 11",
-    "VTLANG_LINUX_REMOUNT": "Mounten Sie die Ventoy-Partition nach dem Booten von Linux",
+    "VTLANG_LINUX_REMOUNT": "Mounten Sie die Couti-Partition nach dem Booten von Linux",
     "VTLANG_SECONDARY_BOOT_MENU": "Sekundäres Bootmenü anzeigen",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

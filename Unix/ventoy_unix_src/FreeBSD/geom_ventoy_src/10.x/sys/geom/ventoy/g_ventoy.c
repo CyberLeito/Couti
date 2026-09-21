@@ -43,13 +43,13 @@ __FBSDID("$FreeBSD$");
 #include <geom/geom.h>
 #include <geom/ventoy/g_ventoy.h>
 
-FEATURE(geom_ventoy, "GEOM ventoy support");
+FEATURE(geom_ventoy, "GEOM Couti support");
 
-static MALLOC_DEFINE(M_VENTOY, "ventoy_data", "GEOM_VENTOY Data");
+static MALLOC_DEFINE(M_VENTOY, "ventoy_data", "GEOM_COUTI Data");
 
 SYSCTL_DECL(_kern_geom);
 static SYSCTL_NODE(_kern_geom, OID_AUTO, ventoy, CTLFLAG_RW, 0,
-    "GEOM_VENTOY stuff");
+    "GEOM_COUTI stuff");
 static u_int g_ventoy_debug = 0;
 SYSCTL_UINT(_kern_geom_ventoy, OID_AUTO, debug, CTLFLAG_RWTUN, &g_ventoy_debug, 0,
     "Debug level");
@@ -678,7 +678,7 @@ static bool g_vtoy_check_disk(struct g_class *mp, struct g_provider *pp)
     {
         if (VENTOY_MAP_VALID(g_ventoy_map_data.magic2))
         {
-            G_DEBUG("ventoy map data is valid. [OK]\n");
+            G_DEBUG("Couti map data is valid. [OK]\n");
 
             for (i = 0; i < 16; i++)
             {
@@ -687,23 +687,23 @@ static bool g_vtoy_check_disk(struct g_class *mp, struct g_provider *pp)
             snprintf(g_ventoy_disk_uuid, sizeof(g_ventoy_disk_uuid), "%s", uuid);
             g_ventoy_disk_size = g_ventoy_map_data.disksize;
             
-            G_DEBUG("ventoy.disksize: %llu\n", (unsigned long long)g_ventoy_disk_size);
-            G_DEBUG("ventoy.diskuuid: <%s>\n", g_ventoy_disk_uuid);
+            G_DEBUG("Couti.disksize: %llu\n", (unsigned long long)g_ventoy_disk_size);
+            G_DEBUG("Couti.diskuuid: <%s>\n", g_ventoy_disk_uuid);
         }
         else
         {
-            G_DEBUG("ventoy map data is invalid, get from resource\n");
+            G_DEBUG("Couti map data is invalid, get from resource\n");
         
             if (resource_string_value("ventoy", 0, "disksize", &value) == 0)
             {
-                G_DEBUG("ventoy.disksize: %s\n", value);
+                G_DEBUG("Couti.disksize: %s\n", value);
                 g_ventoy_disk_size = strtouq(value, NULL, 0);
             }
 
             if (resource_string_value("ventoy", 0, "diskuuid", &value) == 0)
             {
                 snprintf(g_ventoy_disk_uuid, sizeof(g_ventoy_disk_uuid), "%s", value);
-                G_DEBUG("ventoy.diskuuid: <%s>\n", value);
+                G_DEBUG("Couti.diskuuid: <%s>\n", value);
             }
         }
     }
@@ -764,7 +764,7 @@ static bool g_vtoy_check_disk(struct g_class *mp, struct g_provider *pp)
 
     if (ret)
     {
-        G_DEBUG("ventoy disk check OK\n");
+        G_DEBUG("Couti disk check OK\n");
     }
 
     return ret;
@@ -803,19 +803,19 @@ g_ventoy_taste(struct g_class *mp, struct g_provider *pp, int flags __unused)
 
     g_ventoy_tasted = true;
 
-    G_DEBUG("###### ventoy disk <%s> ######\n", pp->name);
+    G_DEBUG("###### Couti disk <%s> ######\n", pp->name);
 
     /* hint.ventoy.0.remount=1 */
     if (resource_int_value("ventoy", 0, "remount", &remount) == 0 && remount == 1)
     {
         g_ventoy_remount = 1;
-        G_DEBUG("###### ventoy remount enabled ######\n");
+        G_DEBUG("###### Couti remount enabled ######\n");
     }
     
     /* hint.ventoy.0.alias=xxx */
     if (resource_string_value("ventoy", 0, "alias", &alias) == 0 && alias)
     {
-        G_DEBUG("###### ventoy alias <%s> ######\n", alias);
+        G_DEBUG("###### Couti alias <%s> ######\n", alias);
         setenv("kern.devalias.ventoy/IMAGE", alias);
     }
 
@@ -852,7 +852,7 @@ g_ventoy_taste(struct g_class *mp, struct g_provider *pp, int flags __unused)
     {
         if (VENTOY_MAP_VALID(g_ventoy_map_data.magic2))
         {
-            G_DEBUG("[map] ventoy segment%d: 0x%llx@0x%llx\n", i, 
+            G_DEBUG("[map] Couti segment%d: 0x%llx@0x%llx\n", i, 
                 (long long)g_ventoy_map_data.seglist[i].seg_start_bytes,
                 (long long)g_ventoy_map_data.seglist[i].seg_end_bytes);
             
@@ -868,10 +868,10 @@ g_ventoy_taste(struct g_class *mp, struct g_provider *pp, int flags __unused)
             }
             else
             {
-                printf("Failed to parse ventoy seg %d\n", i);
+                printf("Failed to parse Couti seg %d\n", i);
                 continue;
             }
-            G_DEBUG("[resource] ventoy segment%d: %s\n", i, value);
+            G_DEBUG("[resource] Couti segment%d: %s\n", i, value);
         }
         
         G_VENTOY_DEBUG(1, "Adding disk %s to %s.", pp->name, gp->name);

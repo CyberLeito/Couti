@@ -32,8 +32,8 @@ if [ "$vtdiskname" = "unknown" ]; then
     exit 0
 fi
 
-vtlog "${vtdiskname#/dev/}2 found..."
-$BUSYBOX_PATH/sh $VTOY_PATH/hook/debian/udev_disk_hook.sh "${vtdiskname#/dev/}2"
+vtlog "$(ventoy_diskname_to_partname "${vtdiskname#/dev/}" "$COUTI_BOOT_PART") found..."
+$BUSYBOX_PATH/sh $VTOY_PATH/hook/debian/udev_disk_hook.sh "$(ventoy_diskname_to_partname "${vtdiskname#/dev/}" "$COUTI_BOOT_PART")"
 
 if [ -f /ventoy/autoinstall ]; then
     sh /ventoy/hook/default/auto_install_varexp.sh  /ventoy/autoinstall

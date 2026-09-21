@@ -176,21 +176,21 @@ typedef struct ventoy_virt_chunk
 
 #if   defined (MDE_CPU_IA32)
   #define VENTOY_UEFI_DESC   L"IA32 UEFI"
-  #define ISO9660_EFI_DRIVER_PATH  L"\\ventoy\\iso9660_ia32.efi"
-  #define UDF_EFI_DRIVER_PATH  L"\\ventoy\\udf_ia32.efi"
+  #define ISO9660_EFI_DRIVER_PATH  L"\\couti\\iso9660_ia32.efi"
+  #define UDF_EFI_DRIVER_PATH  L"\\couti\\udf_ia32.efi"
 #elif defined (MDE_CPU_X64)
   #define VENTOY_UEFI_DESC   L"X64 UEFI"
-  #define ISO9660_EFI_DRIVER_PATH  L"\\ventoy\\iso9660_x64.efi"
-  #define UDF_EFI_DRIVER_PATH  L"\\ventoy\\udf_x64.efi"
+  #define ISO9660_EFI_DRIVER_PATH  L"\\couti\\iso9660_x64.efi"
+  #define UDF_EFI_DRIVER_PATH  L"\\couti\\udf_x64.efi"
 #elif defined (MDE_CPU_EBC)
 #elif defined (MDE_CPU_ARM)
   #define VENTOY_UEFI_DESC   L"ARM UEFI"
-  #define ISO9660_EFI_DRIVER_PATH  L"\\ventoy\\iso9660_arm.efi"
-  #define UDF_EFI_DRIVER_PATH  L"\\ventoy\\udf_arm.efi"
+  #define ISO9660_EFI_DRIVER_PATH  L"\\couti\\iso9660_arm.efi"
+  #define UDF_EFI_DRIVER_PATH  L"\\couti\\udf_arm.efi"
 #elif defined (MDE_CPU_AARCH64)
   #define VENTOY_UEFI_DESC   L"ARM64 UEFI"
-  #define ISO9660_EFI_DRIVER_PATH  L"\\ventoy\\iso9660_aa64.efi"
-  #define UDF_EFI_DRIVER_PATH  L"\\ventoy\\udf_aa64.efi"
+  #define ISO9660_EFI_DRIVER_PATH  L"\\couti\\iso9660_aa64.efi"
+  #define UDF_EFI_DRIVER_PATH  L"\\couti\\udf_aa64.efi"
 #else
   #error Unknown Processor Type
 #endif

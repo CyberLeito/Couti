@@ -27,6 +27,6 @@ if [ "$vtdisk" = "unknown" ]; then
     $BUSYBOX_PATH/nohup $VTOY_PATH/tool/inotifyd $vtHook  /dev:n  2>&-  & 
 else
     vtlog "... $vtdisk already exist ..."
-    $BUSYBOX_PATH/sh $vtHook n /dev "${vtdisk#/dev/}2"
+    $BUSYBOX_PATH/sh $vtHook n /dev "$(ventoy_diskname_to_partname "${vtdisk#/dev/}" "$COUTI_BOOT_PART")"
 fi
 

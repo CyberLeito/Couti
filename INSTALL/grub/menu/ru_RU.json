@@ -1,8 +1,8 @@
 {
     "VTLANG_LANGUAGE_NAME": "Russian (Русский)",
     
-    "VTLANG_STR_HOTKEY_LIST": "L:Язык  F1:Помощь  F2:Обзор  F3:ВидСписок  F4:ЛокалЗагрузка  F5:Сервис  F6:РасширМеню",
-    "VTLANG_STR_HOTKEY_TREE": "L:Язык  F1:Помощь  F2:Обзор  F3:ВидДерево  F4:ЛокалЗагрузка  F5:Сервис  F6:РасширМеню",
+    "VTLANG_STR_HOTKEY_LIST": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
+    "VTLANG_STR_HOTKEY_TREE": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
     "VTLANG_RETURN_PREVIOUS": "Вернуться в предыдущее меню [Esc]",
     "VTLANG_RETURN_PRV_NOESC": "Вернуться в предыдущее меню",
     
@@ -43,11 +43,11 @@
     
     "VTLANG_THEME_SELECT": "Выбор темы",
     
-    "VTLANG_UEFI_UTIL": "Утилиты UEFI Ventoy",
+    "VTLANG_UEFI_UTIL": "Утилиты UEFI Couti",
     "VTLANG_UTIL_SHOW_EFI_DRV": "Показать драйверы EFI",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Исправить ошибку Windows «BlinitializeLibrary»",
     
-    "VTLANG_JSON_CHK_JSON": "Проверить настройки расширения «json» (ventoy.json)",
+    "VTLANG_JSON_CHK_JSON": "Проверить настройки расширения «json»",
     "VTLANG_JSON_CHK_CONTROL": "Проверить настройки расширения «global control»",
     "VTLANG_JSON_CHK_THEME": "Проверить настройки расширения «theme»",
     "VTLANG_JSON_CHK_AUTOINS": "Проверить настройки расширения «auto install»",
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Настройки временного управления",
     "VTLANG_WIN11_BYPASS_CHECK": "Обойти проверку CPU/TPM/SecureBoot при установке Windows 11",
     "VTLANG_WIN11_BYPASS_NRO": "Обойти требование сетевой учётной записи при установке Windows 11",
-    "VTLANG_LINUX_REMOUNT": "Смонтировать раздел Ventoy после загрузки Linux",
+    "VTLANG_LINUX_REMOUNT": "Смонтировать раздел Couti после загрузки Linux",
     "VTLANG_SECONDARY_BOOT_MENU": "Показать вторичное загрузочное меню",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

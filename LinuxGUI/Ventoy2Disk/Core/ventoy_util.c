@@ -434,7 +434,7 @@ int ventoy_fill_gpt(uint64_t size, uint64_t reserve, int align4k, VTOY_GPT_INFO 
     Table[0].StartLBA = 2048;
     Table[0].LastLBA = 2048 + Part1SectorCount - 1;
     Table[0].Attr = 0;
-    ventoy_fill_gpt_partname(Table[0].Name, "Ventoy");
+    ventoy_fill_gpt_partname(Table[0].Name, "Couti");
 
     // to fix windows issue
     //memcpy(&(Table[1].PartType), &EspPartType, sizeof(GUID));
@@ -443,7 +443,7 @@ int ventoy_fill_gpt(uint64_t size, uint64_t reserve, int align4k, VTOY_GPT_INFO 
     Table[1].StartLBA = Table[0].LastLBA + 1;
     Table[1].LastLBA = Table[1].StartLBA + VTOYEFI_PART_BYTES / 512 - 1;
     Table[1].Attr = 0x8000000000000000ULL;
-    ventoy_fill_gpt_partname(Table[1].Name, "VTOYEFI");
+    ventoy_fill_gpt_partname(Table[1].Name, "COUTIEFI");
 
 #if 0
 	memcpy(&(Table[2].PartType), &BiosGrubPartType, sizeof(ventoy_guid));

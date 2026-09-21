@@ -83,7 +83,7 @@ int main(int argc, char **argv)
     rc = ventoy_http_start(ip, port);
     if (rc)
     {
-        printf("Ventoy failed to start http server, check log.txt for detail\n");
+        printf("Couti failed to start http server, check log.txt for detail\n");
     }
     else
     {

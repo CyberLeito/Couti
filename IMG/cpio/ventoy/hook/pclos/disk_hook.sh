@@ -69,7 +69,7 @@ wait_for_usb_disk_ready
 vtdiskname=$(get_ventoy_disk_name)
 ventoy_os_install_device_mapper $vtdiskname
 
-ventoy_udev_disk_common_hook "${vtdiskname#/dev/}2"
+ventoy_udev_disk_common_hook "$(ventoy_diskname_to_partname "${vtdiskname#/dev/}" "$COUTI_BOOT_PART")"
 
 PATH=$VTPATH_OLD
 

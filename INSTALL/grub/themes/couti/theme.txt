@@ -1,0 +1,184 @@
+ventoy_left_top_color: "@5%@97%@#8bcaff@"
+# Global Property
+title-text: ""
+title-color: "#FFFFFF"
+title-font: "DejaVu Sans Regular 18"
+message-font: "DejaVu Sans Regular 18"
+message-color: "#333333"
+message-bg-color: "#f2f2f2"
+desktop-color: "#000000"
+desktop-image: "background.png"
+terminal-box: "term_bkg_*.png"
+
+# Show the boot menu
++ boot_menu {
+  left = 15%
+  width = 70%
+  top = 20%
+  height = 58%
+  item_font = "DejaVu Sans Regular 18"
+  selected_item_font = "DejaVu Sans Regular 18"
+  item_color = "#00FFFF"
+  selected_item_color = "#00FF00"
+  item_height = 38
+  item_padding = 15
+  item_spacing = 5
+  icon_width = 32
+  icon_height = 32
+  item_icon_space = 20
+  selected_item_pixmap_style= "select_bkg_*.png"
+# uncomment next line for dark grey square behind the menu
+#  menu_pixmap_style = "menu_bkg_*.png"
+  scrollbar = true
+  scrollbar_width = 16
+  scrollbar_thumb = "sb_thumb_*.png"
+  scrollbar_frame = "sb_frame_*.png"
+}
+
++ progress_bar {
+  id = "__timeout__"
+  left = 18%
+  width = 64%
+  top = 79%
+  height = 16
+  font = "DejaVu Sans Regular 14"
+  text_color = "#fff"
+  fg_color = "#404040"
+  bg_color = "#808080"
+  border_color = "#808080"
+  text = "@TIMEOUT_NOTIFICATION_LONG@"
+}
+
+# Keyboard shortcuts: replace shortcuts/*.png or edit these image/label blocks.
++ image {
+  left = 20%-24
+  top = 100%-94
+  width = 48
+  height = 48
+  file = "shortcuts/help.png"
+}
++ label {
+  left = 20%-90
+  top = 100%-40
+  width = 180
+  height = 24
+  text = "F1: Help"
+  font = "DejaVu Sans Regular 16"
+  color = "#ffffff"
+  align = "center"
+}
+
++ image {
+  left = 35%-24
+  top = 100%-94
+  width = 48
+  height = 48
+  file = "shortcuts/folders.png"
+}
++ label {
+  left = 35%-90
+  top = 100%-40
+  width = 180
+  height = 24
+  text = "F2: Folders"
+  font = "DejaVu Sans Regular 16"
+  color = "#ffffff"
+  align = "center"
+}
+
++ image {
+  left = 50%-24
+  top = 100%-94
+  width = 48
+  height = 48
+  file = "shortcuts/tools.png"
+}
++ label {
+  left = 50%-90
+  top = 100%-40
+  width = 180
+  height = 24
+  text = "F3: Tools"
+  font = "DejaVu Sans Regular 16"
+  color = "#ffffff"
+  align = "center"
+}
+
++ image {
+  left = 65%-24
+  top = 100%-94
+  width = 48
+  height = 48
+  file = "shortcuts/localboot.png"
+}
++ label {
+  left = 65%-90
+  top = 100%-40
+  width = 180
+  height = 24
+  text = "F4: LocalBoot"
+  font = "DejaVu Sans Regular 16"
+  color = "#ffffff"
+  align = "center"
+}
+
++ image {
+  left = 80%-24
+  top = 100%-94
+  width = 48
+  height = 48
+  file = "shortcuts/power.png"
+}
++ label {
+  left = 80%-90
+  top = 100%-40
+  width = 180
+  height = 24
+  text = "F5: Power Menu"
+  font = "DejaVu Sans Regular 16"
+  color = "#ffffff"
+  align = "center"
+}
+
+# Active boot modes
++ hbox{ 
+    left = 30%
+    top = 84%
+    width = 10%
+    height = 25
+    + label {text = "@VTOY_MEM_DISK@" color = "#ffbd69" font = "DejaVu Sans Regular 14" align = "left"} 
+}
+
+
++ hbox{ 
+    left = 30%
+    top = 81%
+    width = 10%
+    height = 25
+    + label {text = "@VTOY_ISO_RAW@" color = "#ffbd69" font = "DejaVu Sans Regular 14" align = "left"} 
+}
+
+
++ hbox{ 
+    left = 30%+200
+    top = 81%
+    width = 10%
+    height = 25
+    + label {text = "@VTOY_GRUB2_MODE@" color = "#ffbd69" font = "DejaVu Sans Regular 14" align = "left"} 
+}
+
++ hbox{ 
+    left = 30%+200
+    top = 84%
+    width = 10%
+    height = 25
+    + label {text = "@VTOY_WIMBOOT_MODE@" color = "#ffbd69" font = "DejaVu Sans Regular 14" align = "left"} 
+}
+
++ hbox{ 
+    left = 90%
+    top = 55 
+    width = 10%
+    height = 25
+    + label {text = "@VTOY_ISO_UEFI_DRV@" color = "#ffbd69" font = "DejaVu Sans Regular 14" align = "left"} 
+}

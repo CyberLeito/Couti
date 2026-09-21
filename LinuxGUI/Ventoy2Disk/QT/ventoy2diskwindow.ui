@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Ventoy2DiskWindow</class>
+ <class>Couti2DiskWindow</class>
  <widget class="QMainWindow" name="Ventoy2DiskWindow">
   <property name="geometry">
    <rect>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Ventoy2Disk</string>
+   <string>Couti2Disk</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGroupBox" name="groupBoxDevice">
@@ -70,7 +70,7 @@
      </rect>
     </property>
     <property name="title">
-     <string>Ventoy In Package</string>
+     <string>Couti In Package</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -131,7 +131,7 @@
      </rect>
     </property>
     <property name="title">
-     <string>Ventoy In Device</string>
+     <string>Couti In Device</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -306,7 +306,7 @@
   </action>
   <action name="actionClear_Ventoy">
    <property name="text">
-    <string>Clear Ventoy</string>
+    <string>Clear Couti</string>
    </property>
   </action>
   <action name="actionShow_All_Devices">

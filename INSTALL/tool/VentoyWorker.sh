@@ -4,25 +4,25 @@
 
 print_usage() {
 
-    echo 'Usage:  Ventoy2Disk.sh CMD [ OPTION ] /dev/sdX'
+    echo 'Usage:  Couti2Disk.sh CMD [ OPTION ] /dev/sdX'
     echo '  CMD:'
-    echo '   -i  install Ventoy to sdX (fails if disk already installed with Ventoy)'
-    echo '   -I  force install Ventoy to sdX (no matter if installed or not)'
-    echo '   -u  update Ventoy in sdX'
-    echo '   -l  list Ventoy information in sdX'
+    echo '   -i  install Couti to sdX (fails if disk already installed with Couti)'
+    echo '   -I  force install Couti to sdX (no matter if installed or not)'
+    echo '   -u  update Couti in sdX'
+    echo '   -l  list Couti information in sdX'
     echo ''
     echo '  OPTION: (optional)'
     echo '   -r SIZE_MiB preserve some space (MiB) at the bottom of the disk (only for install)'
     echo '   -s/-S       enable/disable secure boot support (default is enabled)'
     echo '   -g          use GPT partition style, default is MBR (only for install)'
-    echo '   -L          Label of the 1st exfat partition (default is Ventoy)'
+    echo '   -L          Label of the 1st exfat partition (default is Couti)'
     echo '   -n          try non-destructive installation (only for install)'
     echo ''
 }
 
 
 SECUREBOOT="YES"
-VTNEW_LABEL='Ventoy'
+VTNEW_LABEL='Couti'
 RESERVE_SIZE_MB=0
 while [ -n "$1" ]; do
     if [ "$1" = "-i" ]; then
@@ -85,8 +85,8 @@ fi
 if [ -e /sys/class/block/${DISK#/dev/}/start ]; then
     vterr  "$DISK is a partition, please use the whole disk."
     echo   "For example:"
-    vterr  "    sudo sh Ventoy2Disk.sh -i /dev/sdb1 <=== This is wrong"
-    vtinfo "    sudo sh Ventoy2Disk.sh -i /dev/sdb  <=== This is right"
+    vterr  "    sudo sh Couti2Disk.sh -i /dev/sdb1 <=== This is wrong"
+    vtinfo "    sudo sh Couti2Disk.sh -i /dev/sdb  <=== This is right"
     echo ""
     exit 1
 fi
@@ -113,7 +113,7 @@ fi
 if [ "$MODE" = "list" ]; then
     version=$(get_disk_ventoy_version $DISK)
     if [ $? -eq 0 ]; then
-        echo "Ventoy Version in Disk: $version"
+        echo "Couti Version in Disk: $version"
 
         vtPart1Type=$(dd if=$DISK bs=1 count=1 skip=450 status=none | hexdump -n1 -e  '1/1 "%02X"')
         if [ "$vtPart1Type" = "EE" ]; then
@@ -128,7 +128,7 @@ if [ "$MODE" = "list" ]; then
             echo "Secure Boot Support   : NO"
         fi
     else
-        echo "Ventoy Version: NA"
+        echo "Couti Version: NA"
     fi
     echo ""
     exit 0
@@ -179,7 +179,7 @@ if [ "$MODE" = "install" -a -z "$NONDESTRUCTIVE" ]; then
         if parted -v > /dev/null 2>&1; then
             PARTTOOL='parted'
         else
-            vterr "parted is not found in the system, Ventoy can't create new partitions without it."
+            vterr "parted is not found in the system, Couti can't create new partitions without it."
             vterr "You should install \"GNU parted\" first."
             exit 1
         fi
@@ -189,19 +189,19 @@ if [ "$MODE" = "install" -a -z "$NONDESTRUCTIVE" ]; then
         elif command -v fdisk > /dev/null 2>&1; then
             PARTTOOL='fdisk'            
         else
-            vterr "Both parted and fdisk are not found in the system, Ventoy can't create new partitions."
+            vterr "Both parted and fdisk are not found in the system, Couti can't create new partitions."
             exit 1
         fi
     fi
     
     if [ "$PARTTOOL" = "parted" ]; then
         if parted -s $DISK p 2>&1 | grep -i -q 'sector size.*4096.*4096'; then
-            vterr "Currently Ventoy does not support 4K native device."
+            vterr "Currently Couti does not support 4K native device."
             exit 1
         fi
     else
         if fdisk -l $DISK | grep -i -q 'sector size.*4096.*4096'; then
-            vterr "Currently Ventoy does not support 4K native device."
+            vterr "Currently Couti does not support 4K native device."
             exit 1
         fi
     fi
@@ -210,9 +210,9 @@ if [ "$MODE" = "install" -a -z "$NONDESTRUCTIVE" ]; then
     version=$(get_disk_ventoy_version $DISK)
     if [ $? -eq 0 ]; then
         if [ -z "$FORCE" ]; then
-            vtwarn "$DISK already contains a Ventoy with version $version"
+            vtwarn "$DISK already contains a Couti with version $version"
             vtwarn "Use -u option to do a safe upgrade operation."
-            vtwarn "OR if you really want to reinstall Ventoy to $DISK, please use -I option."
+            vtwarn "OR if you really want to reinstall Couti to $DISK, please use -I option."
             vtwarn ""
             exit 1
         fi
@@ -253,7 +253,7 @@ if [ "$MODE" = "install" -a -z "$NONDESTRUCTIVE" ]; then
     echo ''
 
     vtwarn "Attention:"
-    vtwarn "You will install Ventoy to $DISK."
+    vtwarn "You will install Couti to $DISK."
     vtwarn "All the data on the disk $DISK will be lost!!!"
     echo ""
 
@@ -367,7 +367,7 @@ if [ "$MODE" = "install" -a -z "$NONDESTRUCTIVE" ]; then
     fi
 
     echo ""
-    vtinfo "Install Ventoy to $DISK successfully finished."
+    vtinfo "Install Couti to $DISK successfully finished."
     echo ""
 
 elif [ "$MODE" = "install" -a -n "$NONDESTRUCTIVE" ]; then
@@ -376,7 +376,7 @@ elif [ "$MODE" = "install" -a -n "$NONDESTRUCTIVE" ]; then
     version=$(get_disk_ventoy_version $DISK)
     if [ $? -eq 0 ]; then
         if [ -z "$FORCE" ]; then
-            vtwarn "$DISK already contains a Ventoy with version $version."
+            vtwarn "$DISK already contains a Couti with version $version."
             vtwarn "You can not do and don not need non-destructive installation."
             vtwarn ""
             exit 1
@@ -400,7 +400,7 @@ elif [ "$MODE" = "install" -a -n "$NONDESTRUCTIVE" ]; then
     echo ''
 
     vtwarn "Attention:"
-    vtwarn "Ventoy will try non-destructive installation on $DISK if possible."
+    vtwarn "Couti will try non-destructive installation on $DISK if possible."
     echo ""
 
     read -p 'Continue? (y/n) '  Answer
@@ -528,11 +528,11 @@ elif [ "$MODE" = "install" -a -n "$NONDESTRUCTIVE" ]; then
     if [ $? -eq 0 ]; then
         sync
         echo ""
-        vtinfo "Ventoy non-destructive installation on $DISK successfully finished."
+        vtinfo "Couti non-destructive installation on $DISK successfully finished."
         echo ""
     else
         echo ""
-        vterr "Ventoy non-destructive installation on $DISK failed."
+        vterr "Couti non-destructive installation on $DISK failed."
         echo ""
     fi
     
@@ -544,7 +544,7 @@ else
         if is_disk_contains_ventoy $DISK; then
             oldver="Unknown"
         else
-            vtwarn "$DISK does not contain Ventoy or data corrupted"
+            vtwarn "$DISK does not contain Couti or data corrupted"
             echo ""
             vtwarn "Please use -i option if you want to install ventoy to $DISK"
             echo ""
@@ -566,7 +566,7 @@ else
     vtinfo "Upgrade operation is safe, all the data in the 1st partition (iso files and other) will be unchanged!"
     echo ""
 
-    read -p "Update Ventoy  $oldver ===> $curver   Continue? (y/n) "  Answer
+    read -p "Update Couti  $oldver ===> $curver   Continue? (y/n) "  Answer
     if [ "$Answer" != "y" ]; then
         if [ "$Answer" != "Y" ]; then
             exit 0
@@ -635,7 +635,7 @@ else
 
 
     echo ""
-    vtinfo "Update Ventoy on $DISK successfully finished."
+    vtinfo "Update Couti on $DISK successfully finished."
     echo ""
 
 fi

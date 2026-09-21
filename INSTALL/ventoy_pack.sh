@@ -1,5 +1,18 @@
 #!/bin/sh
 
+# Fail before creating/mounting an image if the boot UI regresses.
+python3 ../tools/check_boot_branding.py || exit 1
+
+# A MOK enrollment screen displays the signing certificate's identity.
+# Never reuse the upstream certificate for a Couti release.
+if [ -n "$VENTOY_CERT_PEM" ]; then
+    cert_identity=$(openssl x509 -in "$VENTOY_CERT_PEM" -noout -subject -issuer) || exit 1
+    if printf '%s\n' "$cert_identity" | grep -qi ventoy; then
+        echo "Couti packaging requires a Couti signing certificate."
+        exit 1
+    fi
+fi
+
 if [ "$VENTOY_CERT_PASS" = "YES" ]; then
     read -s -p "Enter cert key passphrase: " KEY_PASS   
     echo
@@ -157,7 +170,7 @@ ls -1 menu/ | grep -v 'zh_CN' | sort | while read vtlang; do
     echo "    vt_load_menu_lang $vtlangname"  >> menulang.cfg
     echo "}"  >> menulang.cfg
 done
-echo "menuentry \"\$VTLANG_RETURN_PREVIOUS\" --class=vtoyret VTOY_RET {" >> menulang.cfg
+echo "menuentry \"\$VTLANG_RETURN_PREVIOUS\" --class=coutiret VTOY_RET {" >> menulang.cfg
 echo "        echo \"Return ...\"" >> menulang.cfg
 echo "}" >> menulang.cfg
 
@@ -169,7 +182,10 @@ cd ../../
 
 cp $OPT ./ventoy   $tmpmnt/
 cp $OPT ./EFI   $tmpmnt/
-cp $OPT ./tool/ENROLL_THIS_KEY_IN_MOKMANAGER.cer $tmpmnt/
+if [ -n "$VENTOY_CERT_KEY" ] && [ -n "$VENTOY_CERT_PEM" ]; then
+    openssl x509 -in "$VENTOY_CERT_PEM" -outform DER \
+        -out "$tmpmnt/ENROLL_THIS_KEY_IN_MOKMANAGER.cer" || exit 1
+fi
 
 
 mkdir -p $tmpmnt/tool
@@ -181,29 +197,38 @@ dd status=none bs=1024 count=16  if=./tool/i386/vtoycli    of=$tmpmnt/tool/mount
 dd status=none bs=1024 count=16  if=./tool/x86_64/vtoycli  of=$tmpmnt/tool/mount.exfat-fuse_x86_64
 dd status=none bs=1024 count=16  if=./tool/aarch64/vtoycli of=$tmpmnt/tool/mount.exfat-fuse_aarch64
 cp -a ./tool/create_ventoy_iso_part_dm.sh  $tmpmnt/tool/
+python3 ../tools/build/couti-boot-layout.py "$tmpmnt" || exit 1
 
 
 rm -f $tmpmnt/grub/i386-pc/*.img
 
+# Check the assembled payload, including compressed initramfs members and EFI
+# certificates. Checked-in upstream binaries must be rebuilt before release.
+if ! python3 ../tools/check_boot_branding.py --artifacts "$tmpmnt"; then
+    umount "$tmpmnt"
+    losetup -d "$LOOP"
+    echo "Rebuild the reported boot payloads before packaging Couti."
+    exit 1
+fi
 
 sign_efi $tmpmnt/EFI/BOOT/fbia32.efi
 sign_efi $tmpmnt/EFI/BOOT/fbaa64.efi
 sign_efi $tmpmnt/EFI/BOOT/grubx64_real.efi
 sign_efi $tmpmnt/EFI/BOOT/grubia32_real.efi
-sign_efi $tmpmnt/ventoy/iso9660_x64.efi
-sign_efi $tmpmnt/ventoy/iso9660_ia32.efi
-sign_efi $tmpmnt/ventoy/iso9660_aa64.efi
-sign_efi $tmpmnt/ventoy/udf_x64.efi
-sign_efi $tmpmnt/ventoy/udf_ia32.efi
-sign_efi $tmpmnt/ventoy/udf_aa64.efi
-sign_efi $tmpmnt/ventoy/ventoy_x64.efi
-sign_efi $tmpmnt/ventoy/ventoy_ia32.efi
-sign_efi $tmpmnt/ventoy/ventoy_aa64.efi
-sign_efi $tmpmnt/ventoy/vtoyutil_x64.efi
-sign_efi $tmpmnt/ventoy/vtoyutil_ia32.efi
-sign_efi $tmpmnt/ventoy/vtoyutil_aa64.efi
-sign_efi $tmpmnt/ventoy/wimboot.i386.efi.xz
-sign_efi $tmpmnt/ventoy/wimboot.x86_64.xz
+sign_efi $tmpmnt/couti/iso9660_x64.efi
+sign_efi $tmpmnt/couti/iso9660_ia32.efi
+sign_efi $tmpmnt/couti/iso9660_aa64.efi
+sign_efi $tmpmnt/couti/udf_x64.efi
+sign_efi $tmpmnt/couti/udf_ia32.efi
+sign_efi $tmpmnt/couti/udf_aa64.efi
+sign_efi $tmpmnt/couti/couti_x64.efi
+sign_efi $tmpmnt/couti/couti_ia32.efi
+sign_efi $tmpmnt/couti/couti_aa64.efi
+sign_efi $tmpmnt/couti/coutiutil_x64.efi
+sign_efi $tmpmnt/couti/coutiutil_ia32.efi
+sign_efi $tmpmnt/couti/coutiutil_aa64.efi
+sign_efi $tmpmnt/couti/wimboot.i386.efi.xz
+sign_efi $tmpmnt/couti/wimboot.x86_64.xz
 
 #inject Ventoy Grub sign sha256 value into VtoyShim
 grub_sha256=$(sha256sum $tmpmnt/EFI/BOOT/grubx64_real.efi | awk '{print $1}')
@@ -236,7 +261,13 @@ xz --check=crc32 $tmpdir/boot/core.img
 
 cp $OPT ./tool $tmpdir/
 rm -f $tmpdir/ENROLL_THIS_KEY_IN_MOKMANAGER.cer
+rm -f $tmpdir/tool/ENROLL_THIS_KEY_IN_MOKMANAGER.cer
+if [ -n "$VENTOY_CERT_KEY" ] && [ -n "$VENTOY_CERT_PEM" ]; then
+    openssl x509 -in "$VENTOY_CERT_PEM" -outform DER \
+        -out "$tmpdir/tool/ENROLL_THIS_KEY_IN_MOKMANAGER.cer" || exit 1
+fi
 cp $OPT Ventoy2Disk.sh $tmpdir/
+cp $OPT Couti2Disk.sh $tmpdir/
 cp $OPT VentoyWeb.sh $tmpdir/
 cp $OPT VentoyPlugson.sh $tmpdir/
 cp $OPT VentoyVlnk.sh $tmpdir/
@@ -248,6 +279,7 @@ cp $OPT plugin $tmpdir/
 cp $OPT CreatePersistentImg.sh $tmpdir/
 cp $OPT ExtendPersistentImg.sh $tmpdir/
 dos2unix -q $tmpdir/Ventoy2Disk.sh
+dos2unix -q $tmpdir/Couti2Disk.sh
 dos2unix -q $tmpdir/VentoyWeb.sh
 dos2unix -q $tmpdir/VentoyPlugson.sh
 dos2unix -q $tmpdir/VentoyVlnk.sh
@@ -307,6 +339,7 @@ done
 find $tmpdir/ -type d -exec chmod 755 "{}" +
 find $tmpdir/ -type f -exec chmod 644 "{}" +
 chmod +x $tmpdir/Ventoy2Disk.sh
+chmod +x $tmpdir/Couti2Disk.sh
 chmod +x $tmpdir/VentoyWeb.sh
 chmod +x $tmpdir/VentoyPlugson.sh
 chmod +x $tmpdir/VentoyVlnk.sh
@@ -378,4 +411,3 @@ fi
 rm -f log.txt
 rm -f sha256.txt
 sha256sum ventoy-${curver}-* > sha256.txt
-

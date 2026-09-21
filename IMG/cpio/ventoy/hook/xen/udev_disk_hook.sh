@@ -19,7 +19,7 @@
 
 . /ventoy/hook/ventoy-hook-lib.sh
 
-if is_ventoy_hook_finished || not_ventoy_disk "${1:0:-1}"; then
+if is_ventoy_hook_finished || not_ventoy_disk "$(ventoy_partname_to_diskname "$1")"; then
     exit 0
 fi
 

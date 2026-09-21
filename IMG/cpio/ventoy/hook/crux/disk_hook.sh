@@ -37,7 +37,7 @@ if $GREP -q 'device-mapper' /proc/devices; then
     vtlog "dm-mod module check success ..."
 else
     vtlog "Need to load dm-mod module ..."
-    ventoy_extract_vtloopex ${vtdiskname}2  crux
+    ventoy_extract_vtloopex $(ventoy_diskname_to_partname "${vtdiskname}" "$COUTI_BOOT_PART")  crux
 
     vtKver=$(uname -r)
     vtLoopExDir=$VTOY_PATH/vtloopex/crux/vtloopex
@@ -46,7 +46,7 @@ else
     ventoy_check_install_module_xz $vtLoopExDir/dm-mod/$vtKver/64/dm-mod.ko
 fi
 
-ventoy_udev_disk_common_hook "${vtdiskname#/dev/}2"
+ventoy_udev_disk_common_hook "$(ventoy_diskname_to_partname "${vtdiskname#/dev/}" "$COUTI_BOOT_PART")"
 
 set_ventoy_hook_finish
 

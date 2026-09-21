@@ -687,13 +687,14 @@ BOOL IsVentoyLogicalDrive(CHAR DriveLetter)
     CONST CHAR *Files[] =
     {
         "EFI\\BOOT\\BOOTX64.EFI",
-        "grub\\themes\\ventoy\\theme.txt",
-        "ventoy\\ventoy.cpio",
+        "grub\\grub.cfg",
+        "couti\\couti.cpio",
     };
 
     for (i = 0; i < sizeof(Files) / sizeof(Files[0]); i++)
     {
-        if (!IsFileExist("%C:\\%s", DriveLetter, Files[i]))
+        if (!IsFileExist("%C:\\%s", DriveLetter, Files[i]) &&
+            !(i == 2 && IsFileExist("%C:\\ventoy\\ventoy.cpio", DriveLetter)))
         {
             return FALSE;
         }
@@ -974,7 +975,7 @@ int VentoyFillGpt(UINT64 DiskSizeBytes, VTOY_GPT_INFO *pInfo)
     Table[0].StartLBA = 2048;
     Table[0].LastLBA = 2048 + Part1SectorCount - 1;
     Table[0].Attr = 0;
-    memcpy(Table[0].Name, L"Ventoy", 6 * 2);
+    memcpy(Table[0].Name, L"Couti", 5 * sizeof(WCHAR));
 
     // to fix windows issue
     //memcpy(&(Table[1].PartType), &EspPartType, sizeof(GUID));
@@ -983,7 +984,7 @@ int VentoyFillGpt(UINT64 DiskSizeBytes, VTOY_GPT_INFO *pInfo)
     Table[1].StartLBA = Table[0].LastLBA + 1;
     Table[1].LastLBA = Table[1].StartLBA + VENTOY_EFI_PART_SIZE / 512 - 1;
     Table[1].Attr = VENTOY_EFI_PART_ATTR;
-    memcpy(Table[1].Name, L"VTOYEFI", 7 * 2);
+    memcpy(Table[1].Name, L"COUTIEFI", 8 * 2);
 
 #if 0
 	memcpy(&(Table[2].PartType), &BiosGrubPartType, sizeof(GUID));

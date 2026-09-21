@@ -107,11 +107,11 @@ static int vtoy_os_param_from_file(const char *filename, ventoy_os_param *param)
 
     if (vtoy_check_os_param(param) == 0)
     {
-        debug("find ventoy os param in file %s\n", filename);
+        debug("find couti os param in file %s\n", filename);
     }
     else
     {
-        debug("ventoy os pararm NOT found in file %s\n", filename);
+        debug("couti os pararm NOT found in file %s\n", filename);
         rc = 1;
     }
     
@@ -485,12 +485,12 @@ static int vtoy_check_device(ventoy_os_param *param, const char *device)
     if (memcmp(vtguid, param->vtoy_disk_guid, 16) == 0 &&
         memcmp(vtsig, param->vtoy_disk_signature, 4) == 0)
     {
-        debug("<%s> is right ventoy disk\n", device);
+        debug("<%s> is right couti disk\n", device);
         return 0;
     }
     else
     {
-        debug("<%s> is NOT right ventoy disk\n", device);
+        debug("<%s> is NOT right couti disk\n", device);
         return 1;
     }
 }
@@ -498,6 +498,7 @@ static int vtoy_check_device(ventoy_os_param *param, const char *device)
 static int vtoy_print_os_param(ventoy_os_param *param, char *diskname)
 {
     int fd, size;
+    unsigned bootpart = (param->vtoy_reserved[12] == 0x43 && param->vtoy_reserved[13]) ? param->vtoy_reserved[13] : 2;
     int cnt = 0;
     char *path = param->vtoy_img_path;
     const char *fs;
@@ -532,11 +533,11 @@ static int vtoy_print_os_param(ventoy_os_param *param, char *diskname)
     {
         if (strstr(diskname, "nvme") || strstr(diskname, "mmc") || strstr(diskname, "nbd"))
         {
-            snprintf(diskpath, sizeof(diskpath) - 1, "/sys/class/block/%sp2/size", diskname);
+            snprintf(diskpath, sizeof(diskpath) - 1, "/sys/class/block/%sp%u/size", diskname, bootpart);
         }
         else
         {
-            snprintf(diskpath, sizeof(diskpath) - 1, "/sys/class/block/%s2/size", diskname);
+            snprintf(diskpath, sizeof(diskpath) - 1, "/sys/class/block/%s%u/size", diskname, bootpart);
         }
 
         if (param->vtoy_reserved[6] == 0 && access(diskpath, F_OK) >= 0)
@@ -549,7 +550,7 @@ static int vtoy_print_os_param(ventoy_os_param *param, char *diskname)
                 read(fd, sizebuf, sizeof(sizebuf));
                 size = (int)strtoull(sizebuf, NULL, 10);
                 close(fd);
-                if ((size != (64 * 1024)) && (size != (8 * 1024)))
+                if ((size != (64 * 1024)) && (size != (8 * 1024)) && (size != (200 * 1024)))
                 {
                     debug("sizebuf=<%s> size=%d\n", sizebuf, size);
                     return 1;
@@ -653,7 +654,7 @@ int vtoydump_main(int argc, char **argv)
     rc = vtoy_os_param_from_file(filename, param);
     if (rc)
     {
-        debug("ventoy os param not found %d %d\n", rc, ENOENT);
+        debug("couti os param not found %d %d\n", rc, ENOENT);
         if (ENOENT == rc)
         {
             debug("now try with file %s\n", "/ventoy/ventoy_os_param");

@@ -25,7 +25,7 @@
 ####################################################################
 ventoy_unpack_injection() {
     vtmagic=$(hexdump -n 2 -e '2/1 "%02X"' $VTOY_PATH/ventoy_injection)
-    echo "ventoy_unpack_injection  vtmagic=$vtmagic ..."
+    echo "Couti unpack injection  vtmagic=$vtmagic ..."
     
     if [ "1F8B" = "$vtmagic" ] || [ "1F9E" = "$vtmagic" ]; then
         echo "tar.gz  tar -xzvf"

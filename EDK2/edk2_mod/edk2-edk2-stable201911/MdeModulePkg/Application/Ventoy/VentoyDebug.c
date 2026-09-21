@@ -98,7 +98,7 @@ STATIC EFI_STATUS EFIAPI ventoy_handle_protocol
 {
     EFI_STATUS Status = EFI_SUCCESS;
     
-    debug("ventoy_handle_protocol:%a", ventoy_get_guid_name(Protocol)); debug_sleep();
+    debug("couti_handle_protocol:%a", ventoy_get_guid_name(Protocol)); debug_sleep();
     Status = g_system_wrapper.OriHandleProtocol(Handle, Protocol, Interface);
 
     if (CompareGuid(Protocol, &gEfiSimpleFileSystemProtocolGuid))
@@ -127,7 +127,7 @@ STATIC EFI_STATUS EFIAPI ventoy_open_protocol
     IN  UINT32                     Attributes
 )
 {
-    debug("ventoy_open_protocol:<%p> %a", Handle, ventoy_get_guid_name(Protocol));  debug_sleep();
+    debug("couti_open_protocol:<%p> %a", Handle, ventoy_get_guid_name(Protocol));  debug_sleep();
     return g_system_wrapper.OriOpenProtocol(Handle, Protocol, Interface, AgentHandle, ControllerHandle, Attributes);
 }
 
@@ -138,7 +138,7 @@ STATIC EFI_STATUS EFIAPI ventoy_locate_protocol
     OUT VOID      **Interface
 )
 {
-    debug("ventoy_locate_protocol:%a", ventoy_get_guid_name(Protocol));  debug_sleep();
+    debug("couti_locate_protocol:%a", ventoy_get_guid_name(Protocol));  debug_sleep();
     return g_system_wrapper.OriLocateProtocol(Protocol, Registration, Interface);
 }
 
@@ -151,7 +151,7 @@ STATIC EFI_STATUS EFIAPI ventoy_locate_handle_buffer
     OUT    EFI_HANDLE                  **Buffer
 )
 {
-    debug("ventoy_locate_handle_buffer:%a", ventoy_get_guid_name(Protocol));  debug_sleep();
+    debug("couti_locate_handle_buffer:%a", ventoy_get_guid_name(Protocol));  debug_sleep();
     return g_system_wrapper.OriLocateHandleBuffer(SearchType, Protocol, SearchKey, NoHandles, Buffer);
 }
 
@@ -162,7 +162,7 @@ STATIC EFI_STATUS EFIAPI ventoy_protocol_per_handle
     OUT UINTN           *ProtocolBufferCount
 )
 {
-    debug("ventoy_protocol_per_handle:%p", Handle);  debug_sleep();
+    debug("couti_protocol_per_handle:%p", Handle);  debug_sleep();
     return g_system_wrapper.OriProtocolsPerHandle(Handle, ProtocolBuffer, ProtocolBufferCount);
 }
 
@@ -179,9 +179,9 @@ EFI_STATUS EFIAPI ventoy_locate_handle
     EFI_HANDLE Handle;
     EFI_STATUS Status = EFI_SUCCESS;
     
-    debug("ventoy_locate_handle: %d %a %p", SearchType, ventoy_get_guid_name(Protocol), SearchKey); 
+    debug("couti_locate_handle: %d %a %p", SearchType, ventoy_get_guid_name(Protocol), SearchKey);
     Status = g_system_wrapper.OriLocateHandle(SearchType, Protocol, SearchKey, BufferSize, Buffer);
-    debug("ventoy_locate_handle: %r Handle Count:%u", Status, *BufferSize/sizeof(EFI_HANDLE));
+    debug("couti_locate_handle: %r Handle Count:%u", Status, *BufferSize/sizeof(EFI_HANDLE));
 
     if (EFI_SUCCESS == Status)
     {
@@ -210,7 +210,7 @@ STATIC EFI_STATUS EFIAPI ventoy_locate_device_path
     OUT    EFI_HANDLE                        *Device
 )
 {
-    debug("ventoy_locate_device_path:%a", ventoy_get_guid_name(Protocol));  debug_sleep();
+    debug("couti_locate_device_path:%a", ventoy_get_guid_name(Protocol));  debug_sleep();
     return g_system_wrapper.OriLocateDevicePath(Protocol, DevicePath, Device);
 }
 

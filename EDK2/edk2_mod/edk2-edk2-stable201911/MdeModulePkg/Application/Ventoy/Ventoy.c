@@ -137,7 +137,7 @@ static void EFIAPI ventoy_dump_img_chunk(ventoy_chain_head *chain)
 
     chunk = (ventoy_img_chunk *)((char *)chain + chain->img_chunk_offset);
 
-    debug("##################### ventoy_dump_img_chunk #######################");
+    debug("##################### couti_dump_img_chunk #######################");
 
     for (i = 0; i < chain->img_chunk_num; i++)
     {
@@ -172,7 +172,7 @@ static void EFIAPI ventoy_dump_override_chunk(ventoy_chain_head *chain)
 
     chunk = (ventoy_override_chunk *)((char *)chain + chain->override_chunk_offset);
 
-    debug("##################### ventoy_dump_override_chunk #######################");
+    debug("##################### couti_dump_override_chunk #######################");
 
     for (i = 0; i < g_override_chunk_num; i++)
     {
@@ -187,7 +187,7 @@ static void EFIAPI ventoy_dump_virt_chunk(ventoy_chain_head *chain)
     UINT32 i;
     ventoy_virt_chunk *node;
 
-    debug("##################### ventoy_dump_virt_chunk #######################");
+    debug("##################### couti_dump_virt_chunk #######################");
     debug("virt_chunk_offset=%u", chain->virt_chunk_offset);
     debug("virt_chunk_num=%u",    chain->virt_chunk_num);
 
@@ -218,7 +218,7 @@ static void EFIAPI ventoy_dump_chain(ventoy_chain_head *chain)
         chksum += *((UINT8 *)(&(chain->os_param)) + i);
     }
 
-    debug("##################### ventoy_dump_chain #######################");
+    debug("##################### couti_dump_chain #######################");
 
     debug("os_param->chksum=0x%x (%a)", chain->os_param.chksum, chksum ? "FAILED" : "SUCCESS");
     debug("os_param->vtoy_disk_guid=%02x%02x%02x%02x", guid[0], guid[1], guid[2], guid[3]);
@@ -479,7 +479,7 @@ STATIC VOID ventoy_warn_invalid_device(VOID)
     gST->ConOut->OutputString(gST->ConOut, VTOY_WARNING L"\r\n");
     gST->ConOut->OutputString(gST->ConOut, VTOY_WARNING L"\r\n\r\n\r\n");
 
-    gST->ConOut->OutputString(gST->ConOut, L"This is NOT a standard Ventoy device and is NOT supported.\r\n\r\n");
+    gST->ConOut->OutputString(gST->ConOut, L"This is NOT a standard Couti device and is NOT supported.\r\n\r\n");
     gST->ConOut->OutputString(gST->ConOut, L"You should follow the official instructions in https://www.ventoy.net\r\n");
 
     gST->ConOut->OutputString(gST->ConOut, L"\r\n\r\nWill exit after 10 seconds ...... ");
@@ -581,7 +581,7 @@ STATIC EFI_STATUS EFIAPI ventoy_find_iso_disk(IN EFI_HANDLE ImageHandle)
             CompareMem(g_chain->os_param.vtoy_disk_signature, pBuffer + 0x1b8, 4) == 0)
         {
             pMBR = (MBR_HEAD *)pBuffer;
-            if (g_os_param_reserved[6] == 0 && pMBR->PartTbl[0].FsFlag != 0xEE)
+            if (g_os_param_reserved[12] != 0x43 && g_os_param_reserved[6] == 0 && pMBR->PartTbl[0].FsFlag != 0xEE)
             {
                 if (pMBR->PartTbl[0].StartSectorId != 2048 ||
                     pMBR->PartTbl[1].SectorCount != 65536 ||
@@ -600,7 +600,7 @@ STATIC EFI_STATUS EFIAPI ventoy_find_iso_disk(IN EFI_HANDLE ImageHandle)
                               Handles[i],
                               EFI_OPEN_PROTOCOL_GET_PROTOCOL);
 
-            debug("Find Ventoy Disk Sig Handle:%p DP:%s", Handles[i],
+            debug("Find Couti Disk Sig Handle:%p DP:%s", Handles[i],
                 ConvertDevicePathToText(gBlockData.pDiskDevPath, FALSE, FALSE));
             break;
         }
@@ -636,7 +636,7 @@ STATIC EFI_STATUS EFIAPI ventoy_find_iso_disk_fs(IN EFI_HANDLE ImageHandle)
         return Status;
     }
 
-    debug("ventoy_find_iso_disk_fs fs count:%u", Count);
+    debug("couti_find_iso_disk_fs fs count:%u", Count);
 
     for (i = 0; i < Count; i++)
     {
@@ -662,7 +662,15 @@ STATIC EFI_STATUS EFIAPI ventoy_find_iso_disk_fs(IN EFI_HANDLE ImageHandle)
 
         if (Parent == gBlockData.RawBlockIoHandle)
         {
-            debug("Find ventoy disk fs");
+            EFI_FILE_PROTOCOL *Root = NULL;
+            EFI_FILE_PROTOCOL *Archive = NULL;
+            Status = pFile->OpenVolume(pFile, &Root);
+            if (EFI_ERROR(Status)) continue;
+            Status = Root->Open(Root, &Archive, L"\\couti\\couti.cpio", EFI_FILE_MODE_READ, 0);
+            Root->Close(Root);
+            if (EFI_ERROR(Status)) continue;
+            Archive->Close(Archive);
+            debug("Find couti disk fs");
             gBlockData.DiskFsHandle = Handles[i];
             gBlockData.pDiskFs = pFile;
             gBlockData.pDiskFsDevPath = pDevPath;
@@ -799,7 +807,7 @@ STATIC EFI_STATUS EFIAPI ventoy_disable_secure_boot(IN EFI_HANDLE ImageHandle)
         }
     }
 
-    debug("ventoy_disable_secure_boot");
+    debug("couti_disable_secure_boot");
 
     /* step1: wrapper security protocol. */
     /* Do we still need it since we have been loaded ? */
@@ -1133,7 +1141,7 @@ EFI_STATUS EFIAPI ventoy_boot(IN EFI_HANDLE ImageHandle)
             return Status;
         }
 
-        debug("ventoy_boot fs count:%u", Count);
+        debug("couti_boot fs count:%u", Count);
 
         for (i = 0; i < Count; i++)
         {
@@ -1159,7 +1167,7 @@ EFI_STATUS EFIAPI ventoy_boot(IN EFI_HANDLE ImageHandle)
             debug("Handle:%p FS DP: <%s>", Handles[i], ConvertDevicePathToText(pDevPath, FALSE, FALSE));
             if (CompareMem(gBlockData.Path, pDevPath, gBlockData.DevicePathCompareLen))
             {
-                debug("Not ventoy disk file system");
+                debug("Not couti disk file system");
                 continue;
             }
 

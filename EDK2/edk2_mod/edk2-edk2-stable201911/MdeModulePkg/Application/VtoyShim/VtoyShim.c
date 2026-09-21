@@ -105,7 +105,7 @@ STATIC VOID EFIAPI ShowSBWarning(const EFI_DEVICE_PATH_PROTOCOL *DevicePath)
 
     DumpDevicePath(DevicePath);
 
-    vLog(L"\r\n####### Ventoy Security Boot Violation ##########\r\n");
+    vLog(L"\r\n####### Couti Security Boot Violation ##########\r\n");
 
     vLog(L"=======================================================");
     vLog(L"=======================================================");
@@ -234,7 +234,7 @@ STATIC EFI_STATUS EFIAPI CheckVtoyGrub
 
     if (CompareMem(Sha256Hash, gVtoyGrubSha256Hash, 32) != 0)
     {
-        vErr(L"Ventoy hash check failed.");
+        vErr(L"Couti hash check failed.");
         gRT->ResetSystem(EfiResetWarm, EFI_SECURITY_VIOLATION, 0, NULL);
         return EFI_SECURITY_VIOLATION;
     }
@@ -426,7 +426,7 @@ STATIC EFI_STATUS EFIAPI InstallVtoyShimProtocol(VOID)
     Status = gBS->LocateProtocol(&Guid, NULL, (VOID**)&Prot);
     if (!EFI_ERROR(Status))
     {
-        vLog(L"Ventoy shim already loaded, cannot be nested.");
+        vLog(L"Couti shim already loaded, cannot be nested.");
         return EFI_ALREADY_STARTED;
     }
 
@@ -501,7 +501,7 @@ STATIC EFI_STATUS EFIAPI ShimEfiMain
     Status = InstallVtoyShimProtocol();
     if (EFI_ERROR(Status))
     {
-        vErr(L"Failed to install ventoy shim protocol");
+        vErr(L"Failed to install couti shim protocol");
         return Status;
     }
 

@@ -55,9 +55,9 @@ if ! [ -b "${vtdiskname}1" ]; then
     $BUSYBOX_PATH/mknod -m 0660 "${vtdiskname}1" b $blkdev
 fi
 
-if ! [ -b "${vtdiskname}2" ]; then
-    blkdev=$($CAT /sys/class/block/${vtshortdev}2/dev | $SED 's/:/ /g')
-    $BUSYBOX_PATH/mknod -m 0660 "${vtdiskname}2" b $blkdev
+if ! [ -b "$(ventoy_diskname_to_partname "${vtdiskname}" "$COUTI_BOOT_PART")" ]; then
+    blkdev=$($CAT /sys/class/block/$(ventoy_diskname_to_partname "${vtshortdev}" "$COUTI_BOOT_PART")/dev | $SED 's/:/ /g')
+    $BUSYBOX_PATH/mknod -m 0660 "$(ventoy_diskname_to_partname "${vtdiskname}" "$COUTI_BOOT_PART")" b $blkdev
 fi
 
-$BUSYBOX_PATH/sh $VTOY_PATH/hook/vine/udev_disk_hook.sh "${vtdiskname#/dev/}2"
+$BUSYBOX_PATH/sh $VTOY_PATH/hook/vine/udev_disk_hook.sh "$(ventoy_diskname_to_partname "${vtdiskname#/dev/}" "$COUTI_BOOT_PART")"

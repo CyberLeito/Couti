@@ -1,8 +1,8 @@
 {
     "VTLANG_LANGUAGE_NAME": "Hindi (हिन्दी)",
     
-    "VTLANG_STR_HOTKEY_LIST": "L:भाषा  F1:मदद  F2:ब्राउज़र  F3:ListView  F4:स्थानीयबूट  F5:उपकरण  F6:ExMenu",
-    "VTLANG_STR_HOTKEY_TREE": "L:भाषा  F1:मदद  F2:ब्राउज़र  F3:TreeView  F4:स्थानीयबूट  F5:उपकरण  F6:ExMenu",
+    "VTLANG_STR_HOTKEY_LIST": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
+    "VTLANG_STR_HOTKEY_TREE": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
     "VTLANG_RETURN_PREVIOUS": "पिछले मेनू पर लौटें [Esc]",
     "VTLANG_RETURN_PRV_NOESC": "पिछले मेनू पर लौटें",
     
@@ -47,7 +47,7 @@
     "VTLANG_UTIL_SHOW_EFI_DRV": "EFI ड्राइवर्स दिखाएं",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Windows BlinitializeLibrary विफलता को ठीक करें",
     
-    "VTLANG_JSON_CHK_JSON": "प्लगइन json विन्यास की जाँच करें (ventoy.json)",
+    "VTLANG_JSON_CHK_JSON": "प्लगइन json विन्यास की जाँच करें",
     "VTLANG_JSON_CHK_CONTROL": "global control प्लगइन विन्यास की जाँच करें",
     "VTLANG_JSON_CHK_THEME": "theme प्लगइन विन्यास की जाँच करें",
     "VTLANG_JSON_CHK_AUTOINS": "auto install प्लगइन विन्यास की जाँच करें",

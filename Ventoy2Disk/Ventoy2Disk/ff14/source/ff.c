@@ -6068,9 +6068,9 @@ FRESULT f_mkfs (
 		mem_set(buf, 0, sz_buf * ss);
 		buf[SZDIRE * 0 + 0] = ET_VLABEL;					/* Volume label entry (no label) */
 
-        //default label: Ventoy (unicode)
-        buf[1] = 6; //label length
-        memcpy(buf + 2, L"Ventoy", 2 * buf[1]);
+        //default label: Couti (unicode)
+        buf[1] = 5; //label length
+        memcpy(buf + 2, L"Couti", 2 * buf[1]);
 
 		buf[SZDIRE * 1 + 0] = ET_BITMAP;					/* Bitmap entry */
 		st_dword(buf + SZDIRE * 1 + 20, 2);					/*  cluster */

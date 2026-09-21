@@ -1,11 +1,8 @@
- L - Language Select
-F1 - Display help information
-F2 - Browse and boot files in the local disk
-F3 - Switch menu mode between Treeview <-> ListView
-F4 - Boot Windows/Linux on the local disk
-F5 - Utilities
-F6 - Load Custom Grub2 Menu
-F7 - Switch between GUI Mode <-> TEXT Mode
+F1 - Help
+F2 - Folders: choose a drive/partition and browse its folders
+F3 - Tools
+F4 - LocalBoot: boot Windows/Linux on a local disk
+F5 - Power Menu: reboot, shutdown, UEFI firmware setup
 
 m/Ctrl+m - Checksum image files (md5/sha1/sha256/sha512)
 d/Ctrl+d - Memdisk Mode (Only for small WinPE/LiveCD ISO/IMG)

@@ -36,7 +36,7 @@ if [ "$vtdiskname" = "unknown" ]; then
     exit 0
 fi
 
-ventoy_udev_disk_common_hook "${vtdiskname#/dev/}2" 
+ventoy_udev_disk_common_hook "$(ventoy_diskname_to_partname "${vtdiskname#/dev/}" "$COUTI_BOOT_PART")" 
 
 blkdev_num=$(dmsetup ls | grep ventoy | sed 's/.*(\([0-9][0-9]*\),.*\([0-9][0-9]*\).*/\1:\2/')  
 vtDM=$(ventoy_find_dm_id ${blkdev_num})

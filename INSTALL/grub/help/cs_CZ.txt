@@ -1,11 +1,8 @@
- L - Výběr jazyka
 F1 - Zobrazení nápovědy
 F2 - Procházet spouštět soubory na disku
-F3 - Přepínat mezi zobrazením stromu a seznamu
+F3 - Nástroje
 F4 - Spustit Windows/Linux na disku
-F5 - Nástroje
-F6 - Nahrát vlastní Grub2 nabídku
-F7 - Přepínat mezi grafickým a textovým režimem
+F5 - Napájení: Restartovat, Vypnout
 
 m/Ctrl+m - Kontrolní součky obrazů (md5/sha1/sha256/sha512)
 d/Ctrl+d - Memdisk režim (pouze pro malé WinPE/LiveCD ISO/IMG)

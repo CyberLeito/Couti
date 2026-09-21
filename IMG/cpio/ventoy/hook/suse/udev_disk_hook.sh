@@ -45,13 +45,13 @@ ventoy_os_install_dmsetup() {
     fi
 }
 
-if is_ventoy_hook_finished || not_ventoy_disk "${1:0:-1}"; then
+if is_ventoy_hook_finished || not_ventoy_disk "$(ventoy_partname_to_diskname "$1")"; then
     exit 0
 fi
 
 dmsetup_path=$(ventoy_find_bin_path dmsetup)
 if [ -z "$dmsetup_path" ]; then
-    ventoy_os_install_dmsetup "/dev/${1:0:-1}"
+    ventoy_os_install_dmsetup "/dev/$(ventoy_partname_to_diskname "$1")"
 fi
 
 if [ -f /proc/devices ]; then

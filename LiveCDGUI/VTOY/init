@@ -27,7 +27,7 @@ mount -nt aufs -o nowarn_perm,xino=/memory/xino/.aufs.xino,br:/memory/changes=rw
 #Draw background 
 if [ -z "$quiet" ]; then
     echo "##################################################"
-    echo "Starting Ventoy Live GUI <https://www.ventoy.net>"
+    echo "Starting Couti Live GUI"
     echo "##################################################"
 else
     mkdir -p /lib /opt/000 /opt/001; lspci >/tmp/lspci
@@ -50,7 +50,7 @@ else
     test -e /dev/fb0 || { cp /opt/001/sbin/v86d /sbin; modprobe uvesafb mode_option=1024x768-32; }
     if test -e /dev/fb0; then
         rm -r /lib; ln -sf /opt/001/lib64 /lib; ln -sf /opt/001/usr/lib64 /usr/lib
-        /opt/001/usr/bin/fbv -a -c -u -i -k -e -r /VTOY/background.png 2>/dev/null &
+        echo "Starting Couti Live GUI"
     fi
 fi
 
@@ -92,7 +92,7 @@ sed "s/root:[^:]*:/root::/g" -i /union/etc/shadow
 rm -f /union/etc/X11/xorg.conf.d/10-xorg.conf
 rm -f /union/lib64/udev/rules.d/10-kiosk-auto_mount.rules
 cp -a /VTOY/autostart /union/etc/xdg/openbox/autostart
-cp -a /VTOY/*.png /union/ventoy/
+cp -a /VTOY/secure.png /VTOY/refresh.png /union/ventoy/
 
 mkdir -p /union/usr/local/sbin
 mv /VTOY/ntfs-3g.tar.gz /union/usr/local/sbin/
@@ -100,7 +100,6 @@ mv /VTOY/busybox /union/usr/local/sbin/
 
 
 cp -a /bin/busybox /union/bin; ln -sf /union/lib /lib
-cp -a /VTOY/wallpaper.png /union/usr/share/wallpapers/ 2>/dev/null
 
 #to suppress error message
 mkdir -p /mnt/fake/docs

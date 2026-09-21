@@ -1,8 +1,8 @@
 {
     "VTLANG_LANGUAGE_NAME": "Chinese Traditional (正體中文)",
 
-    "VTLANG_STR_HOTKEY_LIST": "L:語言  F1:說明  F2:瀏覽  F3:清單檢視  F4:本機啟動  F5:工具  F6:附加選單",
-    "VTLANG_STR_HOTKEY_TREE": "L:語言  F1:說明  F2:瀏覽  F3:樹狀檢視  F4:本機啟動  F5:工具  F6:附加選單",
+    "VTLANG_STR_HOTKEY_LIST": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
+    "VTLANG_STR_HOTKEY_TREE": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
     "VTLANG_RETURN_PREVIOUS": "返回上一層選單 [Esc]",
     "VTLANG_RETURN_PRV_NOESC": "返回上一層選單",
     
@@ -43,11 +43,11 @@
     
     "VTLANG_THEME_SELECT": "主題風格選擇",
     
-    "VTLANG_UEFI_UTIL": "Ventoy UEFI 實用程式",
+    "VTLANG_UEFI_UTIL": "Couti UEFI 實用程式",
     "VTLANG_UTIL_SHOW_EFI_DRV": "顯示 UEFI 驅動",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "修復 Windows BlinitializeLibrary 錯誤",
     
-    "VTLANG_JSON_CHK_JSON": "檢查外掛程式設定檔 (ventoy.json)",
+    "VTLANG_JSON_CHK_JSON": "檢查外掛程式設定檔",
     "VTLANG_JSON_CHK_CONTROL": "設定檢查 —— 全域控制外掛程式",
     "VTLANG_JSON_CHK_THEME": "設定檢查 —— 主題風格外掛程式",
     "VTLANG_JSON_CHK_AUTOINS": "設定檢查 —— 自動安裝外掛程式",
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "控制變數設定",
     "VTLANG_WIN11_BYPASS_CHECK": "安裝 Windows 11 時繞過TPM/安全啟動等硬體檢查",
     "VTLANG_WIN11_BYPASS_NRO": "安裝 Windows 11 時繞過登入帳戶的需求",
-    "VTLANG_LINUX_REMOUNT": "啟動 Linux 系統後掛載 Ventoy 分區",
+    "VTLANG_LINUX_REMOUNT": "啟動 Linux 系統後掛載 Couti 分區",
     "VTLANG_SECONDARY_BOOT_MENU": "顯示次要啟動選單",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

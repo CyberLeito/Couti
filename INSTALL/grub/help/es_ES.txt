@@ -1,11 +1,8 @@
- L - Seleccionar idioma
 F1 - Mostrar información de ayuda
 F2 - Navegar y arrancar archivos en el disco local
-F3 - Cambiar modo de menú entre Vista de árbol <-> Vista de lista
+F3 - Utilidades
 F4 - Arrancar Windows/Linux en el disco local
-F5 - Utilidades
-F6 - Cargar menú de Grub2 personalizado
-F7 - Cambiar entre Modo GUI <-> Modo texto
+F5 - Energía: Reiniciar, Apagar
 
 m/Ctrl+m - Suma de comprobación de archivos de imagen (md5/sha1/sha256/sha512)
 d/Ctrl+d - Modo Memdisk (Sólo para WinPE/LiveCD ISO/IMG pequeños)

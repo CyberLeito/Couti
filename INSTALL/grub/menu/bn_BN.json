@@ -1,8 +1,8 @@
 {
     "VTLANG_LANGUAGE_NAME": "Bengali (বাংলা)",
     
-    "VTLANG_STR_HOTKEY_LIST": "L:ভাষা  F1:সাহায্য  F2:Browser  F3:ListView  F4:Localboot  F5:Tools  F6:ExMenu",
-    "VTLANG_STR_HOTKEY_TREE": "L:ভাষা  F1:সাহায্য  F2:Browser  F3:TreeView  F4:Localboot  F5:Tools  F6:ExMenu",
+    "VTLANG_STR_HOTKEY_LIST": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
+    "VTLANG_STR_HOTKEY_TREE": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
     "VTLANG_RETURN_PREVIOUS": "পূর্ববর্তী মেনুতে ফিরে যান [Esc]",
     "VTLANG_RETURN_PRV_NOESC": "পূর্ববর্তী মেনুতে ফিরে যান",
     
@@ -43,11 +43,11 @@
     
     "VTLANG_THEME_SELECT": "থিম নির্বাচন করুন",
     
-    "VTLANG_UEFI_UTIL": "Ventoy UEFI ইউটিলিটিস",
+    "VTLANG_UEFI_UTIL": "Couti UEFI ইউটিলিটিস",
     "VTLANG_UTIL_SHOW_EFI_DRV": "EFI ড্রাইভার দেখান",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Windows BlinitializeLibrary ব্যর্থতার সমাধান করুন",
     
-    "VTLANG_JSON_CHK_JSON": "প্লাগইন json কনফিগারেশন পরীক্ষা করুন (ventoy.json)",
+    "VTLANG_JSON_CHK_JSON": "প্লাগইন json কনফিগারেশন পরীক্ষা করুন",
     "VTLANG_JSON_CHK_CONTROL": "গ্লোবাল কন্ট্রোল প্লাগইন কনফিগারেশন চেক করুন",
     "VTLANG_JSON_CHK_THEME": "থিম প্লাগইন কনফিগারেশন পরীক্ষা করুন",
     "VTLANG_JSON_CHK_AUTOINS": "অটো ইন্সটল প্লাগইন কনফিগারেশন চেক করুন",

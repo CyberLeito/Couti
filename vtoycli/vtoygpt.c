@@ -189,7 +189,8 @@ int vtoygpt_main(int argc, char **argv)
         read(fd, pBackGptInfo, sizeof(VTOY_BK_GPT_INFO));
 
         Name = pMainGptInfo->PartTbl[1].Name;
-        if (Name[0] == 'V' && Name[1] == 'T' && Name[2] == 'O' && Name[3] == 'Y')
+        if ((Name[0] == 'V' && Name[1] == 'T' && Name[2] == 'O' && Name[3] == 'Y') ||
+            (Name[0] == 'C' && Name[1] == 'O' && Name[2] == 'U' && Name[3] == 'T' && Name[4] == 'I'))
         {
             if (pMainGptInfo->PartTbl[1].Attr != VENTOY_EFI_PART_ATTR)
             {                

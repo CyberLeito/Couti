@@ -60,7 +60,7 @@ ventoy_os_install_dmsetup_by_rpm() {
     $BUSYBOX_PATH/rm -rf $VTOY_PATH/rpm/
 }
 
-if is_ventoy_hook_finished || not_ventoy_disk "${1:0:-1}"; then    
+if is_ventoy_hook_finished || not_ventoy_disk "$(ventoy_partname_to_diskname "$1")"; then    
     exit 0
 fi
 
@@ -68,7 +68,7 @@ ventoy_os_install_dmsetup_by_ko "/dev/$1"
 if $GREP -q 'device.mapper' /proc/devices; then
     vtlog "device-mapper module install OK"
 else
-    ventoy_os_install_dmsetup_by_rpm "/dev/${1:0:-1}"
+    ventoy_os_install_dmsetup_by_rpm "/dev/$(ventoy_partname_to_diskname "$1")"
 fi
 
 ventoy_udev_disk_common_hook $*

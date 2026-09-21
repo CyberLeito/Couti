@@ -1,4 +1,4 @@
-name: Ventoy CI
+name: Couti CI
 
 on:
   push:

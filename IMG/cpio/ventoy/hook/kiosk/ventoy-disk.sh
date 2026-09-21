@@ -65,7 +65,7 @@ fi
 
 ventoy_os_install_dmsetup_by_unsquashfs $vtdiskname
 
-ventoy_udev_disk_common_hook "${vtdiskname#/dev/}2" "noreplace"
+ventoy_udev_disk_common_hook "$(ventoy_diskname_to_partname "${vtdiskname#/dev/}" "$COUTI_BOOT_PART")" "noreplace"
 
 PATH=$VTPATH_OLD
 

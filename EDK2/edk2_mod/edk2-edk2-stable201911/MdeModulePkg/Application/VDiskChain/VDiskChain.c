@@ -371,7 +371,7 @@ EFI_STATUS EFIAPI vdisk_boot(IN EFI_HANDLE ImageHandle)
             debug("Handle:%p FS DP: <%s>", Handles[i], ConvertDevicePathToText(pDevPath, FALSE, FALSE));
             if (CompareMem(gVDiskBlockData.Path, pDevPath, gVDiskBlockData.DevicePathCompareLen))
             {
-                debug("Not ventoy disk file system");
+                debug("Not couti disk file system");
                 continue;
             }
 

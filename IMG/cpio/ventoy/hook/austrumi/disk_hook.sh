@@ -36,7 +36,7 @@ else
     exit 0
 fi
 
-ventoy_udev_disk_common_hook "${vtdiskname#/dev/}2"
+ventoy_udev_disk_common_hook "$(ventoy_diskname_to_partname "${vtdiskname#/dev/}" "$COUTI_BOOT_PART")"
 
 # blkdev_num=$($VTOY_PATH/tool/dmsetup ls | grep ventoy | sed 's/.*(\([0-9][0-9]*\),.*\([0-9][0-9]*\).*/\1:\2/')
 # blkdev_num_mknod=$($VTOY_PATH/tool/dmsetup ls | grep ventoy | sed 's/.*(\([0-9][0-9]*\),.*\([0-9][0-9]*\).*/\1 \2/')

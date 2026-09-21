@@ -1,6 +1,6 @@
 #!/bin/sh
 
-hsetroot -fill /usr/share/wallpapers/wallpaper.png
+hsetroot -solid '#101827'
 
 INIFILE=/ventoy/Ventoy2Disk.ini
 

@@ -1,0 +1,1315 @@
+[
+  {
+    "path": "Unix/ventoy_unix/ClonOS/geom_ventoy_ko/13.x/64/geom_ventoy.ko.xz",
+    "original_elf_sha256": "afdda62f8e51de0af070a9fbdd772fc7b57c483697348b562272f09b9e5b01fe",
+    "branded_elf_sha256": "5f9ee0b30c1074af3318baeb8dc200f7f58cb4c9586309ef24bec04b747bcc8e",
+    "changes": [
+      {
+        "offset": 8783,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 8995,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 9343,
+        "old": "ventoy seg ",
+        "new": "Couti  seg "
+      },
+      {
+        "offset": 8655,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 8676,
+        "old": "ventoy.diskuuid:",
+        "new": "Couti .diskuuid:"
+      },
+      {
+        "offset": 9017,
+        "old": "GEOM ventoy support",
+        "new": "GEOM Couti  support"
+      },
+      {
+        "offset": 9218,
+        "old": "GEOM_VENTOY stuff",
+        "new": "GEOM_Couti  stuff"
+      }
+    ]
+  },
+  {
+    "path": "Unix/ventoy_unix/FreeBSD/geom_ventoy_ko/10.x/32/geom_ventoy.ko.xz",
+    "original_elf_sha256": "90447f008d9f374f24803a17819bd0f2c23a6e86e071e1984dd4d68609e0c4a0",
+    "branded_elf_sha256": "3d7300c087c661ce255a91842e0d2d6f2bd41a7e097a44100ae12d83cacc270a",
+    "changes": [
+      {
+        "offset": 12819,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 14032,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 12859,
+        "old": "ventoy remount ",
+        "new": "Couti  remount "
+      },
+      {
+        "offset": 12903,
+        "old": "ventoy alias ",
+        "new": "Couti  alias "
+      },
+      {
+        "offset": 13067,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 13146,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 13120,
+        "old": "ventoy seg ",
+        "new": "Couti  seg "
+      },
+      {
+        "offset": 13842,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 13925,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 13879,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 13981,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 13902,
+        "old": "ventoy.diskuuid:",
+        "new": "Couti .diskuuid:"
+      },
+      {
+        "offset": 14107,
+        "old": "GEOM ventoy support",
+        "new": "GEOM Couti  support"
+      },
+      {
+        "offset": 14075,
+        "old": "GEOM_VENTOY stuff",
+        "new": "GEOM_Couti  stuff"
+      }
+    ]
+  },
+  {
+    "path": "Unix/ventoy_unix/FreeBSD/geom_ventoy_ko/10.x/64/geom_ventoy.ko.xz",
+    "original_elf_sha256": "2b505f2f5fe35a81f5d1f8929b0533840977fee993919405cbf2cc2ac7d02bdb",
+    "branded_elf_sha256": "f88ad4647faac06bdbd680930035ecda4317238b8abfcb769c7356ca65cd29b5",
+    "changes": [
+      {
+        "offset": 6921,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 8150,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 6968,
+        "old": "ventoy remount ",
+        "new": "Couti  remount "
+      },
+      {
+        "offset": 7012,
+        "old": "ventoy alias ",
+        "new": "Couti  alias "
+      },
+      {
+        "offset": 7182,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 7261,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 7235,
+        "old": "ventoy seg ",
+        "new": "Couti  seg "
+      },
+      {
+        "offset": 7960,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 8043,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 7997,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 8099,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 8020,
+        "old": "ventoy.diskuuid:",
+        "new": "Couti .diskuuid:"
+      },
+      {
+        "offset": 8227,
+        "old": "GEOM ventoy support",
+        "new": "GEOM Couti  support"
+      },
+      {
+        "offset": 8195,
+        "old": "GEOM_VENTOY stuff",
+        "new": "GEOM_Couti  stuff"
+      }
+    ]
+  },
+  {
+    "path": "Unix/ventoy_unix/FreeBSD/geom_ventoy_ko/11.x/32/geom_ventoy.ko.xz",
+    "original_elf_sha256": "311d30315143822b2166fa2299640eeaf71fc842ec02250850fc50bc5db14a3c",
+    "branded_elf_sha256": "60f1bd277812e05af07018ad00f48597484f0df40dddeda2041b77f22e7e682d",
+    "changes": [
+      {
+        "offset": 15696,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 16385,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 15736,
+        "old": "ventoy remount ",
+        "new": "Couti  remount "
+      },
+      {
+        "offset": 16051,
+        "old": "ventoy alias ",
+        "new": "Couti  alias "
+      },
+      {
+        "offset": 15878,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 15957,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 15931,
+        "old": "ventoy seg ",
+        "new": "Couti  seg "
+      },
+      {
+        "offset": 16159,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 16242,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 16196,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 16298,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 16219,
+        "old": "ventoy.diskuuid:",
+        "new": "Couti .diskuuid:"
+      },
+      {
+        "offset": 16133,
+        "old": "devalias for ventoy ",
+        "new": "devalias for Couti  "
+      },
+      {
+        "offset": 15425,
+        "old": "GEOM ventoy support",
+        "new": "GEOM Couti  support"
+      },
+      {
+        "offset": 15457,
+        "old": "GEOM_VENTOY stuff",
+        "new": "GEOM_Couti  stuff"
+      }
+    ]
+  },
+  {
+    "path": "Unix/ventoy_unix/FreeBSD/geom_ventoy_ko/11.x/64/geom_ventoy.ko.xz",
+    "original_elf_sha256": "19d811e7580025a2c8c4ca263f187bed78e13bd81518ffa882b3b446befd1236",
+    "branded_elf_sha256": "fc28091dd9734816831045105ca882bb62f50c7f74e0f57a4a66b7e269c753d4",
+    "changes": [
+      {
+        "offset": 8509,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 9207,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 8549,
+        "old": "ventoy remount ",
+        "new": "Couti  remount "
+      },
+      {
+        "offset": 8870,
+        "old": "ventoy alias ",
+        "new": "Couti  alias "
+      },
+      {
+        "offset": 8697,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 8776,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 8750,
+        "old": "ventoy seg ",
+        "new": "Couti  seg "
+      },
+      {
+        "offset": 8981,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 9064,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 9018,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 9120,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 9041,
+        "old": "ventoy.diskuuid:",
+        "new": "Couti .diskuuid:"
+      },
+      {
+        "offset": 8955,
+        "old": "devalias for ventoy ",
+        "new": "devalias for Couti  "
+      },
+      {
+        "offset": 8229,
+        "old": "GEOM ventoy support",
+        "new": "GEOM Couti  support"
+      },
+      {
+        "offset": 8270,
+        "old": "GEOM_VENTOY stuff",
+        "new": "GEOM_Couti  stuff"
+      }
+    ]
+  },
+  {
+    "path": "Unix/ventoy_unix/FreeBSD/geom_ventoy_ko/12.x/32/geom_ventoy.ko.xz",
+    "original_elf_sha256": "fa0acb91d1993a2a94cc721173d268b40a85376ec3e71369a5ddabc44eb2cbdc",
+    "branded_elf_sha256": "2ec73d0b95ad8e8983f20a4ace41d2ea4a9c9560a4e88daa6dc0b7d4e4578ddf",
+    "changes": [
+      {
+        "offset": 15140,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 15753,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 15180,
+        "old": "ventoy remount ",
+        "new": "Couti  remount "
+      },
+      {
+        "offset": 15224,
+        "old": "ventoy alias ",
+        "new": "Couti  alias "
+      },
+      {
+        "offset": 15367,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 15446,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 15420,
+        "old": "ventoy seg ",
+        "new": "Couti  seg "
+      },
+      {
+        "offset": 15527,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 15610,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 15564,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 15666,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 15587,
+        "old": "ventoy.diskuuid:",
+        "new": "Couti .diskuuid:"
+      },
+      {
+        "offset": 14861,
+        "old": "GEOM ventoy support",
+        "new": "GEOM Couti  support"
+      },
+      {
+        "offset": 14901,
+        "old": "GEOM_VENTOY stuff",
+        "new": "GEOM_Couti  stuff"
+      }
+    ]
+  },
+  {
+    "path": "Unix/ventoy_unix/FreeBSD/geom_ventoy_ko/12.x/64/geom_ventoy.ko.xz",
+    "original_elf_sha256": "949e02e4641987a55640299b605cad5e9706db86f2f1c78941254e504da3ee61",
+    "branded_elf_sha256": "a0dbdd968e710c49243185fd0cbdd91701b7f258a9f276c36baa371ea0e55df6",
+    "changes": [
+      {
+        "offset": 681853,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 682086,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 681405,
+        "old": "ventoy remount ",
+        "new": "Couti  remount "
+      },
+      {
+        "offset": 681675,
+        "old": "ventoy alias ",
+        "new": "Couti  alias "
+      },
+      {
+        "offset": 682148,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 682719,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 682512,
+        "old": "ventoy seg ",
+        "new": "Couti  seg "
+      },
+      {
+        "offset": 682346,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 682549,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 681706,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 681752,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 681729,
+        "old": "ventoy.diskuuid:",
+        "new": "Couti .diskuuid:"
+      },
+      {
+        "offset": 682117,
+        "old": "GEOM ventoy support",
+        "new": "GEOM Couti  support"
+      },
+      {
+        "offset": 682403,
+        "old": "GEOM_VENTOY stuff",
+        "new": "GEOM_Couti  stuff"
+      }
+    ]
+  },
+  {
+    "path": "Unix/ventoy_unix/FreeBSD/geom_ventoy_ko/13.x/32/geom_ventoy.ko.xz",
+    "original_elf_sha256": "dcb4c7f2b17f4b8222e23b0ed875ad1e8e4222c2fe3377acd5334bcdefe7734e",
+    "branded_elf_sha256": "a1e6a935bb26bfe75b32303601106cbf76d96bf4847d22a767a5fab327a02a05",
+    "changes": [
+      {
+        "offset": 7449,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 7682,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 6965,
+        "old": "ventoy remount ",
+        "new": "Couti  remount "
+      },
+      {
+        "offset": 7271,
+        "old": "ventoy alias ",
+        "new": "Couti  alias "
+      },
+      {
+        "offset": 7744,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 8331,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 8124,
+        "old": "ventoy seg ",
+        "new": "Couti  seg "
+      },
+      {
+        "offset": 7942,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 8161,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 7302,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 7348,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 7325,
+        "old": "ventoy.diskuuid:",
+        "new": "Couti .diskuuid:"
+      },
+      {
+        "offset": 7713,
+        "old": "GEOM ventoy support",
+        "new": "GEOM Couti  support"
+      },
+      {
+        "offset": 7999,
+        "old": "GEOM_VENTOY stuff",
+        "new": "GEOM_Couti  stuff"
+      }
+    ]
+  },
+  {
+    "path": "Unix/ventoy_unix/FreeBSD/geom_ventoy_ko/13.x/64/geom_ventoy.ko.xz",
+    "original_elf_sha256": "684f11ac9ca90ae99dedf43d6c72f756849a19e93d83bcba483f1c96cb52bec6",
+    "branded_elf_sha256": "79316a209da3167935ff9189cdbb61657780a39f6b11be3d6bf4333775727896",
+    "changes": [
+      {
+        "offset": 8937,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 9170,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 8453,
+        "old": "ventoy remount ",
+        "new": "Couti  remount "
+      },
+      {
+        "offset": 8759,
+        "old": "ventoy alias ",
+        "new": "Couti  alias "
+      },
+      {
+        "offset": 9232,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 9819,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 9612,
+        "old": "ventoy seg ",
+        "new": "Couti  seg "
+      },
+      {
+        "offset": 9430,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 9649,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 8790,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 8836,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 8813,
+        "old": "ventoy.diskuuid:",
+        "new": "Couti .diskuuid:"
+      },
+      {
+        "offset": 9201,
+        "old": "GEOM ventoy support",
+        "new": "GEOM Couti  support"
+      },
+      {
+        "offset": 9487,
+        "old": "GEOM_VENTOY stuff",
+        "new": "GEOM_Couti  stuff"
+      }
+    ]
+  },
+  {
+    "path": "Unix/ventoy_unix/FreeBSD/geom_ventoy_ko/14.x/32/geom_ventoy.ko.xz",
+    "original_elf_sha256": "8396e1a73260743f186f9e10e037b4ae4212a50b900f9269a738e8511c3250e8",
+    "branded_elf_sha256": "be5b8c9daa6a7d13184f5cf6b4583eb24a5ff46cadd6fd896081048118e10707",
+    "changes": [
+      {
+        "offset": 4400,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 4761,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 5102,
+        "old": "ventoy remount ",
+        "new": "Couti  remount "
+      },
+      {
+        "offset": 4561,
+        "old": "ventoy alias ",
+        "new": "Couti  alias "
+      },
+      {
+        "offset": 4803,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 5191,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 5067,
+        "old": "ventoy seg ",
+        "new": "Couti  seg "
+      },
+      {
+        "offset": 4669,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 4874,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 4906,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 5305,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 4112,
+        "old": "ventoy.diskuuid:",
+        "new": "Couti .diskuuid:"
+      },
+      {
+        "offset": 5278,
+        "old": "GEOM ventoy support",
+        "new": "GEOM Couti  support"
+      },
+      {
+        "offset": 4194,
+        "old": "GEOM_VENTOY stuff",
+        "new": "GEOM_Couti  stuff"
+      }
+    ]
+  },
+  {
+    "path": "Unix/ventoy_unix/FreeBSD/geom_ventoy_ko/14.x/64/geom_ventoy.ko.xz",
+    "original_elf_sha256": "e0af7b1a051ea6345f38d9ffcd4d985d5c159223f1688ace4cb5bbb314819739",
+    "branded_elf_sha256": "fe836620f64b85b0eef025ecce2b2d04bb4a78cb36ca8a4f6efccbcbcf04fd1f",
+    "changes": [
+      {
+        "offset": 12784,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 13145,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 13486,
+        "old": "ventoy remount ",
+        "new": "Couti  remount "
+      },
+      {
+        "offset": 12945,
+        "old": "ventoy alias ",
+        "new": "Couti  alias "
+      },
+      {
+        "offset": 13187,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 13575,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 13451,
+        "old": "ventoy seg ",
+        "new": "Couti  seg "
+      },
+      {
+        "offset": 13053,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 13258,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 13290,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 13689,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 12496,
+        "old": "ventoy.diskuuid:",
+        "new": "Couti .diskuuid:"
+      },
+      {
+        "offset": 13662,
+        "old": "GEOM ventoy support",
+        "new": "GEOM Couti  support"
+      },
+      {
+        "offset": 12578,
+        "old": "GEOM_VENTOY stuff",
+        "new": "GEOM_Couti  stuff"
+      }
+    ]
+  },
+  {
+    "path": "Unix/ventoy_unix/FreeBSD/geom_ventoy_ko/15.x/64/geom_ventoy.ko.xz",
+    "original_elf_sha256": "aa8b2721b6adacd7d083821de69394debe3c9f50b2cf94144b658b3c30ccbb3b",
+    "branded_elf_sha256": "444be614093d9772d5a37bbbd292d96365f07ab35a3f6aeda0596f1efe2ba53d",
+    "changes": [
+      {
+        "offset": 12805,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 12933,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 13250,
+        "old": "ventoy remount ",
+        "new": "Couti  remount "
+      },
+      {
+        "offset": 12512,
+        "old": "ventoy alias ",
+        "new": "Couti  alias "
+      },
+      {
+        "offset": 12667,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 13901,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 13371,
+        "old": "ventoy seg ",
+        "new": "Couti  seg "
+      },
+      {
+        "offset": 13386,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 13923,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 12759,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 13569,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 13456,
+        "old": "ventoy.diskuuid:",
+        "new": "Couti .diskuuid:"
+      },
+      {
+        "offset": 13519,
+        "old": "GEOM ventoy support",
+        "new": "GEOM Couti  support"
+      },
+      {
+        "offset": 13539,
+        "old": "GEOM_VENTOY stuff",
+        "new": "GEOM_Couti  stuff"
+      }
+    ]
+  },
+  {
+    "path": "Unix/ventoy_unix/FreeBSD/geom_ventoy_ko/9.x/32/geom_ventoy.ko.xz",
+    "original_elf_sha256": "afba392db595fe0258b96f5348147d8789ccf05bab193cb8df32b0b55f3c374a",
+    "branded_elf_sha256": "39aa88e8ea635e8ee896d98f79b8167471f3b6e6d81854a814129f94732063c0",
+    "changes": [
+      {
+        "offset": 14484,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 14513,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 14553,
+        "old": "ventoy remount ",
+        "new": "Couti  remount "
+      },
+      {
+        "offset": 14597,
+        "old": "ventoy alias ",
+        "new": "Couti  alias "
+      },
+      {
+        "offset": 14846,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 14925,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 14899,
+        "old": "ventoy seg ",
+        "new": "Couti  seg "
+      },
+      {
+        "offset": 14266,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 14349,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 14303,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 14405,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 14326,
+        "old": "ventoy.diskuuid:",
+        "new": "Couti .diskuuid:"
+      },
+      {
+        "offset": 15166,
+        "old": "GEOM ventoy support",
+        "new": "GEOM Couti  support"
+      },
+      {
+        "offset": 15134,
+        "old": "GEOM_VENTOY stuff",
+        "new": "GEOM_Couti  stuff"
+      }
+    ]
+  },
+  {
+    "path": "Unix/ventoy_unix/FreeBSD/geom_ventoy_ko/9.x/64/geom_ventoy.ko.xz",
+    "original_elf_sha256": "34687765daa3b2999a9ce47681440a9ab9458aa1d7ffcbb391ef6c4edd099ae4",
+    "branded_elf_sha256": "f8471fa1af013c9aa6e0b7c056d19b5e62efc0a81344c96847cee001c9ff5e46",
+    "changes": [
+      {
+        "offset": 7578,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 8287,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 8319,
+        "old": "ventoy remount ",
+        "new": "Couti  remount "
+      },
+      {
+        "offset": 8359,
+        "old": "ventoy alias ",
+        "new": "Couti  alias "
+      },
+      {
+        "offset": 8398,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 8475,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 8448,
+        "old": "ventoy seg ",
+        "new": "Couti  seg "
+      },
+      {
+        "offset": 8200,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 8232,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 7437,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 7499,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 7460,
+        "old": "ventoy.diskuuid:",
+        "new": "Couti .diskuuid:"
+      },
+      {
+        "offset": 8032,
+        "old": "GEOM ventoy support",
+        "new": "GEOM Couti  support"
+      },
+      {
+        "offset": 8000,
+        "old": "GEOM_VENTOY stuff",
+        "new": "GEOM_Couti  stuff"
+      }
+    ]
+  },
+  {
+    "path": "Unix/ventoy_unix/MidnightBSD/geom_ventoy_ko/11.x/32/geom_ventoy.ko.xz",
+    "original_elf_sha256": "bf77ccf0e8e32d37063eb8a765b56f2ee3d54364edc208ac02b048d128937612",
+    "branded_elf_sha256": "ebc6f45e7664a4d9a8e6ddb5c06cce77c444f5f2a1d2716368cfb40703c44cc3",
+    "changes": [
+      {
+        "offset": 11639,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 11757,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 11742,
+        "old": "ventoy seg ",
+        "new": "Couti  seg "
+      },
+      {
+        "offset": 12552,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 12582,
+        "old": "ventoy.diskuuid:",
+        "new": "Couti .diskuuid:"
+      },
+      {
+        "offset": 12679,
+        "old": "GEOM ventoy support",
+        "new": "GEOM Couti  support"
+      },
+      {
+        "offset": 12647,
+        "old": "GEOM_VENTOY stuff",
+        "new": "GEOM_Couti  stuff"
+      }
+    ]
+  },
+  {
+    "path": "Unix/ventoy_unix/MidnightBSD/geom_ventoy_ko/11.x/64/geom_ventoy.ko.xz",
+    "original_elf_sha256": "23d61468c568c13a30ad13507e1e432db20ab3b722d2d22b7fddc79c9aed5e87",
+    "branded_elf_sha256": "862a262acc6eed869f95f38782a647697817a52cc85655c1c46b4ad50d5c1be3",
+    "changes": [
+      {
+        "offset": 6156,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 6281,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 6266,
+        "old": "ventoy seg ",
+        "new": "Couti  seg "
+      },
+      {
+        "offset": 7079,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 7109,
+        "old": "ventoy.diskuuid:",
+        "new": "Couti .diskuuid:"
+      },
+      {
+        "offset": 7208,
+        "old": "GEOM ventoy support",
+        "new": "GEOM Couti  support"
+      },
+      {
+        "offset": 7176,
+        "old": "GEOM_VENTOY stuff",
+        "new": "GEOM_Couti  stuff"
+      }
+    ]
+  },
+  {
+    "path": "Unix/ventoy_unix/MidnightBSD/geom_ventoy_ko/2.x/32/geom_ventoy.ko.xz",
+    "original_elf_sha256": "0d3487b7a314ddc2f6ca9bfc222b75346fccfc3e7a151c2a6e22b76c386005ac",
+    "branded_elf_sha256": "42b014656eb42149593fbaeef98897f95bb6f6fec80feeb3be5c764c29c8dbc4",
+    "changes": [
+      {
+        "offset": 11567,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 11685,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 11670,
+        "old": "ventoy seg ",
+        "new": "Couti  seg "
+      },
+      {
+        "offset": 11775,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 11805,
+        "old": "ventoy.diskuuid:",
+        "new": "Couti .diskuuid:"
+      },
+      {
+        "offset": 11293,
+        "old": "GEOM ventoy support",
+        "new": "GEOM Couti  support"
+      },
+      {
+        "offset": 11325,
+        "old": "GEOM_VENTOY stuff",
+        "new": "GEOM_Couti  stuff"
+      }
+    ]
+  },
+  {
+    "path": "Unix/ventoy_unix/MidnightBSD/geom_ventoy_ko/2.x/64/geom_ventoy.ko.xz",
+    "original_elf_sha256": "e6342e6a6303205e4ec653ad60e1f37d5a98c07abe58c4c8980475ea1fe3aacb",
+    "branded_elf_sha256": "acb451069b54d5b524f981ca0764385f90ab07fc04874d1ba5e2cf23a46b550e",
+    "changes": [
+      {
+        "offset": 6616,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 6734,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 6719,
+        "old": "ventoy seg ",
+        "new": "Couti  seg "
+      },
+      {
+        "offset": 6824,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 6854,
+        "old": "ventoy.diskuuid:",
+        "new": "Couti .diskuuid:"
+      },
+      {
+        "offset": 6333,
+        "old": "GEOM ventoy support",
+        "new": "GEOM Couti  support"
+      },
+      {
+        "offset": 6374,
+        "old": "GEOM_VENTOY stuff",
+        "new": "GEOM_Couti  stuff"
+      }
+    ]
+  },
+  {
+    "path": "Unix/ventoy_unix/pfSense/geom_ventoy_ko/14.x/64/geom_ventoy.ko.xz",
+    "original_elf_sha256": "864caa75c1f51f1ce4b711feda8e132c06a5c385973830c54e39a638a2151f7a",
+    "branded_elf_sha256": "349e94e3806e0efdcea920503c1fd7da9550a444766afca5d16f941460ca3a27",
+    "changes": [
+      {
+        "offset": 12784,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 13145,
+        "old": "ventoy disk ",
+        "new": "Couti  disk "
+      },
+      {
+        "offset": 13486,
+        "old": "ventoy remount ",
+        "new": "Couti  remount "
+      },
+      {
+        "offset": 12945,
+        "old": "ventoy alias ",
+        "new": "Couti  alias "
+      },
+      {
+        "offset": 13187,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 13575,
+        "old": "ventoy segment",
+        "new": "Couti  segment"
+      },
+      {
+        "offset": 13451,
+        "old": "ventoy seg ",
+        "new": "Couti  seg "
+      },
+      {
+        "offset": 13053,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 13258,
+        "old": "ventoy map data ",
+        "new": "Couti  map data "
+      },
+      {
+        "offset": 13290,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 13689,
+        "old": "ventoy.disksize:",
+        "new": "Couti .disksize:"
+      },
+      {
+        "offset": 12496,
+        "old": "ventoy.diskuuid:",
+        "new": "Couti .diskuuid:"
+      },
+      {
+        "offset": 13662,
+        "old": "GEOM ventoy support",
+        "new": "GEOM Couti  support"
+      },
+      {
+        "offset": 12578,
+        "old": "GEOM_VENTOY stuff",
+        "new": "GEOM_Couti  stuff"
+      }
+    ]
+  },
+  {
+    "path": "Unix/ventoy_unix/DragonFly/sbin/init",
+    "original_elf_sha256": "26f323882cf70f5342c993d55f77c6d805855a3d03bd72e8e62215a2c21508bd",
+    "branded_elf_sha256": "8137a56021237e505ac86922be8bd87ecc527ec8d52010dad73e25c8f3648b4f",
+    "original_filesystem_sha256": "b62b14cec33a7348ec06e9f909886681479a7f25e150f83288c62ccb2068b329",
+    "branded_filesystem_sha256": "94ee1f62e9bca2cac19f567fdd006017ed7f690fd422e08fa252db83bd6a93a8",
+    "changes": [
+      {
+        "offset": 506293,
+        "old": "Ventoy Init Start",
+        "new": "Couti  Init Start",
+        "filesystem_offset": 1194421
+      }
+    ]
+  }
+]

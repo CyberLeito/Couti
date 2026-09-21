@@ -1,8 +1,8 @@
 {
     "VTLANG_LANGUAGE_NAME": "Greek (Ελληνικά)",
     
-    "VTLANG_STR_HOTKEY_LIST": "L:Γλώσσα  F1:Βοήθεια  F2:Περιήγηση  F3:Προβολή Λίστας  F4:Εκκίνηση από τοπικό δίσκο  F5:Εργαλεία  F6:Προσ. Μενού",
-    "VTLANG_STR_HOTKEY_TREE": "L:Γλώσσα  F1:Βοήθεια  F2:Περιήγηση  F3:Προβολή Δένδρου  F4:Εκκίνηση από τοπικό δίσκο  F5:Εργαλεία  F6:Προσ. Μενού",
+    "VTLANG_STR_HOTKEY_LIST": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
+    "VTLANG_STR_HOTKEY_TREE": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
     "VTLANG_RETURN_PREVIOUS": "Επιστροφή στο προηγούμενο μενού [Esc]",
     "VTLANG_RETURN_PRV_NOESC": "Επιστροφή στο προηγούμενο μενού",
     
@@ -43,11 +43,11 @@
     
     "VTLANG_THEME_SELECT": "Επιλογή Θέματος",
     
-    "VTLANG_UEFI_UTIL": "Εργαλεία Ventoy UEFI",
+    "VTLANG_UEFI_UTIL": "Εργαλεία Couti UEFI",
     "VTLANG_UTIL_SHOW_EFI_DRV": "Προβολή EFI Drivers",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Διόρθωση αποτυχίας Windows BlinitializeLibrary",
     
-    "VTLANG_JSON_CHK_JSON": "Ελεγχος διαμόρφωσης json πρόσθετων (ventoy.json)",
+    "VTLANG_JSON_CHK_JSON": "Ελεγχος διαμόρφωσης json πρόσθετων",
     "VTLANG_JSON_CHK_CONTROL": "Ελεγχος διαμόρφωσης του πρόσθετου καθολικού ελέγχου",
     "VTLANG_JSON_CHK_THEME": "Ελεγχος διαμόρφωσης του πρόσθετου θέματος",
     "VTLANG_JSON_CHK_AUTOINS": "Ελεγχος διαμόρφωσης του πρόσθετου αυτόματης εγκατάστασης",
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Προσωρινές ρυθμίσεις ελέγχου",
     "VTLANG_WIN11_BYPASS_CHECK": "Παράκαμψη ελέγχου CPU/TPM/SecureBoot κατά την εγκατάσταση των Windows 11",
     "VTLANG_WIN11_BYPASS_NRO": "Παράκαμψη της απαίτησης online λογαριασμού κατά την εγκατάσταση των Windows 11",
-    "VTLANG_LINUX_REMOUNT": "Προσάρτηση διαμερίσματος Ventoy μετά την εκκίνηση του Linux",
+    "VTLANG_LINUX_REMOUNT": "Προσάρτηση διαμερίσματος Couti μετά την εκκίνηση του Linux",
     "VTLANG_SECONDARY_BOOT_MENU": "Εμφάνιση δευτερεύοντος μενού εκκίνησης",
      "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

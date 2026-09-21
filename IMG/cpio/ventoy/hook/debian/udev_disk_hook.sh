@@ -91,7 +91,7 @@ ventoy_os_install_dmsetup() {
     fi
 }
 
-if is_ventoy_hook_finished || not_ventoy_disk "${1:0:-1}"; then
+if is_ventoy_hook_finished || not_ventoy_disk "$(ventoy_partname_to_diskname "$1")"; then
     exit 0
 fi
 
@@ -99,11 +99,11 @@ vtlog "==== $0 $* ===="
 
 dmsetup_path=$(ventoy_find_bin_path dmsetup)
 if [ -z "$dmsetup_path" ]; then
-    ventoy_os_install_dmsetup "/dev/${1:0:-1}"
+    ventoy_os_install_dmsetup "/dev/$(ventoy_partname_to_diskname "$1")"
 fi
 
 if ! $GREP -q 'device-mapper' /proc/devices; then
-    ventoy_os_install_dmsetup "/dev/${1:0:-1}"
+    ventoy_os_install_dmsetup "/dev/$(ventoy_partname_to_diskname "$1")"
 fi
 
 ventoy_udev_disk_common_hook $*
@@ -119,7 +119,7 @@ if [ -n "$ID_BUS" ]; then
         VT_BUS_USB="YES"
     fi
 else
-    if $BUSYBOX_PATH/ls -l /sys/class/block/${1:0:-1} | $GREP -q -i usb; then
+    if $BUSYBOX_PATH/ls -l /sys/class/block/$(ventoy_partname_to_diskname "$1") | $GREP -q -i usb; then
         VT_BUS_USB="YES"
     fi
 fi

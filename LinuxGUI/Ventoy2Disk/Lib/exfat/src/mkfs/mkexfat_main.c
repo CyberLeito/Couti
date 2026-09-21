@@ -255,7 +255,7 @@ int mkexfat_main(const char *devpath, int fd, uint64_t part_sector_count)
 	dev = exfat_open(devpath, EXFAT_MODE_RW);
 	if (dev == NULL)
 		return 1;
-	if (setup(dev, 9, spc_bits, "Ventoy", volume_serial, first_sector) != 0)
+	if (setup(dev, 9, spc_bits, "Couti", volume_serial, first_sector) != 0)
 	{
 		exfat_close(dev);
 		return 1;

@@ -1,8 +1,8 @@
 {
     "VTLANG_LANGUAGE_NAME": "Ukrainian (Українська)",
     
-    "VTLANG_STR_HOTKEY_LIST": "L:Мова  F1:Довідка  F2:Перегляд  F3:Вид списком  F4:Локальне завантаження  F5:Інструменти  F6:Вийти з меню",
-    "VTLANG_STR_HOTKEY_TREE": "L:Мова  F1:Довідка  F2:Перегляд  F3:Вид деревом  F4:Локальне завантаження  F5:Інструменти  F6:Вийти з меню",
+    "VTLANG_STR_HOTKEY_LIST": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
+    "VTLANG_STR_HOTKEY_TREE": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
     "VTLANG_RETURN_PREVIOUS": "Повернутись до попереднього меню [Esc]",
     "VTLANG_RETURN_PRV_NOESC": "Повернутись до попереднього меню",
     
@@ -43,11 +43,11 @@
     
     "VTLANG_THEME_SELECT": "Теми",
     
-    "VTLANG_UEFI_UTIL": "Утиліти Ventoy UEFI",
+    "VTLANG_UEFI_UTIL": "Утиліти Couti UEFI",
     "VTLANG_UTIL_SHOW_EFI_DRV": "Показати драйвери EFI",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Виправити помилку Windows 'BlinitializeLibrary Failure'",
     
-    "VTLANG_JSON_CHK_JSON": "Перевірити налаштування плагіну 'json' (ventoy.json)",
+    "VTLANG_JSON_CHK_JSON": "Перевірити налаштування плагіну 'json'",
     "VTLANG_JSON_CHK_CONTROL": "Перевірити налаштування плагіну 'global control'",
     "VTLANG_JSON_CHK_THEME": "Перевірити налаштування плагіну 'theme'",
     "VTLANG_JSON_CHK_AUTOINS": "Перевірити налаштування плагіну 'auto install'",
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Різні налаштування",
     "VTLANG_WIN11_BYPASS_CHECK": "Обійти перевірку CPU/TPM/SecureBoot під час інсталяції Windows 11",
     "VTLANG_WIN11_BYPASS_NRO": "Обійти вимогу онлайн-аккаунту під час інсталяції Windows 11",
-    "VTLANG_LINUX_REMOUNT": "Монтувати розділ Ventoy після завантаження Linux",
+    "VTLANG_LINUX_REMOUNT": "Монтувати розділ Couti після завантаження Linux",
     "VTLANG_SECONDARY_BOOT_MENU": "Показувати вторинне меню завантаження",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

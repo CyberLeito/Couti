@@ -71,13 +71,13 @@
 #define VTOY_PLAT_X86_LEGACY    0x42494f53
 #define VTOY_PLAT_MIPS_UEFI     0x4D495053
 
-#define VTOY_COMM_CPIO  "ventoy.cpio"
+#define VTOY_COMM_CPIO  "couti.cpio"
 #if defined(__arm__) || defined(__aarch64__)
-#define VTOY_ARCH_CPIO  "ventoy_arm64.cpio"
+#define VTOY_ARCH_CPIO  "couti_arm64.cpio"
 #elif defined(__mips__)
-#define VTOY_ARCH_CPIO  "ventoy_mips64.cpio"
+#define VTOY_ARCH_CPIO  "couti_mips64.cpio"
 #else
-#define VTOY_ARCH_CPIO  "ventoy_x86.cpio"
+#define VTOY_ARCH_CPIO  "couti_x86.cpio"
 #endif
 
 #define ventoy_left_key     "VTLE_LFT"
@@ -1327,6 +1327,9 @@ extern char g_iso_path[256];
 int ventoy_add_vlnk_file(char *dir, const char *name);
 grub_err_t ventoy_cmd_browser_dir(grub_extcmd_context_t ctxt, int argc, char **args);
 grub_err_t ventoy_cmd_browser_disk(grub_extcmd_context_t ctxt, int argc, char **args);
+grub_err_t ventoy_cmd_couti_find_boot(grub_extcmd_context_t ctxt, int argc, char **args);
+grub_err_t ventoy_cmd_couti_layout(grub_extcmd_context_t ctxt, int argc, char **args);
+grub_err_t ventoy_cmd_browser_home(grub_extcmd_context_t ctxt, int argc, char **args);
 int ventoy_get_fs_type(const char *fs);
 int ventoy_img_name_valid(const char *filename, grub_size_t namelen);
 void * ventoy_alloc_chain(grub_size_t size);

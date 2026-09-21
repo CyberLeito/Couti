@@ -32,6 +32,12 @@ VTOY_DM_PATH=/dev/mapper/ventoy
 VTOY_DEBUG_LEVEL=$($BUSYBOX_PATH/hexdump -n 1 -s 450 -e '1/1 "%02x"' $VTOY_PATH/ventoy_os_param)
 VTOY_LINUX_REMOUNT=$($BUSYBOX_PATH/hexdump -n 1 -s 454 -e '1/1 "%02x"' $VTOY_PATH/ventoy_os_param)
 VTOY_VLNK_BOOT=$($BUSYBOX_PATH/hexdump -n 1 -s 455 -e '1/1 "%02x"' $VTOY_PATH/ventoy_os_param)
+COUTI_BOOT_PART=2
+if [ "$($BUSYBOX_PATH/hexdump -n 1 -s 461 -e '1/1 "%02x"' $VTOY_PATH/ventoy_os_param)" = "43" ]; then
+    COUTI_BOOT_PART=$($BUSYBOX_PATH/hexdump -n 1 -s 462 -e '1/1 "%u"' $VTOY_PATH/ventoy_os_param)
+fi
+export COUTI_BOOT_PART
+
 
 if [ "$VTOY_DEBUG_LEVEL" = "01" ]; then
     if [ -e /dev/console ]; then
@@ -104,9 +110,9 @@ wait_for_usb_disk_ready() {
         vtlog "wait_for_usb_disk_ready $usb_disk ..."
         
         if echo $usb_disk | $EGREP -q "nvme|mmc|nbd"; then
-            vtpart2=${usb_disk}p2
+            vtpart2=${usb_disk}p${COUTI_BOOT_PART}
         else
-            vtpart2=${usb_disk}2
+            vtpart2=${usb_disk}${COUTI_BOOT_PART}
         fi
         
         if [ -e "${vtpart2}" ]; then
@@ -127,9 +133,9 @@ wait_for_usb_disk_ready() {
 
 check_usb_disk_ready() {
     if echo $1 | $EGREP -q "nvme|mmc|nbd"; then
-        vtpart2=${1}p2
+        vtpart2=${1}p${COUTI_BOOT_PART}
     else
-        vtpart2=${1}2
+        vtpart2=${1}${COUTI_BOOT_PART}
     fi
     
     [ -e "${vtpart2}" ]
@@ -526,28 +532,22 @@ ventoy_create_persistent_link() {
 }
 
 ventoy_partname_to_diskname() {
-    if echo $1 | $EGREP -q "nvme.*p[0-9]$|mmc.*p[0-9]$|nbd.*p[0-9]$"; then
-        echo -n "${1:0:-2}"    
-    else
-        echo -n "${1:0:-1}"
-    fi
+    case "$1" in
+        *[0-9]p[0-9]*) echo "$1" | $SED 's/p[0-9][0-9]*$//' ;;
+        *) echo "$1" | $SED 's/[0-9][0-9]*$//' ;;
+    esac
 }
 
 ventoy_diskname_to_partname() {
-    if echo $1 | $EGREP -q "nvme.*p[0-9]$|mmc.*p[0-9]$|nbd.*p[0-9]$"; then
-        echo -n "${1}p$2"
-    else
-        echo -n "${1}$2"
-    fi
+    case "$1" in
+        *[0-9]) echo -n "${1}p$2" ;;
+        *) echo -n "${1}$2" ;;
+    esac
 }
 
-ventoy_udev_disk_common_hook() {    
-    if echo $1 | $EGREP -q "nvme.*p[0-9]$|mmc.*p[0-9]$|nbd.*p[0-9]$"; then
-        VTDISK="${1:0:-2}"    
-    else
-        VTDISK="${1:0:-1}"
-    fi
-    
+ventoy_udev_disk_common_hook() {
+    VTDISK=$(ventoy_partname_to_diskname "$1")
+
     if [ -e /vtoy/vtoy ]; then
         VTRWMOD=""
     else
@@ -684,7 +684,7 @@ ventoy_extract_vtloopex() {
     $BUSYBOX_PATH/mkdir -p $VTOY_PATH/partmnt $VTOY_PATH/vtloopex
     $BUSYBOX_PATH/mount -o ro -t vfat $1  $VTOY_PATH/partmnt
     cd $VTOY_PATH/vtloopex
-    $CAT $VTOY_PATH/partmnt/ventoy/vtloopex.cpio | $BUSYBOX_PATH/cpio -idm >> $VTLOG 2>&1
+    $CAT $VTOY_PATH/partmnt/couti/vtloopex.cpio | $BUSYBOX_PATH/cpio -idm >> $VTLOG 2>&1
     $BUSYBOX_PATH/umount $VTOY_PATH/partmnt
     $BUSYBOX_PATH/rm -rf $VTOY_PATH/partmnt    
 

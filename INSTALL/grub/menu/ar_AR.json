@@ -1,8 +1,8 @@
 {
     "VTLANG_LANGUAGE_NAME": "Arabic (العربية)",
     
-    "VTLANG_STR_HOTKEY_LIST": "L: لغة F1: مساعدة F2: تصفح F3: عرض لائحي F4: إقلاع محلي F5: أدوات F6: عوده",
-    "VTLANG_STR_HOTKEY_TREE": "L: لغة F1: مساعدة F2: تصفح F3: عرض شجري F4: إقلاع محلي F5: أدوات F6: عوده",
+    "VTLANG_STR_HOTKEY_LIST": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
+    "VTLANG_STR_HOTKEY_TREE": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
     "VTLANG_RETURN_PREVIOUS": "عودة إلى القائمة السابقة [Esc]",
     "VTLANG_RETURN_PRV_NOESC": "عودة إلى القائمة السابقة",
     
@@ -43,11 +43,11 @@
     
     "VTLANG_THEME_SELECT": "اختر السمة",
     
-    "VTLANG_UEFI_UTIL": "أدوات Ventoy UEFI المساعدة",
+    "VTLANG_UEFI_UTIL": "أدوات Couti UEFI المساعدة",
     "VTLANG_UTIL_SHOW_EFI_DRV": "عرض برامج تشغيل EFI",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "إصلاح فشل تهيئة Windows BlinitializeLibrary",
     
-    "VTLANG_JSON_CHK_JSON": "التحقق من تكوين json للبرنامج الإضافي (ventoy.json)",
+    "VTLANG_JSON_CHK_JSON": "التحقق من تكوين json للبرنامج الإضافي",
     "VTLANG_JSON_CHK_CONTROL": "التحقق من تكوين برنامج الإضافي العام للتحكم",
     "VTLANG_JSON_CHK_THEME": "التحقق من تكوين برنامج الإضافي الخاص بالسمة",
     "VTLANG_JSON_CHK_AUTOINS": "التحقق من تكوين برنامج الإضافي للتثبيت التلقائي",
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "إعدادات التحكم المؤقتة",
     "VTLANG_WIN11_BYPASS_CHECK": "تجاوز فحص CPU/TPM/SecureBoot عند تثبيت Windows 11",
     "VTLANG_WIN11_BYPASS_NRO": "تجاوز متطلبات الحساب عبر الإنترنت عند تثبيت Windows 11",
-    "VTLANG_LINUX_REMOUNT": "ضم قسم Ventoy بعد إقلاع Linux",
+    "VTLANG_LINUX_REMOUNT": "ضم قسم Couti بعد إقلاع Linux",
     "VTLANG_SECONDARY_BOOT_MENU": "اظهر قائمة الإقلاع الثانوية",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

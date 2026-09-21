@@ -184,7 +184,7 @@ done
 if [ "$VTOY_BREAK_LEVEL" = "02" ] || [ "$VTOY_BREAK_LEVEL" = "12" ]; then
     sleep 5    
     echo -e "\n\n\033[32m ################################################# \033[0m"
-    echo -e "\033[32m ################ VENTOY DEBUG ################### \033[0m"
+    echo -e "\033[32m ################ COUTI DEBUG ################### \033[0m"
     echo -e "\033[32m ################################################# \033[0m \n"   
     if [ "$VTOY_BREAK_LEVEL" = "12" ]; then 
         cat $VTOY_PATH/log
@@ -200,7 +200,7 @@ fi
 ####################################################################
 ventoy_unpack_injection() {
     vtmagic=$(hexdump -n 2 -e '2/1 "%02X"' $VTOY_PATH/ventoy_injection)
-    echo "ventoy_unpack_injection  vtmagic=$vtmagic ..."
+    echo "Couti unpack injection  vtmagic=$vtmagic ..."
     
     if [ "1F8B" = "$vtmagic" ] || [ "1F9E" = "$vtmagic" ]; then
         echo "tar.gz  tar -xzvf"

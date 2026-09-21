@@ -14,7 +14,7 @@ if ! [ -e $VENTOY_PATH/INSTALL/ventoy-${version}-linux.tar.gz ]; then
     exit 1
 fi
 
-echo "Ventoy LiveCD GUI $version"
+echo "Couti LiveCD GUI $version"
 
 [ -d _INITRD_ ] && rm -rf _INITRD_
 mkdir _INITRD_

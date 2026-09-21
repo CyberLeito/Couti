@@ -18,7 +18,7 @@ fi
 
 vtlog "vtdiskname=$vtdiskname"
 
-ventoy_udev_disk_common_hook "${vtdiskname#/dev/}2" "noreplace"
+ventoy_udev_disk_common_hook "$(ventoy_diskname_to_partname "${vtdiskname#/dev/}" "$COUTI_BOOT_PART")" "noreplace"
 
 # OK finish
 set_ventoy_hook_finish

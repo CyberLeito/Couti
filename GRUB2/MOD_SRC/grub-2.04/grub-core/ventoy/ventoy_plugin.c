@@ -243,19 +243,19 @@ static int ventoy_plugin_theme_check(VTOY_JSON *json, const char *isodisk)
     value = vtoy_json_get_string_ex(json->pstChild, "ventoy_left");
     if (value)
     {
-        grub_printf("ventoy_left: %s\n", value);
+        grub_printf("Theme left: %s\n", value);
     }
 
     value = vtoy_json_get_string_ex(json->pstChild, "ventoy_top");
     if (value)
     {
-        grub_printf("ventoy_top: %s\n", value);
+        grub_printf("Theme top: %s\n", value);
     }
 
     value = vtoy_json_get_string_ex(json->pstChild, "ventoy_color");
     if (value)
     {
-        grub_printf("ventoy_color: %s\n", value);
+        grub_printf("Theme color: %s\n", value);
     }
 
     node = vtoy_json_find_item(json->pstChild, JSON_TYPE_ARRAY, "fonts");
@@ -3262,7 +3262,7 @@ grub_err_t ventoy_cmd_plugin_check_json(grub_extcmd_context_t ctxt, int argc, ch
     file = ventoy_grub_file_open(GRUB_FILE_TYPE_LINUX_INITRD, "%s/ventoy/ventoy.json", args[0]);
     if (!file)
     {
-        grub_printf("Plugin json file /ventoy/ventoy.json does NOT exist.\n");
+        grub_printf("Plugin JSON configuration file does NOT exist.\n");
         grub_printf("Attention: directory name and filename are both case-sensitive.\n");
         goto end;
     }
@@ -3287,7 +3287,7 @@ grub_err_t ventoy_cmd_plugin_check_json(grub_extcmd_context_t ctxt, int argc, ch
     ret = vtoy_json_parse(json, buf);
     if (ret)
     {
-        grub_printf("Syntax error detected in ventoy.json, please check it.\n");
+        grub_printf("Syntax error detected in the plugin JSON configuration, please check it.\n");
         goto end;
     }
 
@@ -3312,7 +3312,7 @@ grub_err_t ventoy_cmd_plugin_check_json(grub_extcmd_context_t ctxt, int argc, ch
 
         if (!node)
         {
-            grub_printf("%s is NOT found in ventoy.json\n", args[1]);
+            grub_printf("%s is NOT found in the plugin JSON configuration\n", args[1]);
             goto end;
         }
     }
@@ -3386,7 +3386,7 @@ grub_err_t ventoy_cmd_select_theme_cfg(grub_extcmd_context_t ctxt, int argc, cha
     }
 
     pos += grub_snprintf(buf + pos, bufsize - pos,
-            "menuentry \"$VTLANG_RETURN_PREVIOUS\" --class=vtoyret VTOY_RET {\n"
+            "menuentry \"$VTLANG_RETURN_PREVIOUS\" --class=coutiret VTOY_RET {\n"
                 "echo 'Return ...'\n"
             "}\n");
 

@@ -1,8 +1,8 @@
-﻿{
+{
     "VTLANG_LANGUAGE_NAME": "Polish (Poland)",
     
-    "VTLANG_STR_HOTKEY_LIST": "L:Język  F1:Pomoc  F2:Przeglądaj  F3:Widok listy  F4:Localboot  F5:Narzędzia  F6:ExMenu",
-    "VTLANG_STR_HOTKEY_TREE": "L:Język  F1:Pomoc  F2:Przeglądaj  F3:Widok drzewa  F4:Localboot  F5:Narzędzia  F6:ExMenu",
+    "VTLANG_STR_HOTKEY_LIST": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
+    "VTLANG_STR_HOTKEY_TREE": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
     "VTLANG_RETURN_PREVIOUS": "Powrót do poprzedniego menu [Esc]",
     "VTLANG_RETURN_PRV_NOESC": "Powrót do poprzedniego menu",
     
@@ -43,11 +43,11 @@
     
     "VTLANG_THEME_SELECT": "Wybierz motyw",
     
-    "VTLANG_UEFI_UTIL": "Narzędzia Ventoy UEFI",
+    "VTLANG_UEFI_UTIL": "Narzędzia Couti UEFI",
     "VTLANG_UTIL_SHOW_EFI_DRV": "Pokaż sterowniki EFI",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Napraw błąd BlinitializeLibrary systemu Windows",
     
-    "VTLANG_JSON_CHK_JSON": "Sprawdź konfigurację pluginu json (ventoy.json)",
+    "VTLANG_JSON_CHK_JSON": "Sprawdź konfigurację pluginu json",
     "VTLANG_JSON_CHK_CONTROL": "Sprawdź konfigurację pluginu Global Control",
     "VTLANG_JSON_CHK_THEME": "Sprawdź konfigurację pluginu Theme",
     "VTLANG_JSON_CHK_AUTOINS": "Sprawdź konfigurację pluginu Auto Installation",
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Tymczasowe ustawienia kontroli",
     "VTLANG_WIN11_BYPASS_CHECK": "Pominięcie sprawdzania CPU/TPM/SecureBoot podczas instalacji Windows 11",
     "VTLANG_WIN11_BYPASS_NRO": "Pominięcie wymogu posiadania konta Microsoft podczas instalacji Windows 11",
-    "VTLANG_LINUX_REMOUNT": "Zamontuj partycję Ventoy po uruchomieniu Linuksa",
+    "VTLANG_LINUX_REMOUNT": "Zamontuj partycję Couti po uruchomieniu Linuksa",
     "VTLANG_SECONDARY_BOOT_MENU": "Pokaż dodatkowe menu rozruchowe (boot menu)",
     "VTLANG_WIN_UEFI_RES_LOCK": "Zablokuj rozdzielczość podczas bootowania UEFI Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "Brak",

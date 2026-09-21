@@ -286,7 +286,7 @@ static int ventoy_freebsd_append_conf(char *buf, const char *isopath, const char
     grub_uint8_t disk_sig[4];
     grub_uint8_t disk_guid[16];
 
-    debug("ventoy_freebsd_append_conf %s\n", isopath);
+    debug("couti_freebsd_append_conf %s\n", isopath);
 
     isofile = ventoy_grub_file_open(VENTOY_FILE_TYPE, "%s", isopath);
     if (!isofile)
@@ -315,11 +315,11 @@ static int ventoy_freebsd_append_conf(char *buf, const char *isopath, const char
 
     if (g_mod_search_magic)
     {
-        debug("hint.ventoy NO need\n");
+        debug("hint.couti NO need\n");
         goto out;
     }
 
-    debug("Fill hint.ventoy info\n");
+    debug("Fill hint.couti info\n");
 
     disk = isofile->device->disk;
 
@@ -352,7 +352,7 @@ static int ventoy_dragonfly_append_conf(char *buf, const char *isopath)
 {
     int pos = 0;
 
-    debug("ventoy_dragonfly_append_conf %s\n", isopath);
+    debug("couti_dragonfly_append_conf %s\n", isopath);
 
     vtoy_ssprintf(buf, pos, "tmpfs_load=\"%s\"\n", "YES");
     vtoy_ssprintf(buf, pos, "dm_target_linear_load=\"%s\"\n", "YES");
@@ -1038,7 +1038,7 @@ grub_err_t ventoy_cmd_unix_fill_image_desc(grub_extcmd_context_t ctxt, int argc,
     (void)argc;
     (void)args;
 
-    debug("ventoy_cmd_unix_fill_image_desc %p\n", g_mod_new_data);
+    debug("couti_cmd_unix_fill_image_desc %p\n", g_mod_new_data);
 
     if (!g_mod_new_data)
     {
@@ -1096,7 +1096,7 @@ grub_err_t ventoy_cmd_unix_gzip_newko(grub_extcmd_context_t ctxt, int argc, char
     (void)argc;
     (void)args;
 
-    debug("ventoy_cmd_unix_gzip_newko %p\n", g_mod_new_data);
+    debug("couti_cmd_unix_gzip_newko %p\n", g_mod_new_data);
 
     if (!g_mod_new_data)
     {
@@ -1149,7 +1149,7 @@ grub_err_t ventoy_cmd_unix_chain_data(grub_extcmd_context_t ctxt, int argc, char
 
     if (NULL == g_img_chunk_list.chunk)
     {
-        grub_printf("ventoy not ready\n");
+        grub_printf("couti not ready\n");
         return 1;
     }
 

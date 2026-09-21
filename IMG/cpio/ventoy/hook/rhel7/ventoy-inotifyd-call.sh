@@ -23,4 +23,4 @@ vtHook=$($CAT $VTOY_PATH/inotifyd-hook-script.txt)
 
 vtdisk=$(get_ventoy_disk_name)
 vtlog "... $vtdisk already exist ..."
-$BUSYBOX_PATH/sh $vtHook n /dev "${vtdisk#/dev/}2"    
+$BUSYBOX_PATH/sh $vtHook n /dev "$(ventoy_diskname_to_partname "${vtdisk#/dev/}" "$COUTI_BOOT_PART")"    

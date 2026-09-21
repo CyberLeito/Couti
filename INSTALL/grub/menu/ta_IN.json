@@ -1,8 +1,8 @@
 {
     "VTLANG_LANGUAGE_NAME": "Tamil (தமிழ்)",
     
-    "VTLANG_STR_HOTKEY_LIST": "L:மொழி F1:உதவி F2:உலாவுக F3:பட்டியல்பார்வை F4:லோக்கல்பூட் F5:கருவிகள்  F6:ExMenu",
-    "VTLANG_STR_HOTKEY_TREE": "L:மொழி F1:உதவி F2:உலாவுக  F3:மரப்பார்வை  F4:லோக்கல்பூட் F5:கருவிகள்  F6:ExMenu",
+    "VTLANG_STR_HOTKEY_LIST": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
+    "VTLANG_STR_HOTKEY_TREE": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
     "VTLANG_RETURN_PREVIOUS": "முந்தைய பட்டியலுக்குத் திரும்பு [Esc]",
     "VTLANG_RETURN_PRV_NOESC": "முந்தைய பட்டியலுக்குத் திரும்பு",
     
@@ -43,11 +43,11 @@
     
     "VTLANG_THEME_SELECT": "தீம் தேர்வு",
     
-    "VTLANG_UEFI_UTIL": "Ventoy UEFI பயன்பாடுகள்",
+    "VTLANG_UEFI_UTIL": "Couti UEFI பயன்பாடுகள்",
     "VTLANG_UTIL_SHOW_EFI_DRV": "EFI இயக்கிகளைக் காட்டு",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Windows BlinitializeLibrary தோல்வியைச் சரிசெய்தல்",
     
-    "VTLANG_JSON_CHK_JSON": "செருகுநிரல் json உள்ளமைவைச் சரிபார்க்கவும் (ventoy.json)",
+    "VTLANG_JSON_CHK_JSON": "செருகுநிரல் json உள்ளமைவைச் சரிபார்க்கவும்",
     "VTLANG_JSON_CHK_CONTROL": "உலகளாவிய கட்டுப்பாட்டு செருகுநிரல் உள்ளமைவைச் சரிபார்க்கவும்",
     "VTLANG_JSON_CHK_THEME": "தீம் செருகுநிரல் உள்ளமைவைச் சரிபார்க்கவும்",
     "VTLANG_JSON_CHK_AUTOINS": "தானாக நிறுவும் செருகுநிரல் உள்ளமைவைச் சரிபார்க்கவும்",
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "தற்காலிக கட்டுப்பாட்டு அமைப்புகள்",
     "VTLANG_WIN11_BYPASS_CHECK": "விண்டோஸ் 11 ஐ நிறுவும் போது CPU/TPM/SecureBoot சரிபார்பை புறக்கணிக்கவும்",
     "VTLANG_WIN11_BYPASS_NRO": "விண்டோஸ் 11 ஐ நிறுவும் போது ஆன்லைன் கணக்கின் தேவையை புறக்கணிக்கவும்",
-    "VTLANG_LINUX_REMOUNT": "லினக்ஸை துவக்கிய பிறகு Ventoy பகிர்வை ஏற்றவும்",
+    "VTLANG_LINUX_REMOUNT": "லினக்ஸை துவக்கிய பிறகு Couti பகிர்வை ஏற்றவும்",
     "VTLANG_SECONDARY_BOOT_MENU": "இரண்டாம் நிலை துவக்க பட்டியலைக்  காட்டு",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

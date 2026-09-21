@@ -151,7 +151,7 @@ static char g_old_pager[32];
 
 const char *g_menu_class[img_type_max] =
 {
-    "vtoyiso", "vtoywim", "vtoyefi", "vtoyimg", "vtoyvhd", "vtoyvtoy"
+    "coutiiso", "coutiwim", "coutiefi", "coutiimg", "coutivhd", "couticouti"
 };
 
 const char *g_menu_prefix[img_type_max] =
@@ -497,10 +497,10 @@ static int ventoy_load_efiboot_template(char **buf, int *datalen, int *direntoff
     char *data = NULL;
     grub_uint32_t offset;
 
-    file = ventoy_grub_file_open(GRUB_FILE_TYPE_LINUX_INITRD, "%s/ventoy/ventoy_efiboot.img.xz", ventoy_get_env("vtoy_efi_part"));
+    file = ventoy_grub_file_open(GRUB_FILE_TYPE_LINUX_INITRD, "%s/couti/couti_efiboot.img.xz", ventoy_get_env("vtoy_efi_part"));
     if (file == NULL)
     {
-        debug("failed to open file <%s>\n", "ventoy_efiboot.img.xz");
+        debug("failed to open file <%s>\n", "couti_efiboot.img.xz");
         return 1;
     }
 
@@ -546,9 +546,9 @@ static int ventoy_set_check_result(int ret, const char *msg)
         grub_printf(VTOY_WARNING"\n");
         grub_printf(VTOY_WARNING"\n\n\n");
 
-        grub_printf("This is NOT a standard Ventoy device and is NOT supported (%d).\n", ret);
+        grub_printf("This is NOT a standard Couti device and is NOT supported (%d).\n", ret);
         grub_printf("Error message: <%s>\n\n", msg);
-        grub_printf("You should follow the instructions in https://www.ventoy.net to use Ventoy.\n");
+        grub_printf("Please reinstall this device using the Couti installer.\n");
         grub_refresh();
     }
 
@@ -557,150 +557,39 @@ static int ventoy_set_check_result(int ret, const char *msg)
 
 static int ventoy_check_official_device(grub_device_t dev)
 {
-    int workaround = 0;
     grub_file_t file;
-    grub_uint64_t offset;
-    char devname[64];
-    grub_fs_t fs;
-    grub_uint8_t mbr[512];
     grub_disk_t disk;
-    grub_device_t dev2;
+    grub_uint8_t mbr[512];
     char *label = NULL;
-    struct grub_partition *partition;
+    const char *boot = grub_env_get("vtoy_efi_part");
+    int valid;
 
-    if (dev->disk == NULL || dev->disk->partition == NULL)
-    {
-        return ventoy_set_check_result(1 | 0x1000, "Internal Error");
-    }
-
-    if (0 == ventoy_check_file_exist("(%s,2)/ventoy/ventoy.cpio", dev->disk->name) ||
-        0 == ventoy_check_file_exist("(%s,2)/grub/localboot.cfg", dev->disk->name) ||
-        0 == ventoy_check_file_exist("(%s,2)/tool/mount.exfat-fuse_aarch64", dev->disk->name))
-    {
-        #ifndef GRUB_MACHINE_EFI
-        if (0 == ventoy_check_file_exist("(ventoydisk)/ventoy/ventoy.cpio", dev->disk->name))
-        {
-            return ventoy_set_check_result(2 | 0x1000, "File ventoy/ventoy.cpio missing in VTOYEFI partition");
-        }
-        else if (0 == ventoy_check_file_exist("(ventoydisk)/grub/localboot.cfg", dev->disk->name))
-        {
-            return ventoy_set_check_result(2 | 0x1000, "File grub/localboot.cfg missing in VTOYEFI partition");
-        }
-        else if (0 == ventoy_check_file_exist("(ventoydisk)/tool/mount.exfat-fuse_aarch64", dev->disk->name))
-        {
-            return ventoy_set_check_result(2 | 0x1000, "File tool/mount.exfat-fuse_aarch64 missing in VTOYEFI partition");
-        }
-        else
-        {
-            workaround = 1;
-        }
-        #endif
-    }
-
-    /* We must have partition 2 */
-    if (workaround)
-    {
-        file = ventoy_grub_file_open(VENTOY_FILE_TYPE, "%s", "(ventoydisk)/ventoy/ventoy.cpio");
-    }
-    else
-    {
-        file = ventoy_grub_file_open(VENTOY_FILE_TYPE, "(%s,2)/ventoy/ventoy.cpio", dev->disk->name);
-    }
+    if (!dev || !dev->disk || !boot)
+        return ventoy_set_check_result(1, "Couti boot partition was not found");
+    file = ventoy_grub_file_open(VENTOY_FILE_TYPE, "%s/couti/couti.cpio", boot);
     if (!file)
-    {
-        return ventoy_set_check_result(3 | 0x1000, "File ventoy/ventoy.cpio open failed in VTOYEFI partition");
-    }
-
-    if (NULL == grub_strstr(file->fs->name, "fat"))
-    {
-        grub_file_close(file);
-        return ventoy_set_check_result(4 | 0x1000, "VTOYEFI partition is not FAT filesystem");
-    }
-
-    partition = dev->disk->partition;
-    if (partition->number != 0 || partition->start != 2048)
-    {
-        return ventoy_set_check_result(5, "Ventoy partition is not start at 1MB");
-    }
-
-    if (workaround)
-    {
-        if (grub_strncmp(g_ventoy_part_info->Head.Signature, "EFI PART", 8) == 0)
-        {
-            ventoy_gpt_part_tbl *PartTbl = g_ventoy_part_info->PartTbl;
-            if (PartTbl[1].StartLBA != PartTbl[0].LastLBA + 1 ||
-                (PartTbl[1].LastLBA + 1 - PartTbl[1].StartLBA) != 65536)
-            {
-                grub_file_close(file);
-                return ventoy_set_check_result(6, "Disk partition layout check failed.");
-            }
-        }
-        else
-        {
-            ventoy_part_table *PartTbl = g_ventoy_part_info->MBR.PartTbl;
-            if (PartTbl[1].StartSectorId != PartTbl[0].StartSectorId + PartTbl[0].SectorCount ||
-                PartTbl[1].SectorCount != 65536)
-            {
-                grub_file_close(file);
-                return ventoy_set_check_result(6, "Disk partition layout check failed.");
-            }
-        }
-    }
-    else
-    {
-        offset = partition->start + partition->len;
-        partition = file->device->disk->partition;
-        if ((partition->number != 1) || (partition->len != 65536) || (offset != partition->start))
-        {
-            grub_file_close(file);
-            return ventoy_set_check_result(7, "Disk partition layout check failed.");
-        }
-    }
-
+        return ventoy_set_check_result(2, "Couti boot archive is missing");
+    valid = file->device && file->device->disk && file->device->disk->partition &&
+        grub_strcmp(file->device->disk->name, dev->disk->name) == 0 &&
+        grub_strstr(file->fs->name, "fat") &&
+        file->device->disk->partition->len >= 65536;
+    if (valid && file->fs->fs_label)
+        file->fs->fs_label(file->device, &label);
+    valid = valid && label && (!grub_strcmp(label, "COUTI") ||
+        !grub_strcmp(label, "COUTIEFI") || !grub_strcmp(label, "VTOYEFI"));
+    grub_free(label);
     grub_file_close(file);
-
-    if (workaround == 0)
-    {
-        grub_snprintf(devname, sizeof(devname), "%s,2", dev->disk->name);
-        dev2 = grub_device_open(devname);
-        if (!dev2)
-        {
-            return ventoy_set_check_result(8, "Disk open failed");
-        }
-
-        fs = grub_fs_probe(dev2);
-        if (!fs)
-        {
-            grub_device_close(dev2);
-            return ventoy_set_check_result(9, "FS probe failed");
-        }
-
-        fs->fs_label(dev2, &label);
-        if ((!label) || grub_strncmp("VTOYEFI", label, 7))
-        {
-            grub_device_close(dev2);
-            return ventoy_set_check_result(10, "Partition name is not VTOYEFI");
-        }
-
-        grub_device_close(dev2);
-    }
-
-    /* MBR check */
+    if (!valid)
+        return ventoy_set_check_result(3, "Couti boot partition identity is invalid");
     disk = grub_disk_open(dev->disk->name);
     if (!disk)
-    {
-        return ventoy_set_check_result(11, "Disk open failed");
-    }
-
-    grub_memset(mbr, 0, 512);
-    grub_disk_read(disk, 0, 0, 512, mbr);
+        return ventoy_set_check_result(4, "Couti boot disk could not be opened");
+    grub_memset(mbr, 0, sizeof(mbr));
+    valid = grub_disk_read(disk, 0, 0, sizeof(mbr), mbr) == GRUB_ERR_NONE;
     grub_disk_close(disk);
-
-    if (grub_memcmp(g_check_mbr_data, mbr, 0x30) || grub_memcmp(g_check_mbr_data + 0x30, mbr + 0x190, 16))
-    {
-        return ventoy_set_check_result(12, "MBR check failed");
-    }
-
+    if (!valid || grub_memcmp(g_check_mbr_data, mbr, 0x30) ||
+        grub_memcmp(g_check_mbr_data + 0x30, mbr + 0x190, 16))
+        return ventoy_set_check_result(5, "Couti BIOS bootstrap is missing");
     return ventoy_set_check_result(0, NULL);
 }
 
@@ -1519,7 +1408,7 @@ static grub_err_t ventoy_cmd_check_compatible(grub_extcmd_context_t ctxt, int ar
         grub_snprintf(buf, sizeof(buf) - 1, "[ -e \"%s/%s\" ]", args[0], files[i]);
         if (0 == grub_script_execute_sourcecode(buf))
         {
-            debug("file %s exist, ventoy_compatible YES\n", buf);
+            debug("file %s exist, couti_compatible YES\n", buf);
             grub_env_set("ventoy_compatible", "YES");
             VENTOY_CMD_RETURN(GRUB_ERR_NONE);
         }
@@ -1548,7 +1437,7 @@ static grub_err_t ventoy_cmd_check_compatible(grub_extcmd_context_t ctxt, int ar
             if (g_img_swap_tmp_buf[i] == 'V' &&
                 0 == grub_strncmp(g_img_swap_tmp_buf + i, VENTOY_COMPATIBLE_STR, VENTOY_COMPATIBLE_STR_LEN))
             {
-                debug("Ventoy compatible string exist at  %d, ventoy_compatible YES\n", i);
+                debug("Couti compatible string exist at  %d, couti_compatible YES\n", i);
                 grub_env_set("ventoy_compatible", "YES");
                 VENTOY_CMD_RETURN(GRUB_ERR_NONE);
             }
@@ -1925,7 +1814,7 @@ static int ventoy_collect_img_files(const char *filename, const struct grub_dirh
         if ((g_enumerate_finish_time_ms - g_enumerate_start_time_ms) >= 3000)
         {
             grub_cls();
-            grub_printf("\n\n Ventoy scanning files, please wait...\n");
+            grub_printf("\n\n Couti scanning files, please wait...\n");
             grub_refresh();
             g_enumerate_time_checked = 1;
         }
@@ -2207,14 +2096,12 @@ int ventoy_fill_data(grub_uint32_t buflen, char *buffer)
     grub_uint32_t *puint = (grub_uint32_t *)name;
     grub_uint32_t *puint2 = (grub_uint32_t *)plat;
     const char fmtdata[]={ 0x39, 0x35, 0x25, 0x00, 0x35, 0x00, 0x23, 0x30, 0x30, 0x30, 0x30, 0x66, 0x66, 0x00 };
-    const char fmtcode[]={
-        0x22, 0x0A, 0x2B, 0x20, 0x68, 0x62, 0x6F, 0x78, 0x20, 0x7B, 0x0A, 0x20, 0x20, 0x74, 0x6F, 0x70,
-        0x20, 0x3D, 0x20, 0x25, 0x73, 0x0A, 0x20, 0x20, 0x6C, 0x65, 0x66, 0x74, 0x20, 0x3D, 0x20, 0x25,
-        0x73, 0x0A, 0x20, 0x20, 0x2B, 0x20, 0x6C, 0x61, 0x62, 0x65, 0x6C, 0x20, 0x7B, 0x74, 0x65, 0x78,
-        0x74, 0x20, 0x3D, 0x20, 0x22, 0x25, 0x73, 0x20, 0x25, 0x73, 0x25, 0x73, 0x22, 0x20, 0x63, 0x6F,
-        0x6C, 0x6F, 0x72, 0x20, 0x3D, 0x20, 0x22, 0x25, 0x73, 0x22, 0x20, 0x61, 0x6C, 0x69, 0x67, 0x6E,
-        0x20, 0x3D, 0x20, 0x22, 0x6C, 0x65, 0x66, 0x74, 0x22, 0x7D, 0x0A, 0x7D, 0x0A, 0x22, 0x00
-    };
+    const char fmtcode[] =
+        "\"\n+ hbox {\n"
+        "  top = %s\n"
+        "  left = %s\n"
+        "  + label {text = \"%s %s\" color = \"%s\" font = \"DejaVu Sans Regular 14\" align = \"left\"}\n"
+        "}\n\"";
 
     grub_memset(name, 0, sizeof(name));
     puint[0] = grub_swap_bytes32(0x56454e54);
@@ -2246,13 +2133,13 @@ int ventoy_fill_data(grub_uint32_t buflen, char *buffer)
 
     puint2[0] = grub_swap_bytes32(g_ventoy_plat_data);
 
-    /* Easter egg :) It will be appreciated if you reserve it, but NOT mandatory. */
+    /* Display only the version and firmware mode; the GUID remains internal. */
     #pragma GCC diagnostic push
     #pragma GCC diagnostic ignored "-Wformat-nonliteral"
     len = grub_snprintf(buffer, buflen, fmtcode,
                         fmt1 ? fmt1 : fmtdata,
                         fmt2 ? fmt2 : fmtdata + 4,
-                        value ? value : "", plat, guidstr,
+                        value ? value : "", plat,
                         fmt3 ? fmt3 : fmtdata + 6);
     #pragma GCC diagnostic pop
 
@@ -2452,14 +2339,14 @@ static int ventoy_dynamic_tree_menu(img_iterator_node *node)
             if (g_tree_view_menu_style == 0)
             {
                 vtoy_ssprintf(g_tree_script_buf, g_tree_script_pos,
-                              "menuentry \"%-10s [%s]\" --class=\"vtoyret\" VTOY_RET {\n  "
+                              "menuentry \"%-10s [%s]\" --class=\"coutiret\" VTOY_RET {\n  "
                               "  echo 'return ...' \n"
                               "}\n", "<--", ventoy_get_vmenu_title("VTLANG_RET_TO_LISTVIEW"));
             }
             else
             {
                 vtoy_ssprintf(g_tree_script_buf, g_tree_script_pos,
-                              "menuentry \"[%s]\" --class=\"vtoyret\" VTOY_RET {\n  "
+                              "menuentry \"[%s]\" --class=\"coutiret\" VTOY_RET {\n  "
                               "  echo 'return ...' \n"
                               "}\n", ventoy_get_vmenu_title("VTLANG_RET_TO_LISTVIEW"));
             }
@@ -2473,7 +2360,7 @@ static int ventoy_dynamic_tree_menu(img_iterator_node *node)
         dir_class = ventoy_plugin_get_menu_class(vtoy_class_directory, node->dir, node->dir);
         if (!dir_class)
         {
-            dir_class = "vtoydir";
+            dir_class = "coutidir";
         }
 
         tip = ventoy_plugin_get_menu_tip(vtoy_tip_directory, node->dir);
@@ -2515,14 +2402,14 @@ static int ventoy_dynamic_tree_menu(img_iterator_node *node)
         if (g_tree_view_menu_style == 0)
         {
             vtoy_ssprintf(g_tree_script_buf, g_tree_script_pos,
-                          "menuentry \"%-10s [%s/..]\" --class=\"vtoyret\" VTOY_RET {\n  "
+                          "menuentry \"%-10s [%s/..]\" --class=\"coutiret\" VTOY_RET {\n  "
                           "  echo 'return ...' \n"
                           "}\n", "<--", node->dir);
         }
         else
         {
             vtoy_ssprintf(g_tree_script_buf, g_tree_script_pos,
-                          "menuentry \"[%s/..]\" --class=\"vtoyret\" VTOY_RET {\n  "
+                          "menuentry \"[%s/..]\" --class=\"coutiret\" VTOY_RET {\n  "
                           "  echo 'return ...' \n"
                           "}\n", node->dir);
         }
@@ -3046,7 +2933,7 @@ static grub_err_t ventoy_cmd_list_img(grub_extcmd_context_t ctxt, int argc, char
     if (g_default_menu_mode == 1)
     {
         vtoy_ssprintf(g_list_script_buf, g_list_script_pos,
-                      "menuentry \"%s [%s]\" --class=\"vtoyret\" VTOY_RET {\n  "
+                      "menuentry \"%s [%s]\" --class=\"coutiret\" VTOY_RET {\n  "
                       "  echo 'return ...' \n"
                       "}\n", "<--", ventoy_get_vmenu_title("VTLANG_RET_TO_TREEVIEW"));
     }
@@ -3293,6 +3180,14 @@ void ventoy_fill_os_param(grub_file_t file, ventoy_os_param *param)
         }
     }
 
+
+    /* Couti extension: actual boot partition slot, independent of image partition. */
+    val = grub_env_get("couti_boot_partition");
+    if (val)
+    {
+        param->vtoy_reserved[12] = 0x43;
+        param->vtoy_reserved[13] = (grub_uint8_t)grub_strtoul(val, NULL, 10);
+    }
 
     /* calculate checksum */
     for (i = 0; i < sizeof(ventoy_os_param); i++)
@@ -4565,7 +4460,7 @@ static grub_err_t ventoy_cmd_img_part_info(grub_extcmd_context_t ctxt, int argc,
     device_name = grub_file_get_device_name(args[0]);
     if (!device_name)
     {
-        debug("ventoy_cmd_img_part_info failed, %s\n", args[0]);
+        debug("couti_cmd_img_part_info failed, %s\n", args[0]);
         goto end;
     }
 
@@ -4897,7 +4792,7 @@ static grub_err_t ventoy_cmd_acpi_param(grub_extcmd_context_t ctxt, int argc, ch
         return 1;
     }
 
-    debug("ventoy_cmd_acpi_param %s %s\n", args[0], args[1]);
+    debug("couti_cmd_acpi_param %s %s\n", args[0], args[1]);
 
     chain = (ventoy_chain_head *)(ulong)grub_strtoul(args[0], NULL, 16);
     if (!chain)
@@ -4909,7 +4804,7 @@ static grub_err_t ventoy_cmd_acpi_param(grub_extcmd_context_t ctxt, int argc, ch
 
     if (grub_memcmp(&g_ventoy_guid, &(chain->os_param.guid), 16))
     {
-        debug("Invalid ventoy guid 0x%x\n", chain->os_param.guid.data1);
+        debug("Invalid couti guid 0x%x\n", chain->os_param.guid.data1);
         return 1;
     }
 
@@ -5045,11 +4940,11 @@ static grub_err_t ventoy_cmd_lib_module_ver(grub_extcmd_context_t ctxt, int argc
 
     if (argc != 3)
     {
-        debug("ventoy_cmd_lib_module_ver, invalid param num %d\n", argc);
+        debug("couti_cmd_lib_module_ver, invalid param num %d\n", argc);
         return 1;
     }
 
-    debug("ventoy_cmd_lib_module_ver %s %s %s\n", args[0], args[1], args[2]);
+    debug("couti_cmd_lib_module_ver %s %s %s\n", args[0], args[1], args[2]);
 
     device_name = grub_file_get_device_name(args[0]);
     if (!device_name)
@@ -5116,8 +5011,11 @@ int ventoy_load_part_table(const char *diskname)
     grub_disk_read(disk, 0, 0, sizeof(ventoy_gpt_info), g_ventoy_part_info);
     grub_disk_close(disk);
 
+    const char *data_part = grub_env_get("vtoy_iso_part");
+    char *data_name = data_part ? grub_file_get_device_name(data_part) : NULL;
     grub_snprintf(name, sizeof(name), "%s,1", diskname);
-    dev = grub_device_open(name);
+    dev = grub_device_open(data_name ? data_name : name);
+    grub_free(data_name);
     if (dev)
     {
         /* Check for official Ventoy device */
@@ -5284,7 +5182,7 @@ static grub_err_t ventoy_cmd_get_fs_label(grub_extcmd_context_t ctxt, int argc, 
 
     if (argc != 2)
     {
-        debug("ventoy_cmd_get_fs_label, invalid param num %d\n", argc);
+        debug("couti_cmd_get_fs_label, invalid param num %d\n", argc);
         return 1;
     }
 
@@ -5359,7 +5257,7 @@ static grub_err_t ventoy_fs_enum_1st_child(int argc, char **args, grub_fs_dir_ho
 
     if (argc != 3)
     {
-        debug("ventoy_fs_enum_1st_child, invalid param num %d\n", argc);
+        debug("couti_fs_enum_1st_child, invalid param num %d\n", argc);
         return 1;
     }
 
@@ -5422,7 +5320,7 @@ static grub_err_t ventoy_cmd_basename(grub_extcmd_context_t ctxt, int argc, char
 
     if (argc != 2)
     {
-        debug("ventoy_cmd_basename, invalid param num %d\n", argc);
+        debug("couti_cmd_basename, invalid param num %d\n", argc);
         return 1;
     }
 
@@ -5460,7 +5358,7 @@ static grub_err_t ventoy_cmd_basefile(grub_extcmd_context_t ctxt, int argc, char
 
     if (argc != 2)
     {
-        debug("ventoy_cmd_basefile, invalid param num %d\n", argc);
+        debug("couti_cmd_basefile, invalid param num %d\n", argc);
         return 1;
     }
 
@@ -5572,7 +5470,7 @@ static grub_err_t ventoy_cmd_get_efivdisk_offset(grub_extcmd_context_t ctxt, int
 
     if (argc != 2)
     {
-        debug("ventoy_cmd_get_efivdisk_offset, invalid param num %d\n", argc);
+        debug("couti_cmd_get_efivdisk_offset, invalid param num %d\n", argc);
         return 1;
     }
 
@@ -5615,7 +5513,7 @@ static grub_err_t ventoy_cmd_get_efivdisk_offset(grub_extcmd_context_t ctxt, int
         return 1;
     }
 
-    debug("ventoy_cmd_get_efivdisk_offset <%s>\n", value);
+    debug("couti_cmd_get_efivdisk_offset <%s>\n", value);
     grub_env_set(args[1], value);
     VENTOY_CMD_RETURN(0);
 }
@@ -5684,7 +5582,7 @@ static grub_err_t ventoy_cmd_search_replace_initrd(grub_extcmd_context_t ctxt, i
 
     if (argc != 2)
     {
-        debug("ventoy_cmd_search_replace_initrd, invalid param num %d\n", argc);
+        debug("couti_cmd_search_replace_initrd, invalid param num %d\n", argc);
         return 1;
     }
 
@@ -6471,7 +6369,7 @@ static grub_err_t ventoy_cmd_sb_info(grub_extcmd_context_t ctxt, int argc, char 
 
     grub_printf("UEFI Security           %s\n", grub_efi_locate_protocol(&security, NULL) ? "Yes" : "No");
     grub_printf("UEFI Security2          %s\n", grub_efi_locate_protocol(&security2, NULL) ? "Yes" : "No");
-    grub_printf("Ventoy Secure Policy    %s\n", policy);
+    grub_printf("Couti Secure Policy    %s\n", policy);
 
 #else
     grub_printf("Non EFI mode!\n");
@@ -6696,7 +6594,7 @@ static grub_err_t ventoy_cmd_cmp_checksum(grub_extcmd_context_t ctxt, int argc, 
                 ventoy_find_checksum(file, uchkname, g_chksum_retlen[index], args[1], 3, readchk);
                 if (readchk[0] == 0)
                 {
-                    grub_printf("\n\n%s value not found in both local and global VENTOY_CHECKSUM.\n", uchkname);
+                    grub_printf("\n\n%s value not found in both local and global checksum files.\n", uchkname);
                     goto end;
                 }
             }
@@ -6858,7 +6756,7 @@ static grub_err_t ventoy_cmd_vtoychksum_exist(grub_extcmd_context_t ctxt, int ar
                 grub_refresh();
             }
 
-            debug("parse local VENTOY_CHECKSUM\n");
+            debug("parse local COUTI_CHECKSUM\n");
             ventoy_find_all_checksum(file, args[0], 2, exists, &totexist);
             grub_file_close(file);
         }
@@ -6879,7 +6777,7 @@ static grub_err_t ventoy_cmd_vtoychksum_exist(grub_extcmd_context_t ctxt, int ar
             grub_refresh();
         }
 
-        debug("parse global VENTOY_CHECKSUM\n");
+        debug("parse global COUTI_CHECKSUM\n");
         ventoy_find_all_checksum(file, args[0], (cnt > 1) ? 3 : 4, exists, &totexist);
         grub_file_close(file);
     }
@@ -6963,6 +6861,9 @@ int ventoy_env_init(void)
 static cmd_para ventoy_cmds[] =
 {
     { "vt_browser_disk",  ventoy_cmd_browser_disk,  0, NULL, "",   "",    NULL },
+    { "vt_couti_find_boot", ventoy_cmd_couti_find_boot, 0, NULL, "", "", NULL },
+    { "vt_couti_layout", ventoy_cmd_couti_layout, 0, NULL, "", "", NULL },
+    { "vt_browser_home",  ventoy_cmd_browser_home,  0, NULL, "",   "",    NULL },
     { "vt_browser_dir",  ventoy_cmd_browser_dir,  0, NULL, "",   "",    NULL },
     { "vt_incr",  ventoy_cmd_incr,  0, NULL, "{Var} {INT}",   "Increase integer variable",    NULL },
     { "vt_mod",  ventoy_cmd_mod,  0, NULL, "{Int} {Int} {Var}",   "mod integer variable",    NULL },
@@ -7162,5 +7063,3 @@ int ventoy_unregister_all_cmd(void)
 
     return 0;
 }
-
-

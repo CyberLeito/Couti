@@ -58,7 +58,7 @@ vtdiskname=$(get_ventoy_disk_name)
 dmsetup_path=$(ventoy_find_bin_path dmsetup)
 if [ -z "$dmsetup_path" ]; then
     ventoy_os_install_dmsetup "$vtdiskname"
-    ventoy_udev_disk_common_hook "${vtdiskname#/dev/}2" "noreplace"
+    ventoy_udev_disk_common_hook "$(ventoy_diskname_to_partname "${vtdiskname#/dev/}" "$COUTI_BOOT_PART")" "noreplace"
     
     $BUSYBOX_PATH/unlink /lib64
     $BUSYBOX_PATH/unlink /usr
@@ -66,5 +66,5 @@ if [ -z "$dmsetup_path" ]; then
     rm -rf /tmp/ramfs/minstg2.img
     rm -f /tmp/minstg2.img 
 else
-    ventoy_udev_disk_common_hook "${vtdiskname#/dev/}2" "noreplace"
+    ventoy_udev_disk_common_hook "$(ventoy_diskname_to_partname "${vtdiskname#/dev/}" "$COUTI_BOOT_PART")" "noreplace"
 fi

@@ -142,7 +142,7 @@ static int ventoy_vdisk_read_real_hdd(uint64_t lba, unsigned int count, unsigned
     left = count;
 
 #if VTOY_DEBUG
-    printf("ventoy_vdisk_read_real_hdd: %llu %u\n", lba, count);
+    printf("couti_vdisk_read_real_hdd: %llu %u\n", lba, count);
 #endif
 
     while (left > 0)
@@ -533,7 +533,7 @@ static void ventoy_dump_img_chunk(ventoy_chain_head *chain)
 
     chunk = (ventoy_img_chunk *)((char *)chain + chain->img_chunk_offset);
 
-    printf("##################### ventoy_dump_img_chunk #######################\n");
+    printf("##################### couti_dump_img_chunk #######################\n");
 
     for (i = 0; i < chain->img_chunk_num; i++)
     {
@@ -552,7 +552,7 @@ static void ventoy_dump_override_chunk(ventoy_chain_head *chain)
     
     chunk = (ventoy_override_chunk *)((char *)chain + chain->override_chunk_offset);
 
-    printf("##################### ventoy_dump_override_chunk #######################\n");
+    printf("##################### couti_dump_override_chunk #######################\n");
 
     for (i = 0; i < g_override_chunk_num; i++)
     {
@@ -567,7 +567,7 @@ static void ventoy_dump_virt_chunk(ventoy_chain_head *chain)
     uint32_t i;
     ventoy_virt_chunk *node;
      
-    printf("##################### ventoy_dump_virt_chunk #######################\n");
+    printf("##################### couti_dump_virt_chunk #######################\n");
     printf("virt_chunk_offset=%u\n", chain->virt_chunk_offset);
     printf("virt_chunk_num=%u\n",    chain->virt_chunk_num);
 
@@ -604,7 +604,7 @@ static void ventoy_dump_chain(ventoy_chain_head *chain)
 
     vtoy_reserve = (uint8_t *)(chain->os_param.vtoy_reserved);
 
-    printf("##################### ventoy_dump_chain #######################\n");
+    printf("##################### couti_dump_chain #######################\n");
 
     printf("os_param will be save at %p\n", ventoy_get_runtime_addr());
 
@@ -729,7 +729,7 @@ int ventoy_boot_vdisk(void *data)
     if (strstr(g_cmdline_copy, "debug"))
     {
         g_debug = 1;
-        printf("### ventoy chain boot begin... ###\n");
+        printf("### couti chain boot begin... ###\n");
         printf("cmdline: <%s>\n", g_cmdline_copy);
         ventoy_debug_pause();
     }
@@ -794,7 +794,7 @@ int ventoy_boot_vdisk(void *data)
 
     if (g_debug)
     {
-        printf("### ventoy chain boot before boot image ... ###\n");
+        printf("### couti chain boot before boot image ... ###\n");
         ventoy_debug_pause();    
     }
     
@@ -802,7 +802,7 @@ int ventoy_boot_vdisk(void *data)
 
     if (g_debug)
     {
-        printf("!!!!!!!!!! ventoy boot failed !!!!!!!!!!\n");
+        printf("!!!!!!!!!! couti boot failed !!!!!!!!!!\n");
         ventoy_debug_pause();
     }
 

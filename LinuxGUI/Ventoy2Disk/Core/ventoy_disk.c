@@ -500,7 +500,7 @@ int ventoy_get_vtoy_data(ventoy_disk *info, int *ppartstyle)
         {
             name[i] = (char)(gpt->PartTbl[1].Name[i]);
         }
-        if (strcmp(name, "VTOYEFI"))
+        if (strcmp(name, "COUTIEFI") && strcmp(name, "VTOYEFI"))
         {
             vdebug("Invalid efi part2 name <%s>\n", name);
             goto end;

@@ -379,7 +379,7 @@ EOF
     for i in 0 1 2 3 4 5 6 7 8 9; do
         check_umount_disk "$PART2"
 
-        if mkfs.vfat -F 16 -n VTOYEFI -s 1 $PART2; then
+        if mkfs.vfat -F 16 -n COUTIEFI -s 1 $PART2; then
             echo 'success'
             break
         else
@@ -447,8 +447,8 @@ format_ventoy_disk_gpt() {
     parted -a none --script $DISK \
         mklabel gpt \
         unit s \
-        mkpart Ventoy ntfs $part1_start_sector $part1_end_sector \
-        mkpart VTOYEFI fat16 $part2_start_sector $part2_end_sector \
+        mkpart Couti ntfs $part1_start_sector $part1_end_sector \
+        mkpart COUTIEFI fat16 $part2_start_sector $part2_end_sector \
         $vt_set_efi_type \
         quit
 
@@ -497,7 +497,7 @@ format_ventoy_disk_gpt() {
     for i in 0 1 2 3 4 5 6 7 8 9; do
         check_umount_disk "$PART2"
         
-        if mkfs.vfat -F 16 -n VTOYEFI -s 1 $PART2; then
+        if mkfs.vfat -F 16 -n COUTIEFI -s 1 $PART2; then
             echo 'success'
             break
         else

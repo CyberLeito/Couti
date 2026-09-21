@@ -30,9 +30,9 @@ fi
 vtlog "wait_for_usb_disk_ready $vtdiskname ..."
 
 if echo $vtdiskname | $EGREP -q "nvme|mmc|nbd"; then
-    vtpart2=${vtdiskname}p2
+    vtpart2=${vtdiskname}p${COUTI_BOOT_PART}
 else
-    vtpart2=${vtdiskname}2
+    vtpart2=$(ventoy_diskname_to_partname "${vtdiskname}" "$COUTI_BOOT_PART")
 fi
 
 /ventoy/busybox/sh /ventoy/hook/suse/udev_disk_hook.sh "${vtpart2#/dev/}"

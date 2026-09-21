@@ -1,8 +1,8 @@
 {
     "VTLANG_LANGUAGE_NAME": "Czech (Čeština)",
     
-    "VTLANG_STR_HOTKEY_LIST": "L:Jazyk  F1:Nápověda  F2:Procházet  F3:Seznam  F4:Místní boot  F5:Nástroje  F6:Rozšířená nabídka",
-    "VTLANG_STR_HOTKEY_TREE": "L:Jazyk  F1:Nápověda  F2:Procházet  F3:Strom   F4:Místní boot  F5:Nástroje  F6:Rozšířená nabídka",
+    "VTLANG_STR_HOTKEY_LIST": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
+    "VTLANG_STR_HOTKEY_TREE": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
     "VTLANG_RETURN_PREVIOUS": "Vrátit do předchozí nabídky [Esc]",
     "VTLANG_RETURN_PRV_NOESC": "Vrátit do předchozí nabídky",
     
@@ -43,11 +43,11 @@
     
     "VTLANG_THEME_SELECT": "Výběr motivu",
     
-    "VTLANG_UEFI_UTIL": "Ventoy UEFI nástroje",
+    "VTLANG_UEFI_UTIL": "Couti UEFI nástroje",
     "VTLANG_UTIL_SHOW_EFI_DRV": "Zobrazit EFI ovladače",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Opravit chybu Windows BlinitializeLibrary",
     
-    "VTLANG_JSON_CHK_JSON": "Zkontrolovat json konfiguraci zásuvných modulů (ventoy.json)",
+    "VTLANG_JSON_CHK_JSON": "Zkontrolovat json konfiguraci zásuvných modulů",
     "VTLANG_JSON_CHK_CONTROL": "Zkontrolovat konfiguraci hlavního zásuvného modulu",
     "VTLANG_JSON_CHK_THEME": "Zkontrolovat konfiguraci zásuvného modulu motivů",
     "VTLANG_JSON_CHK_AUTOINS": "Zkontrolovat konfiguraci zásuvného modulu automatické instalace",
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Dočasné řídící nastavení",
     "VTLANG_WIN11_BYPASS_CHECK": "Obejít CPU/TPM/SecureBoot kontrolu při instalaci Windows 11",
     "VTLANG_WIN11_BYPASS_NRO": "Obejít požadování online účtu při instalaci Windows 11",
-    "VTLANG_LINUX_REMOUNT": "Připojit Ventoy oddíl po spuštění Linuxu",
+    "VTLANG_LINUX_REMOUNT": "Připojit Couti oddíl po spuštění Linuxu",
     "VTLANG_SECONDARY_BOOT_MENU": "Zobrazit druhou spouštěcí nabídku",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

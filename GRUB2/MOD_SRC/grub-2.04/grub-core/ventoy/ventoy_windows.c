@@ -218,7 +218,7 @@ grub_err_t ventoy_cmd_collect_wim_patch(grub_extcmd_context_t ctxt, int argc, ch
         return 1;
     }
 
-    debug("ventoy_cmd_collect_wim_patch %s %s\n", args[0], args[1]);
+    debug("couti_cmd_collect_wim_patch %s %s\n", args[0], args[1]);
 
     if (grub_strcmp(args[0], "bcd") == 0)
     {
@@ -1025,7 +1025,7 @@ static int ventoy_cat_exe_file_data(wim_tail *wim_data, grub_uint32_t exe_len, g
 
     pe64 = ventoy_is_pe64(exe_data);
     
-    grub_snprintf(file, sizeof(file), "%s/vtoyjump%d.exe", grub_env_get("vtoy_path"), pe64 ? 64 : 32);
+    grub_snprintf(file, sizeof(file), "%s/coutijump%d.exe", grub_env_get("vtoy_path"), pe64 ? 64 : 32);
     ventoy_load_jump_exe(file, &jump_data, &jump_len, NULL);
     jump_align = ventoy_align(jump_len, 16);
     
@@ -1564,7 +1564,7 @@ static void ventoy_windows_fill_override_data_iso9660(    grub_uint64_t isosize,
         cur++;
     }
 
-    debug("ventoy_windows_fill_override_data_iso9660 %lu\n", (ulong)isosize);
+    debug("couti_windows_fill_override_data_iso9660 %lu\n", (ulong)isosize);
 
     for (node = g_wim_patch_head; node; node = node->next)
     {
@@ -1665,7 +1665,7 @@ static void ventoy_windows_fill_override_data_udf(grub_file_t isofile, void *ove
         cur++;
     }
 
-    debug("ventoy_windows_fill_override_data_udf %lu\n", (ulong)isofile->size);
+    debug("couti_windows_fill_override_data_udf %lu\n", (ulong)isofile->size);
 
     for (node = g_wim_patch_head; node; node = node->next)
     {
@@ -2120,7 +2120,7 @@ grub_err_t ventoy_cmd_windows_chain_data(grub_extcmd_context_t ctxt, int argc, c
 
     if (NULL == g_img_chunk_list.chunk)
     {
-        grub_printf("ventoy not ready\n");
+        grub_printf("couti not ready\n");
         return 1;
     }
 
@@ -2129,7 +2129,7 @@ grub_err_t ventoy_cmd_windows_chain_data(grub_extcmd_context_t ctxt, int argc, c
         unknown_image = 1;
         if (!g_ventoy_wimboot_mode)
         {
-            debug("Warning: %s was not recognized by Ventoy\n", args[0]);            
+            debug("Warning: %s was not recognized by Couti\n", args[0]);
         }
     }
 
@@ -2439,7 +2439,7 @@ static grub_err_t ventoy_vlnk_wim_chain_data(grub_file_t wimfile)
 
     if (NULL == g_wimiso_chunk_list.chunk || NULL == g_wimiso_path)
     {
-        grub_printf("ventoy not ready\n");
+        grub_printf("couti not ready\n");
         return 1;
     }
 
@@ -2600,7 +2600,7 @@ static grub_err_t ventoy_normal_wim_chain_data(grub_file_t wimfile)
 
     if (NULL == g_wimiso_chunk_list.chunk || NULL == g_wimiso_path)
     {
-        grub_printf("ventoy not ready\n");
+        grub_printf("couti not ready\n");
         return 1;
     }
 

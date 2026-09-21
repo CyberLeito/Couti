@@ -1,8 +1,8 @@
 {
     "VTLANG_LANGUAGE_NAME": "Turkish (Türkçe)",
     
-    "VTLANG_STR_HOTKEY_LIST": "L:Dil  F1:Yardım  F2:Gözat  F3:Liste Görünümü  F4:Önyükleme Seçenekleri  F5:Araçlar  F6:Grub2 Menü",
-    "VTLANG_STR_HOTKEY_TREE": "L:Dil  F1:Yardım  F2:Gözat  F3:Ağaç Görünümü   F4:Önyükleme Seçenekleri  F5:Araçlar  F6:Grub2 Menü",
+    "VTLANG_STR_HOTKEY_LIST": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
+    "VTLANG_STR_HOTKEY_TREE": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
     "VTLANG_RETURN_PREVIOUS": "Önceki menüye geri dön [Esc]",
     "VTLANG_RETURN_PRV_NOESC": "Önceki menüye geri dön",
 
@@ -43,11 +43,11 @@
 
     "VTLANG_THEME_SELECT": "Tema Seçimi",
 
-    "VTLANG_UEFI_UTIL": "Ventoy UEFI Utilities",
+    "VTLANG_UEFI_UTIL": "Couti UEFI Utilities",
     "VTLANG_UTIL_SHOW_EFI_DRV": "EFI Sürücülerini Göster",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Windows BlinitializeLibrary Hatasını Düzelt",
 
-    "VTLANG_JSON_CHK_JSON": "json (ventoy.json) Yapılandırma Dosyası Ayarlarını kontrol et",
+    "VTLANG_JSON_CHK_JSON": "json Yapılandırma Dosyası Ayarlarını kontrol et",
     "VTLANG_JSON_CHK_CONTROL": "(Global Control Plugin) yapılandırma ayarları",
     "VTLANG_JSON_CHK_THEME": "(Theme Plugin) yapılandırma ayarları",
     "VTLANG_JSON_CHK_AUTOINS": "(Auto Install Plugin) yapılandırma ayarları",
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Geçici Kontrol Ayarları",
     "VTLANG_WIN11_BYPASS_CHECK": "Windows11'i yüklerken, TPM/CPU/RAM kontrollerini atla",
     "VTLANG_WIN11_BYPASS_NRO": "Windows11'i yüklerken, çevrimiçi hesap gereksinimini(OOBE) atla",
-    "VTLANG_LINUX_REMOUNT": "Linux sistemi önyükledikten sonra, Ventoy bölümünü bağla",
+    "VTLANG_LINUX_REMOUNT": "Linux sistemi önyükledikten sonra, Couti bölümünü bağla",
     "VTLANG_SECONDARY_BOOT_MENU": "İkincil önyükleme menüsünü göster",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

@@ -1,8 +1,8 @@
 {
     "VTLANG_LANGUAGE_NAME": "Japanese (日本語)",
     
-    "VTLANG_STR_HOTKEY_LIST": "L:言語 F1:説明 F2:閲覧 F3:表示切替(階層) F4:手許から起動 F5:道具 F6:拡張",
-    "VTLANG_STR_HOTKEY_TREE": "L:言語 F1:説明 F2:閲覧 F3:表示切替(一覧) F4:手許から起動 F5:道具 F6:拡張",
+    "VTLANG_STR_HOTKEY_LIST": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
+    "VTLANG_STR_HOTKEY_TREE": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
     "VTLANG_RETURN_PREVIOUS": "前に戻る [Esc]",
     "VTLANG_RETURN_PRV_NOESC": "前に戻る",
     
@@ -43,11 +43,11 @@
     
     "VTLANG_THEME_SELECT": "外観",
     
-    "VTLANG_UEFI_UTIL": "Ventoy UEFI Utilities",
+    "VTLANG_UEFI_UTIL": "Couti UEFI Utilities",
     "VTLANG_UTIL_SHOW_EFI_DRV": "EFIドライバを表示する",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Windowsが「BlinitializeLibrary Failure」で起動しないのを修正する",
     
-    "VTLANG_JSON_CHK_JSON": "拡張機能のJSON構成ファイル (ventoy.json) を検査する",
+    "VTLANG_JSON_CHK_JSON": "拡張機能のJSON構成ファイル を検査する",
     "VTLANG_JSON_CHK_CONTROL": "拡張機能「global control」の構成を検査する",
     "VTLANG_JSON_CHK_THEME": "拡張機能「theme」の構成を検査する",
     "VTLANG_JSON_CHK_AUTOINS": "拡張機能「auto install」の構成を検査する",
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Temporary Control Settings",
     "VTLANG_WIN11_BYPASS_CHECK": "Bypass CPU/TPM/SecureBoot check when install Windows 11",
     "VTLANG_WIN11_BYPASS_NRO": "Bypass online account requirement when install Windows 11",
-    "VTLANG_LINUX_REMOUNT": "Mount Ventoy partition after boot Linux",
+    "VTLANG_LINUX_REMOUNT": "Mount Couti partition after boot Linux",
     "VTLANG_SECONDARY_BOOT_MENU": "Show secondary boot menu",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

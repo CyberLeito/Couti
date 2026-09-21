@@ -547,7 +547,7 @@ static int ventoy_grub_initrd_hook(const char *filename, const struct grub_dirho
 
     (void)info;
 
-    debug("ventoy_grub_initrd_hook %s\n", filename);
+    debug("couti_grub_initrd_hook %s\n", filename);
 
     if (NULL == grub_strstr(filename, ".cfg") && 
         NULL == grub_strstr(filename, ".CFG") && 
@@ -637,7 +637,7 @@ grub_err_t ventoy_cmd_specify_initrd_file(grub_extcmd_context_t ctxt, int argc, 
     (void)ctxt;
     (void)argc;
 
-    debug("ventoy_cmd_specify_initrd_file %s\n", args[0]);
+    debug("couti_cmd_specify_initrd_file %s\n", args[0]);
 
     img = grub_zalloc(sizeof(initrd_info));
     if (!img)
@@ -1076,7 +1076,7 @@ static grub_err_t ventoy_linux_locate_initrd(int filt, int *filtcnt)
     grub_file_t file;
     initrd_info *node;
 
-    debug("ventoy_linux_locate_initrd %d\n", filt);
+    debug("couti_linux_locate_initrd %d\n", filt);
 
     g_valid_initrd_count = 0;
 
@@ -1248,7 +1248,7 @@ grub_err_t ventoy_cmd_cpio_busybox_64(grub_extcmd_context_t ctxt, int argc, char
     (void)argc;
     (void)args;
 
-    debug("ventoy_cmd_busybox_64 %d\n", argc);
+    debug("couti_cmd_busybox_64 %d\n", argc);
     ventoy_cpio_busybox64((cpio_newc_header *)g_ventoy_cpio_buf, args[0]);
     return 0;
 }
@@ -1666,7 +1666,7 @@ grub_err_t ventoy_cmd_linux_chain_data(grub_extcmd_context_t ctxt, int argc, cha
 
     if ((NULL == g_img_chunk_list.chunk) || (0 == ventoy_compatible && g_ventoy_cpio_buf == NULL))
     {
-        grub_printf("ventoy not ready\n");
+        grub_printf("couti not ready\n");
         return 1;
     }
 
@@ -1828,7 +1828,7 @@ static int ventoy_systemd_conf_hook(const char *filename, const struct grub_dirh
     grub_file_t file = NULL;
     systemd_menu_ctx *ctx = (systemd_menu_ctx *)data;
 
-    debug("ventoy_systemd_conf_hook %s\n", filename);
+    debug("couti_systemd_conf_hook %s\n", filename);
 
     if (info->dir || NULL == grub_strstr(filename, ".conf"))
     {

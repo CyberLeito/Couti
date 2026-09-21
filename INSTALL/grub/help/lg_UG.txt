@@ -1,11 +1,8 @@
-L - Londako Olulimi
 F1 - Laga obuyambi 
 F2 - Nnoonya era kozesa Fayiro eziri ku Disk
-F3 - Kyusa endabika ya Menu wakati wa Masaasana (Treeview) ne y'olukalala (ListView)
+F3 - Ebikozesebwa ebirala
 F4 - Ttandika Windows/Linux ku disk erimu 
-F5 - Ebikozesebwa ebirala
-F6 - Kozesa Grub2 menu gyewerobozza
-F7 - Okukyuusa okuva mu Bifaananyi (GUI Mode) <-> Bigambo (TEXT Mode)
+F5 - Power: Reboot, Halt
 
 m/Ctrl+m - Okukebera Checksum image files (md5/sha1/sha256/sha512)
 d/Ctrl+d - Memdisk Mode (Ya WinPE/LiveCD ISO/IMG entono zokka)

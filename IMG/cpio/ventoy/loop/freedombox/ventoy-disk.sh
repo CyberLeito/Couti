@@ -38,7 +38,7 @@ if [ "$vtdiskname" = "unknown" ]; then
     exit 0
 fi
 
-ventoy_udev_disk_common_hook "${vtdiskname#/dev/}2" "noreplace"
+ventoy_udev_disk_common_hook "$(ventoy_diskname_to_partname "${vtdiskname#/dev/}" "$COUTI_BOOT_PART")" "noreplace"
 
 ventoy_create_dev_ventoy_part
 

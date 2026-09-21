@@ -158,7 +158,7 @@ BOOL IsVentoyPhyDrive(int PhyDrive, UINT64 SizeBytes, MBR_HEAD *pMBR, UINT64 *Pa
             Log("PartTbl.Name = %S", pGpt->PartTbl[i].Name);
         }
 
-		if (memcmp(pGpt->PartTbl[1].Name, L"VTOYEFI", 7 * 2))
+		if ((memcmp(pGpt->PartTbl[1].Name, L"COUTIEFI", 8 * 2) && memcmp(pGpt->PartTbl[1].Name, L"VTOYEFI", 7 * 2)))
 		{
 			if (pGpt->PartTbl[1].Name[0])
 			{

@@ -73,7 +73,7 @@ int vtoyloader_main(int argc, char **argv)
         verbose = 1;
     }
 
-    debug("ventoy loader ...\n");
+    debug("couti loader ...\n");
     
     rc = vtoy_read_file_to_buf(EXEC_PATH_FILE, g_exec_file, sizeof(g_exec_file) - 1);
     if (rc)

@@ -209,7 +209,7 @@ static int ventoy_preboot(void)
 
     if (ventoy_debug) 
     {
-        grub_printf("ventoy_preboot %d %d\n", ventoy_linux_argc, ventoy_initrd_called);
+        grub_printf("couti_preboot %d %d\n", ventoy_linux_argc, ventoy_initrd_called);
         ventoy_debug_pause();
     }
 
@@ -318,7 +318,7 @@ static int ventoy_bootopt_hook(int argc, char *argv[])
     char *newenv;
     char *last, *pos;
 
-    //grub_printf("ventoy_bootopt_hook: %d %d\n", argc, ventoy_linux_argc);
+    //grub_printf("couti_bootopt_hook: %d %d\n", argc, ventoy_linux_argc);
 
     if (ventoy_linux_argc == 0)
     {
@@ -460,7 +460,7 @@ grub_cmd_set_boot_opt (grub_command_t cmd __attribute__ ((unused)),
         ventoy_debug = 1;
     }
 
-    if (ventoy_debug) grub_printf("ventoy set boot opt %d\n", ventoy_linux_argc);
+    if (ventoy_debug) grub_printf("couti set boot opt %d\n", ventoy_linux_argc);
 
     return 0;
 }
@@ -785,7 +785,7 @@ ventoy_cmd_initrd (grub_command_t cmd __attribute__ ((unused)),
     const char *file;
     char buf[64];
 
-    if (ventoy_debug) grub_printf("ventoy_cmd_initrd %d\n", ventoy_linux_argc);
+    if (ventoy_debug) grub_printf("couti_cmd_initrd %d\n", ventoy_linux_argc);
 
     if (ventoy_linux_argc == 0)
     {

@@ -32,9 +32,9 @@ while [ -n "Y" ]; do
     usb_disk=$(get_ventoy_disk_name)
     
     if echo $usb_disk | egrep -q "nvme|mmc|nbd"; then
-        vtpart2=${usb_disk}p2
+        vtpart2=${usb_disk}p${COUTI_BOOT_PART}
     else
-        vtpart2=${usb_disk}2
+        vtpart2=${usb_disk}${COUTI_BOOT_PART}
     fi
     
     if [ -e "${vtpart2}" ]; then
@@ -52,7 +52,7 @@ if [ "$vtdiskname" = "unknown" ]; then
     exit 0
 fi
 
-ventoy_udev_disk_common_hook "${vtdiskname#/dev/}2" "noreplace"
+ventoy_udev_disk_common_hook "$(ventoy_diskname_to_partname "${vtdiskname#/dev/}" "$COUTI_BOOT_PART")" "noreplace"
 
 blkdev_num=$($VTOY_PATH/tool/dmsetup ls | grep ventoy | sed 's/.*(\([0-9][0-9]*\),.*\([0-9][0-9]*\).*/\1:\2/')
 vtDM=$(ventoy_find_dm_id ${blkdev_num})

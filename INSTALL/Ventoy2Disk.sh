@@ -24,16 +24,16 @@ export PATH="$(pwd)/tool/$TOOLDIR:$PATH"
 
 echo ''
 echo '**********************************************'
-echo "      Ventoy: $curver  $TOOLDIR"
-echo "      longpanda admin@ventoy.net"
-echo "      https://www.ventoy.net"
+echo "      Couti: $curver  $TOOLDIR"
+echo "      Couti USB boot installer"
+echo "      Couti"
 echo '**********************************************'
 echo ''
 
 
 if ! [ -f ./boot/boot.img ]; then
     if [ -d ./grub ]; then
-        echo "Don't run Ventoy2Disk.sh here, please download the released install package, and run the script in it."
+        echo "Don't run Couti2Disk.sh here, please download the released install package, and run the script in it."
     else
         echo "Please run under the correct directory!" 
     fi

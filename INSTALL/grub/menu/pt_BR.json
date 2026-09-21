@@ -1,8 +1,8 @@
 {
     "VTLANG_LANGUAGE_NAME": "Brazilian Portuguese (Português Brasileiro)",
     
-    "VTLANG_STR_HOTKEY_LIST": "L:Idioma  F1:Ajuda  F2:Explorar  F3:Visualização em Lista F4:Inicialização Local  F5:Ferramentas  F6:Sair",
-    "VTLANG_STR_HOTKEY_TREE": "L:Idioma  F1:Ajuda  F2:Explorar  F3:Visualização em Árvore F4:Inicialização Local  F5:Ferramentas  F6:Sair",
+    "VTLANG_STR_HOTKEY_LIST": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
+    "VTLANG_STR_HOTKEY_TREE": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
     "VTLANG_RETURN_PREVIOUS": "Retornar ao menu anterior [Esc]",
     "VTLANG_RETURN_PRV_NOESC": "Retornar ao menu anterior",
     
@@ -43,11 +43,11 @@
     
     "VTLANG_THEME_SELECT": "Seleção de Tema",
     
-    "VTLANG_UEFI_UTIL": "Utilitários UEFI do Ventoy",
+    "VTLANG_UEFI_UTIL": "Utilitários UEFI do Couti",
     "VTLANG_UTIL_SHOW_EFI_DRV": "Mostrar os Drivers EFI",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "Consertar a Falha BlinitializeLibrary do Windows",
     
-    "VTLANG_JSON_CHK_JSON": "Verificar a configuração do plugin json (ventoy.json)",
+    "VTLANG_JSON_CHK_JSON": "Verificar a configuração do plugin json",
     "VTLANG_JSON_CHK_CONTROL": "Verificar a configuração do plugin de controle global",
     "VTLANG_JSON_CHK_THEME": "Verificar a configuração do plugin dos temas",
     "VTLANG_JSON_CHK_AUTOINS": "Verificar a configuração do plugin de instalação automática",
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Configurações do Controle Temporário",
     "VTLANG_WIN11_BYPASS_CHECK": "Ignorar a verificação da CPU/TPM/SecureBoot quando instalar o Windows 11",
     "VTLANG_WIN11_BYPASS_NRO": "Ignorar o requerimento de conta online quanto instalar o Windows 11",
-    "VTLANG_LINUX_REMOUNT": "Montar a partição do Ventoy após iniciar o Linux",
+    "VTLANG_LINUX_REMOUNT": "Montar a partição do Couti após iniciar o Linux",
     "VTLANG_SECONDARY_BOOT_MENU": "Mostrar o menu secundário da inicialização",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

@@ -116,7 +116,7 @@ int main(int argc, char *argv[])
     if (geteuid() != 0)
     {
         early_msgbox(GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, 
-                     "Ventoy2Disk permission denied!\r\nPlease run with root privileges.");
+                     "Couti2Disk permission denied!\r\nPlease run with root privileges.");
         return EACCES;
     }
 

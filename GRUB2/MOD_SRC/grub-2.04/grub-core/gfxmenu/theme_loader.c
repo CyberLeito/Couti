@@ -793,7 +793,7 @@ grub_gfxmenu_view_load_theme (grub_gfxmenu_view_t view, const char *theme_path)
   if (checkret == NULL || checkret[0] != '0')
   {
     p.len += grub_snprintf(p.buf + p.len, 4096, "\n+ hbox{\n    left = 1%%\n    top = 90%%\n"
-      "    + label {text = \"[Unofficial Ventoy]\" color = \"red\" align = \"left\"}\n"
+      "    + label {text = \"[Couti device check failed]\" color = \"red\" align = \"left\"}\n"
       "}\n");    
   }
 }

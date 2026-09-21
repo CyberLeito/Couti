@@ -1,8 +1,8 @@
 {
   "VTLANG_LANGUAGE_NAME": "Slovenija (Slovenski)",
 
-  "VTLANG_STR_HOTKEY_LIST": "L:Jezik  F1:Pomoč  F2:Prebrskaj  F3:ListView  F4:Localboot  F5:Orodja  F6:ExMenu",
-  "VTLANG_STR_HOTKEY_TREE": "L:Jezik  F1:Pomoč  F2:Prebrskaj  F3:TreeView  F4:Localboot  F5:Orodja  F6:ExMenu",
+  "VTLANG_STR_HOTKEY_LIST": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
+  "VTLANG_STR_HOTKEY_TREE": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
   "VTLANG_RETURN_PREVIOUS": "Vrnitev v prejšnji meni [Esc]",
   "VTLANG_RETURN_PRV_NOESC": "Vrnitev v prejšnji meni",
 
@@ -43,11 +43,11 @@
 
   "VTLANG_THEME_SELECT": "Izbira teme",
 
-  "VTLANG_UEFI_UTIL": "Pripomočki Ventoy UEFI",
+  "VTLANG_UEFI_UTIL": "Pripomočki Couti UEFI",
   "VTLANG_UTIL_SHOW_EFI_DRV": "Prikaži gonilnike EFI",
   "VTLANG_UTIL_FIX_BLINIT_FAIL": "Popravek napake Windows BlinitializeLibrary",
 
-  "VTLANG_JSON_CHK_JSON": "Preverite konfiguracijo vtičnika json (ventoy.json)",
+  "VTLANG_JSON_CHK_JSON": "Preverite konfiguracijo vtičnika json",
   "VTLANG_JSON_CHK_CONTROL": "Preverite konfiguracijo globalnega nadzornega vtičnika",
   "VTLANG_JSON_CHK_THEME": "Preverite konfiguracijo vtičnika teme",
   "VTLANG_JSON_CHK_AUTOINS": "Preverite konfiguracijo vtičnika za samodejno namestitev",
@@ -86,7 +86,7 @@
   "VTLANG_CTRL_TEMP_SET": "Začasne nadzorne nastavitve",
   "VTLANG_WIN11_BYPASS_CHECK": "Obid preverjanja CPU/TPM/SecureBoot pri namestitvi sistema Windows 11",
   "VTLANG_WIN11_BYPASS_NRO": "Obid zahteve po spletnem računu pri namestitvi sistema Windows 11",
-  "VTLANG_LINUX_REMOUNT": "Priklopi Ventoy particijo po zagonu Linuxa",
+  "VTLANG_LINUX_REMOUNT": "Priklopi Couti particijo po zagonu Linuxa",
   "VTLANG_SECONDARY_BOOT_MENU": "Prikaz sekundarnega zagonskega menija",
   "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
   "VTLANG_UEFI_RES_LOCK_NONE": "None",

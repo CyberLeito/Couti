@@ -60,7 +60,7 @@ if ! grep -q 'device-mapper' /proc/devices; then
     ventoy_os_install_dmsetup_by_fuse  $vtdiskname
 fi
 
-ventoy_udev_disk_common_hook "${vtdiskname#/dev/}2" "noreplace"
+ventoy_udev_disk_common_hook "$(ventoy_diskname_to_partname "${vtdiskname#/dev/}" "$COUTI_BOOT_PART")" "noreplace"
 
 PATH=$VTPATH_OLD
 

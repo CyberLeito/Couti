@@ -1,11 +1,8 @@
- L - Lựa chọn ngôn ngữ
 F1 - Hiển thị thông tin trợ giúp
 F2 - Duyệt tìm và khởi động tệp từ ổ đĩa trên máy
-F3 - Chuyển đổi chế độ bảng chọn giữa dạng cây <-> dạng danh sách.
+F3 - Các tiện ích 
 F4 - Khởi động Windows hoặc GNU/Linux trên đĩa cục bộ
-F5 - Các tiện ích 
-F6 - Tải menu GRUB2 tuỳ chọn
-F7 - Chuyển giữa giao diện đồ hoạ <-> giao diện văn bản
+F5 - Nguồn điện: Khởi động lại, Tắt máy
 
 m/Ctrl+m - Checksum các tệp ảnh đĩa (md5/sha1/sha256/sha512)
 d/Ctrl+d - Chế độ Memdisk (Chỉ dùng cho các tệp ISO/IMG WinPE/LiveCD có kích thước nhỏ)

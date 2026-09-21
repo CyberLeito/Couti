@@ -234,7 +234,7 @@ static int ventoy_vhd_patch_disk(const char *vhdpath, ventoy_patch_vhd *patch1, 
     {
         gpt = g_ventoy_part_info;  
         partIndex = 0;
-        debug("This is Ventoy ISO partIndex %d %s\n", partIndex, vhdpath);
+        debug("This is Couti ISO partIndex %d %s\n", partIndex, vhdpath);
     }
     else
     {
@@ -672,7 +672,7 @@ grub_err_t ventoy_cmd_raw_chain_data(grub_extcmd_context_t ctxt, int argc, char 
 
     if (NULL == g_img_chunk_list.chunk)
     {
-        grub_printf("ventoy not ready\n");
+        grub_printf("couti not ready\n");
         return 1;
     }
 

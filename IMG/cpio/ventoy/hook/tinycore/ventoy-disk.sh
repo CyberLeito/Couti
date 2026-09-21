@@ -37,9 +37,9 @@ if [ "$vtdiskname" = "unknown" ]; then
 fi
 
 if echo $vtdiskname | egrep -q "nvme.*p[0-9]$|mmc.*p[0-9]$|nbd.*p[0-9]$"; then
-    vPart="${vtdiskname}p2"    
+    vPart="${vtdiskname}p${COUTI_BOOT_PART}"    
 else
-    vPart="${vtdiskname}2"
+    vPart="$(ventoy_diskname_to_partname "${vtdiskname}" "$COUTI_BOOT_PART")"
 fi
 
 # TinyCore linux distro doesn't contain dmsetup, we use aoe here

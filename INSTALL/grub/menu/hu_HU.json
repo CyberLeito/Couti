@@ -1,8 +1,8 @@
 {
     "VTLANG_LANGUAGE_NAME": "Magyar (Hungarian)",
     
-    "VTLANG_STR_HOTKEY_LIST": "L:Nyelv  F1:Súgó  F2:Tallózás  F3:Listanézet  F4:Helyi indítás  F5:Eszközök  F6:Bővített menü",
-    "VTLANG_STR_HOTKEY_TREE": "L:Nyelv  F1:Súgó  F2:Tallózás  F3:Fanézet  F4:Helyi indítás  F5:Eszközök  F6:Bővített menü",
+    "VTLANG_STR_HOTKEY_LIST": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
+    "VTLANG_STR_HOTKEY_TREE": "F1: Help  F2: Folders  F3: Tools  F4: LocalBoot  F5: Power Menu",
     "VTLANG_RETURN_PREVIOUS": "Vissza az előző menübe [Esc]",
     "VTLANG_RETURN_PRV_NOESC": "Vissza az előző menübe",
     
@@ -43,11 +43,11 @@
     
     "VTLANG_THEME_SELECT": "Téma kiválasztása",
     
-    "VTLANG_UEFI_UTIL": "Ventoy UEFI-segédprogramok",
+    "VTLANG_UEFI_UTIL": "Couti UEFI-segédprogramok",
     "VTLANG_UTIL_SHOW_EFI_DRV": "EFI-illesztőprogramok megjelenítése",
     "VTLANG_UTIL_FIX_BLINIT_FAIL": "A Windows BlinitializeLibrary hibájának javítása",
     
-    "VTLANG_JSON_CHK_JSON": "A bővítmény JSON-beállításának (ventoy.json) ellenőrzése",
+    "VTLANG_JSON_CHK_JSON": "A bővítmény JSON-beállításának ellenőrzése",
     "VTLANG_JSON_CHK_CONTROL": "A globális vezérlőbővítmény beállításának ellenőrzése",
     "VTLANG_JSON_CHK_THEME": "A téma bővítmény beállításnak ellenőrzése",
     "VTLANG_JSON_CHK_AUTOINS": "Az automatikus telepítés bővítmény beállításának ellenőrzése",
@@ -86,7 +86,7 @@
     "VTLANG_CTRL_TEMP_SET": "Ideiglenes vezérlési beállítások",
     "VTLANG_WIN11_BYPASS_CHECK": "CPU/TPM/SecureBoot ellenőrzés megkerülése Windows 11 telepítésekor",
     "VTLANG_WIN11_BYPASS_NRO": "Internetes fiók követelményének megkerülése Windows 11 telepítésekor",
-    "VTLANG_LINUX_REMOUNT": "Ventoy partíció csatolása a Linux indítása után",
+    "VTLANG_LINUX_REMOUNT": "Couti partíció csatolása a Linux indítása után",
     "VTLANG_SECONDARY_BOOT_MENU": "Másodlagos indítási menü megjelenítése",
     "VTLANG_WIN_UEFI_RES_LOCK": "Lock the resolution when UEFI boot Windows/WinPE",
     "VTLANG_UEFI_RES_LOCK_NONE": "None",

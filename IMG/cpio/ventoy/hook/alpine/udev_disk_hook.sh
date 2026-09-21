@@ -42,7 +42,7 @@ fi
 #   3. unmount and delete the squashfs file
 #
 
-MDEV="${vtdiskname#/dev/}2"
+MDEV="$(ventoy_diskname_to_partname "${vtdiskname#/dev/}" "$COUTI_BOOT_PART")"
 
 vtoydm -i -f $VTOY_PATH/ventoy_image_map -d /dev/${MDEV:0:-1} > $VTOY_PATH/iso_file_list
 

@@ -54,6 +54,7 @@ char g_ventoy_hotkey_tip[256];
 
 static int g_vt_key_num = 0;
 static int g_vt_key_code[128];
+static int g_couti_power_menu_active = 0;
 
 static int ventoy_menu_pop_key(void)
 {
@@ -826,6 +827,12 @@ run_menu (grub_menu_t menu, int nested, int *auto_boot)
         c = grub_getkey_noblock ();
     }
 
+      /* Disabled shortcuts must not even cancel a pending menu timeout. */
+      if (c == GRUB_TERM_KEY_F6 || c == '6' || c == GRUB_TERM_KEY_F7 || c == 'l' || c == 'L' ||
+          c == (GRUB_TERM_CTRL | 'l') || c == (GRUB_TERM_CTRL | 'L') ||
+          c == (GRUB_TERM_SHIFT | 'l') || c == (GRUB_TERM_SHIFT | 'L'))
+        continue;
+
       /* Negative values are returned on error. */
       if ((c != GRUB_TERM_NO_KEY) && (c > 0))
 	{
@@ -941,25 +948,19 @@ run_menu (grub_menu_t menu, int nested, int *auto_boot)
             break;
         case GRUB_TERM_KEY_F5:
         case '5':
-            VTOY_COMM_HOTKEY("VTOY_F5_CMD");
-            break;
-        case GRUB_TERM_KEY_F6:
-        case '6':
-            VTOY_COMM_HOTKEY("VTOY_F6_CMD");
-            break;
-        case GRUB_TERM_KEY_F7:
-            menu_fini ();
-            if (g_ventoy_terminal_output == 0)
+            /* Power stays available inside the F2 browser as well. */
+            if (0 == g_ventoy_secondary_menu_on && !g_couti_power_menu_active)
             {
-                grub_script_execute_sourcecode("vt_push_menu_lang en_US\nterminal_output console");
-                g_ventoy_terminal_output = 1;
+                int saved_mutex = g_ventoy_fn_mutex;
+                menu_fini ();
+                g_couti_power_menu_active = 1;
+                g_ventoy_fn_mutex = 1;
+                grub_script_execute_sourcecode("couti_power_menu");
+                g_ventoy_fn_mutex = saved_mutex;
+                g_couti_power_menu_active = 0;
+                goto refresh;
             }
-            else
-            {
-                grub_script_execute_sourcecode("terminal_output gfxterm\nvt_pop_menu_lang");
-                g_ventoy_terminal_output = 0;
-            }
-            goto refresh;
+            break;
         case GRUB_TERM_KEY_F1:
         case '1':
             if (0 == g_ventoy_secondary_menu_on)
@@ -1025,16 +1026,6 @@ run_menu (grub_menu_t menu, int nested, int *auto_boot)
                 goto refresh;
             }
             break;
-        case (GRUB_TERM_CTRL | 'l'):
-        case (GRUB_TERM_CTRL | 'L'):
-        case (GRUB_TERM_SHIFT | 'l'):
-        case (GRUB_TERM_SHIFT | 'L'):
-        case 'l':
-        case 'L':
-        {
-            VTOY_COMM_HOTKEY("VTOY_LANG_CMD");
-            break;
-        }
         case (GRUB_TERM_CTRL | 'm'):
         case 'm':
         {

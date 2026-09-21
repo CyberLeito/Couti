@@ -646,7 +646,7 @@ static int VentoyMountAnywhere(HANDLE Handle)
     DWORD Status;
     ATTACH_VIRTUAL_DISK_PARAMETERS AttachParameters;
 
-    Log("VentoyMountAnywhere");
+    Log("CoutiMountAnywhere");
 
     memset(&AttachParameters, 0, sizeof(AttachParameters));
     AttachParameters.Version = ATTACH_VIRTUAL_DISK_VERSION_1;
@@ -673,7 +673,7 @@ int VentoyMountY(HANDLE Handle)
     CHAR cdromDriveName[MAX_PATH];
     ATTACH_VIRTUAL_DISK_PARAMETERS AttachParameters;
 
-    Log("VentoyMountY");
+    Log("CoutiMountY");
 
     memset(&AttachParameters, 0, sizeof(AttachParameters));
     AttachParameters.Version = ATTACH_VIRTUAL_DISK_VERSION_1;
@@ -767,7 +767,7 @@ int VentoyMountISOByAPI(const char *IsoPath)
     VIRTUAL_STORAGE_TYPE StorageType;
     OPEN_VIRTUAL_DISK_PARAMETERS OpenParameters;
 
-    Log("VentoyMountISOByAPI <%s>", IsoPath);
+    Log("CoutiMountISOByAPI <%s>", IsoPath);
 
     if (IsUTF8Encode(IsoPath))
     {
@@ -826,7 +826,7 @@ int VentoyMountISOByAPI(const char *IsoPath)
         return 1;
     }
 
-    Log("VentoyAttachVirtualDisk success");
+    Log("CoutiAttachVirtualDisk success");
 
     CloseHandle(Handle);
     return 0;
@@ -959,6 +959,7 @@ UINT64 GetVentoyEfiPartStartSector(HANDLE hDrive)
     MBR_HEAD MBR;
     VTOY_GPT_INFO *pGpt = NULL;
     UINT64 StartSector = 0;
+    int bootIndex = (g_os_param_reserved[12] == 0x43 && g_os_param_reserved[13]) ? g_os_param_reserved[13] - 1 : 1;
 
     SetFilePointer(hDrive, 0, NULL, FILE_BEGIN);
 
@@ -967,7 +968,7 @@ UINT64 GetVentoyEfiPartStartSector(HANDLE hDrive)
 
     if ((!bRet) || (dwSize != sizeof(MBR)))
     {
-        0;
+        return 0;
     }
 
     if (MBR.PartTbl[0].FsFlag == 0xEE)
@@ -985,19 +986,20 @@ UINT64 GetVentoyEfiPartStartSector(HANDLE hDrive)
         if ((!bRet) || (dwSize != sizeof(VTOY_GPT_INFO)))
         {
             Log("Failed to read gpt info %d %u %d", bRet, dwSize, LASTERR);
+            free(pGpt);
             return 0;
         }
 
-        StartSector = pGpt->PartTbl[1].StartLBA;
+        if (bootIndex < 128) StartSector = pGpt->PartTbl[bootIndex].StartLBA;
         free(pGpt);
     }
     else
     {
         Log("MBR partition style");
-        StartSector = MBR.PartTbl[1].StartSectorId;
+        if (bootIndex < 4) StartSector = MBR.PartTbl[bootIndex].StartSectorId;
     }
 
-    Log("GetVentoyEfiPart StartSector: %llu", StartSector);
+    Log("GetCoutiEfiPart StartSector: %llu", StartSector);
     return StartSector;
 }
 
@@ -1050,15 +1052,15 @@ static int VentoyCopyImdisk(DWORD PhyDrive, CHAR *ImPath)
     {
         if (g_system_bit == 64)
         {
-            CopyFileFromFatDisk("/ventoy/imdisk/64/imdisk.sys", "ventoy\\imdisk.sys");
-            CopyFileFromFatDisk("/ventoy/imdisk/64/imdisk.exe", "ventoy\\imdisk.exe");
-            CopyFileFromFatDisk("/ventoy/imdisk/64/imdisk.cpl", "ventoy\\imdisk.cpl");
+            CopyFileFromFatDisk("/couti/imdisk/64/imdisk.sys", "ventoy\\imdisk.sys");
+            CopyFileFromFatDisk("/couti/imdisk/64/imdisk.exe", "ventoy\\imdisk.exe");
+            CopyFileFromFatDisk("/couti/imdisk/64/imdisk.cpl", "ventoy\\imdisk.cpl");
         }
         else
         {
-            CopyFileFromFatDisk("/ventoy/imdisk/32/imdisk.sys", "ventoy\\imdisk.sys");
-            CopyFileFromFatDisk("/ventoy/imdisk/32/imdisk.exe", "ventoy\\imdisk.exe");
-            CopyFileFromFatDisk("/ventoy/imdisk/32/imdisk.cpl", "ventoy\\imdisk.cpl");
+            CopyFileFromFatDisk("/couti/imdisk/32/imdisk.sys", "ventoy\\imdisk.sys");
+            CopyFileFromFatDisk("/couti/imdisk/32/imdisk.exe", "ventoy\\imdisk.exe");
+            CopyFileFromFatDisk("/couti/imdisk/32/imdisk.cpl", "ventoy\\imdisk.cpl");
         }
 
         GetCurrentDirectoryA(sizeof(PhyPath), PhyPath);
@@ -1086,7 +1088,7 @@ static int VentoyRunImdisk(const char *suffix, const char *IsoPath, const char *
     WCHAR CmdlineW[512];
     PROCESS_INFORMATION Pi;
 
-    Log("VentoyRunImdisk <%s> <%s> <%s> <%s>", suffix, IsoPath, imdiskexe, opt);
+    Log("CoutiRunImdisk <%s> <%s> <%s> <%s>", suffix, IsoPath, imdiskexe, opt);
 
     Letter = GetIMDiskMountLogicalDrive(suffix);
 
@@ -1129,7 +1131,7 @@ int VentoyMountISOByImdisk(const char *IsoPath, DWORD PhyDrive)
     int rc = 1;
     CHAR ImPath[MAX_PATH];
 
-    Log("VentoyMountISOByImdisk %s", IsoPath);
+    Log("CoutiMountISOByImdisk %s", IsoPath);
 
     if (0 == VentoyCopyImdisk(PhyDrive, ImPath))
     {
@@ -1314,14 +1316,14 @@ static int DeleteVentoyPart2MountPoint(DWORD PhyDrive)
     DWORD PhyDisk;
     CHAR DriveName[] = "?:\\";
 
-    Log("DeleteVentoyPart2MountPoint Phy%u ...", PhyDrive);
+    Log("DeleteCoutiPart2MountPoint Phy%u ...", PhyDrive);
 
     Drives = GetLogicalDrives();
     while (Drives)
     {
-        if ((Drives & 0x01) && IsFileExist("%C:\\ventoy\\ventoy.cpio", Letter))
+        if ((Drives & 0x01) && (IsFileExist("%C:\\couti\\couti.cpio", Letter) || IsFileExist("%C:\\ventoy\\ventoy.cpio", Letter)))
         {
-            Log("File %C:\\ventoy\\ventoy.cpio exist", Letter);
+            Log("Couti boot archive exists on %C:", Letter);
 
             PhyDisk = GetPhyDriveByLogicalDrive(Letter);
             Log("PhyDisk=%u for %C", PhyDisk, Letter);
@@ -1445,11 +1447,11 @@ static int DecompressInjectionArchive(const char *archive, DWORD PhyDrive)
     {
         if (g_system_bit == 64)
         {
-            CopyFileFromFatDisk("/ventoy/7z/64/7za.xz", "ventoy\\7za.xz");
+            CopyFileFromFatDisk("/couti/7z/64/7za.xz", "ventoy\\7za.xz");
         }
         else
         {
-            CopyFileFromFatDisk("/ventoy/7z/32/7za.xz", "ventoy\\7za.xz");
+            CopyFileFromFatDisk("/couti/7z/32/7za.xz", "ventoy\\7za.xz");
         }
 
         ReadWholeFile2Buf("ventoy\\7za.xz", &Buffer, &dwSize);
@@ -1928,7 +1930,7 @@ static int EnumerateAllDisk(VarDiskInfo **ppDiskInfo, int *pDiskNum)
             GetHumanReadableGBSize(pDiskInfo[i].Capacity), pDiskInfo[i].Capacity,
             pDiskInfo[i].VendorId, pDiskInfo[i].ProductId);
     }
-    Log("Ventoy disk is PhyDvr%d", g_vtoy_disk_drive);
+    Log("Couti disk is PhyDvr%d", g_vtoy_disk_drive);
     Log("########## DUMP DISK END ##########");
 
     *ppDiskInfo = pDiskInfo;
@@ -2432,7 +2434,7 @@ static BOOL FindVentoyDiskBySig(UINT32 VtoySig, DWORD* pDiskNum)
     CHAR PhyPath[128];
     UINT8 SectorBuf[512];
 
-    Log("Find Ventoy Disk by Sig %08x ...", VtoySig);
+    Log("Find Couti Disk by Sig %08x ...", VtoySig);
 
     for (int DiskNum = 0; DiskNum < 32; DiskNum++)
     {
@@ -2484,7 +2486,7 @@ static int VentoyHook(ventoy_os_param *param)
     CHAR IsoPath[MAX_PATH];
     CHAR VTLRIPath[MAX_PATH];
 
-    Log("VentoyHook Path:<%s>", param->vtoy_img_path);
+    Log("CoutiHook Path:<%s>", param->vtoy_img_path);
 
     if (IsUTF8Encode(param->vtoy_img_path))
     {
@@ -2554,7 +2556,7 @@ static int VentoyHook(ventoy_os_param *param)
         {
             VtoyLetter = 'A';
             Drives = GetLogicalDrives();
-            Log("[%d] Logic Drives: 0x%x  VentoySig:%08X", i, Drives, VtoySig);
+            Log("[%d] Logic Drives: 0x%x  CoutiSig:%08X", i, Drives, VtoySig);
 
             while (Drives)
             {
@@ -2569,7 +2571,7 @@ static int VentoyHook(ventoy_os_param *param)
                         Log("[%d] DiskSig=%08X PartStart=%lld", i, DiskSig, VtoyDiskExtent.StartingOffset.QuadPart);
                         if (DiskSig == VtoySig && VtoyDiskExtent.StartingOffset.QuadPart == SIZE_1MB)
                         {
-                            Log("Ventoy Disk Sig and offset match");
+                            Log("Couti Disk Sig and offset match");
                             vtoyfind = TRUE;
                             break;
                         }
@@ -2582,7 +2584,7 @@ static int VentoyHook(ventoy_os_param *param)
 
             if (vtoyfind)
             {
-                Log("Find Ventoy Letter: %C", VtoyLetter);
+                Log("Find Couti Letter: %C", VtoyLetter);
                 break;
             }
             else
@@ -2594,14 +2596,14 @@ static int VentoyHook(ventoy_os_param *param)
 
         if (vtoyfind == FALSE) // vlnk mode Ventoy partition has no letter
         {
-            Log("Warning: Ventoy partition has no drive letter, assume C: and find by sig");
+            Log("Warning: Couti partition has no drive letter, assume C: and find by sig");
             VtoyLetter = 'C';
             vtoyfind = FindVentoyDiskBySig(VtoySig, &VtoyDiskExtent.DiskNumber);
         }
 
         if (vtoyfind == FALSE)
         {
-            Log("Failed to find ventoy disk");
+            Log("Failed to find couti disk");
             return 1;
         }
 
@@ -2621,7 +2623,7 @@ static int VentoyHook(ventoy_os_param *param)
     }
     else
     {
-        Log("Failed to check ventoy disk %u", VtoyDiskNum);
+        Log("Failed to check couti disk %u", VtoyDiskNum);
         return 1;
     }
 
@@ -2675,7 +2677,7 @@ static int VentoyHook(ventoy_os_param *param)
 
     // for protect
     rc = DeleteVentoyPart2MountPoint(VtoyDiskNum);
-    Log("Delete ventoy mountpoint: %s", rc == 0 ? "SUCCESS" : "NO NEED");
+    Log("Delete couti mountpoint: %s", rc == 0 ? "SUCCESS" : "NO NEED");
 
     if (g_windows_data.auto_install_script[0])
     {
@@ -2779,14 +2781,14 @@ static int ventoy_check_create_directory(void)
 {
     if (IsDirExist("ventoy"))
     {
-        Log("ventoy directory already exist");
+        Log("couti directory already exist");
     }
     else
     {
-        Log("ventoy directory not exist, now create it.");
+        Log("couti directory not exist, now create it.");
         if (!CreateDirectoryA("ventoy", NULL))
         {
-            Log("Failed to create ventoy directory err:%u", GetLastError());
+            Log("Failed to create couti directory err:%u", GetLastError());
             return 1;
         }
     }
@@ -2820,7 +2822,7 @@ int VentoyJump(INT argc, CHAR **argv, CHAR *LunchFile)
         goto End;
     }
 
-    Log("VentoyJump %dbit", g_system_bit);
+    Log("CoutiJump %dbit", g_system_bit);
 
     MUTEX_LOCK(g_vtoyins_mutex);
     stat = ventoy_check_create_directory();
@@ -2992,7 +2994,7 @@ int real_main(int argc, char **argv)
             Si.wShowWindow = SW_HIDE;
         }
 
-        Log("Ventoy jump %s ...", rc == 0 ? "success" : "failed");
+        Log("Couti jump %s ...", rc == 0 ? "success" : "failed");
     }
 
     Log("Now launch <%s> ...", LunchFile);
@@ -3012,7 +3014,7 @@ int real_main(int argc, char **argv)
 
     for (i = 0; rc && i < 1800; i++)
     {
-        Log("Ventoy hook failed, now wait and retry ...");
+        Log("Couti hook failed, now wait and retry ...");
         Sleep(1000);
         rc = VentoyHook(&g_os_param);
     }
@@ -3116,7 +3118,7 @@ int main(int argc, char **argv)
     g_vtoylog_mutex = CreateMutexA(NULL, FALSE, "VTOYLOG_LOCK");
     g_vtoyins_mutex = CreateMutexA(NULL, FALSE, "VTOYINS_LOCK");
 
-    Log("######## VentoyJump %dbit ##########", g_system_bit);
+    Log("######## CoutiJump %dbit ##########", g_system_bit);
 
     if (argc > 1 && strcmp(argv[1], "VTLRI_SRV") == 0)
     {

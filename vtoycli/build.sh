@@ -7,7 +7,11 @@ rm -f vtoycli_m64e
 
 SRCS="vtoycli.c vtoyfat.c vtoygpt.c crc32.c partresize.c"
 
-gcc -specs "/usr/local/musl/lib/musl-gcc.specs" -Os -static -D_FILE_OFFSET_BITS=64 $SRCS -Ifat_io_lib/include fat_io_lib/lib/libfat_io_64.a -o vtoycli_64
+if [ -f /usr/local/musl/lib/musl-gcc.specs ]; then
+    gcc -specs "/usr/local/musl/lib/musl-gcc.specs" -Os -static -D_FILE_OFFSET_BITS=64 $SRCS -Ifat_io_lib/include fat_io_lib/lib/libfat_io_64.a -o vtoycli_64
+else
+    /opt/diet64/bin/diet -Os gcc -D_FILE_OFFSET_BITS=64 $SRCS -Ifat_io_lib/include fat_io_lib/lib/libfat_io_64.a -o vtoycli_64
+fi
 
 /opt/diet32/bin/diet -Os gcc -D_FILE_OFFSET_BITS=64 -m32 $SRCS -Ifat_io_lib/include fat_io_lib/lib/libfat_io_32.a -o vtoycli_32
 

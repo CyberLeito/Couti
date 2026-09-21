@@ -113,7 +113,7 @@ STATIC EFI_STATUS ParseCmdline(IN EFI_HANDLE ImageHandle)
     if (StrStr(pCmdLine, L"vtoyefitest"))
     {
         gST->ConOut->OutputString(gST->ConOut, L"\r\n##########################");
-        gST->ConOut->OutputString(gST->ConOut, L"\r\n#########  VTOY  #########");
+        gST->ConOut->OutputString(gST->ConOut, L"\r\n######### COUTI  #########");
         gST->ConOut->OutputString(gST->ConOut, L"\r\n##########################");
         return EFI_SUCCESS;
     }
